@@ -13,7 +13,7 @@ public class ConnectionProvider {
 		Connection conn = null;
 		try {
 			Context context = new InitialContext();
-			DataSource ds = (DataSource)context.lookup("java:/comp/env/myoracle");
+			DataSource ds = (DataSource)context.lookup("java:/comp/env/sist");
 			
 			conn = ds.getConnection();
 		}catch(Exception e) {

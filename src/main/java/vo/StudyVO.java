@@ -3,13 +3,14 @@ package vo;
 import java.util.Date;
 
 public class StudyVO {
+
 	private int s_id;
 	private String s_title;
 	private String s_content;
 	private Date s_date;
 	private boolean s_state;
 	private String u_id;
-	private int c_id;
+	private int e_id;
 	public int getS_id() {
 		return s_id;
 	}
@@ -46,17 +47,17 @@ public class StudyVO {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
-	public int getC_id() {
-		return c_id;
+	public int getE_id() {
+		return e_id;
 	}
-	public void setC_id(int c_id) {
-		this.c_id = c_id;
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
 	}
 	public StudyVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public StudyVO(int s_id, String s_title, String s_content, Date s_date, boolean s_state, String u_id, int c_id) {
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, boolean s_state, String u_id, int e_id) {
 		super();
 		this.s_id = s_id;
 		this.s_title = s_title;
@@ -64,7 +65,8 @@ public class StudyVO {
 		this.s_date = s_date;
 		this.s_state = s_state;
 		this.u_id = u_id;
-		this.c_id = c_id;
+		this.e_id = e_id;
 	}
+	
 	
 }

@@ -1,82 +1,118 @@
 package vo;
 
-import java.util.Date;
-
 public class ExamVO {
 	private int e_id;
-	private Date e_dateOfReceipt;
-	private Date e_examDate;
-	private Date e_resultDate;
-	private String e_round;
-	private String e_rate;
-	private int examCode;
-	private int c_id;
+	private String qualgbcd;//자격구분
+	private String qualgbnm;//자격구분명
+	private int seriescd; //계열코드
+	private String seriesnm;//계열명
+	private int jmcd; //종목코드
+	private String jmfldnm;//종목명
+	private int y_id; //유튜브번호FK
+	private int obligfldcd;//대직무분야코드
+	private String obligfldnm;//대직무분야명
+	private int mdobligfldcd;//중직무분야코드
+	private String mdobligfldnmm;//중직무분야명
+	private String detail; //상세설명
 	public int getE_id() {
 		return e_id;
 	}
 	public void setE_id(int e_id) {
 		this.e_id = e_id;
 	}
-	public Date getE_dateOfReceipt() {
-		return e_dateOfReceipt;
+	public String getQualgbcd() {
+		return qualgbcd;
 	}
-	public void setE_dateOfReceipt(Date e_dateOfReceipt) {
-		this.e_dateOfReceipt = e_dateOfReceipt;
+	public void setQualgbcd(String qualgbcd) {
+		this.qualgbcd = qualgbcd;
 	}
-	public Date getE_examDate() {
-		return e_examDate;
+	public String getQualgbnm() {
+		return qualgbnm;
 	}
-	public void setE_examDate(Date e_examDate) {
-		this.e_examDate = e_examDate;
+	public void setQualgbnm(String qualgbnm) {
+		this.qualgbnm = qualgbnm;
 	}
-	public Date getE_resultDate() {
-		return e_resultDate;
+	public int getSeriescd() {
+		return seriescd;
 	}
-	public void setE_resultDate(Date e_resultDate) {
-		this.e_resultDate = e_resultDate;
+	public void setSeriescd(int seriescd) {
+		this.seriescd = seriescd;
 	}
-	public String getE_round() {
-		return e_round;
+	public String getSeriesnm() {
+		return seriesnm;
 	}
-	public void setE_round(String e_round) {
-		this.e_round = e_round;
+	public void setSeriesnm(String seriesnm) {
+		this.seriesnm = seriesnm;
 	}
-	public String getE_rate() {
-		return e_rate;
+	public int getJmcd() {
+		return jmcd;
 	}
-	public void setE_rate(String e_rate) {
-		this.e_rate = e_rate;
+	public void setJmcd(int jmcd) {
+		this.jmcd = jmcd;
 	}
-	public int getExamCode() {
-		return examCode;
+	public String getJmfldnm() {
+		return jmfldnm;
 	}
-	public void setExamCode(int examCode) {
-		this.examCode = examCode;
+	public void setJmfldnm(String jmfldnm) {
+		this.jmfldnm = jmfldnm;
 	}
-	public int getC_id() {
-		return c_id;
+	public int getY_id() {
+		return y_id;
 	}
-	public void setC_id(int c_id) {
-		this.c_id = c_id;
+	public void setY_id(int y_id) {
+		this.y_id = y_id;
+	}
+	public int getObligfldcd() {
+		return obligfldcd;
+	}
+	public void setObligfldcd(int obligfldcd) {
+		this.obligfldcd = obligfldcd;
+	}
+	public String getObligfldnm() {
+		return obligfldnm;
+	}
+	public void setObligfldnm(String obligfldnm) {
+		this.obligfldnm = obligfldnm;
+	}
+	public int getMdobligfldcd() {
+		return mdobligfldcd;
+	}
+	public void setMdobligfldcd(int mdobligfldcd) {
+		this.mdobligfldcd = mdobligfldcd;
+	}
+	public String getMdobligfldnmm() {
+		return mdobligfldnmm;
+	}
+	public void setMdobligfldnmm(String mdobligfldnmm) {
+		this.mdobligfldnmm = mdobligfldnmm;
+	}
+	public String getDetail() {
+		return detail;
+	}
+	public void setDetail(String detail) {
+		this.detail = detail;
 	}
 	public ExamVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ExamVO(int e_id, Date e_dateOfReceipt, Date e_examDate, Date e_resultDate, String e_round, String e_rate,
-			int examCode, int c_id) {
+	public ExamVO(int e_id, String qualgbcd, String qualgbnm, int seriescd, String seriesnm, int jmcd, String jmfldnm,
+			int y_id, int obligfldcd, String obligfldnm, int mdobligfldcd, String mdobligfldnmm, String detail) {
 		super();
 		this.e_id = e_id;
-		this.e_dateOfReceipt = e_dateOfReceipt;
-		this.e_examDate = e_examDate;
-		this.e_resultDate = e_resultDate;
-		this.e_round = e_round;
-		this.e_rate = e_rate;
-		this.examCode = examCode;
-		this.c_id = c_id;
+		this.qualgbcd = qualgbcd;
+		this.qualgbnm = qualgbnm;
+		this.seriescd = seriescd;
+		this.seriesnm = seriesnm;
+		this.jmcd = jmcd;
+		this.jmfldnm = jmfldnm;
+		this.y_id = y_id;
+		this.obligfldcd = obligfldcd;
+		this.obligfldnm = obligfldnm;
+		this.mdobligfldcd = mdobligfldcd;
+		this.mdobligfldnmm = mdobligfldnmm;
+		this.detail = detail;
 	}
-	
-	
 	
 	
 	
