@@ -216,7 +216,7 @@
 		font-size: 14px;
       	padding: 10px;
       	border: none;
-      	width: 260px;
+      	width: 400px;
       	margin-bottom: 10px;
 	}
 
@@ -677,7 +677,7 @@
         </select>
 
         <br>
-        <div class="col-tit">휴대폰</div>
+        <div class="col-tit">&nbsp;&nbsp;&nbsp;&nbsp;휴대폰</div>
         <div class="col-content">
             <select class="col_select" name="phone"  >
                 <option value="010">010</option>
