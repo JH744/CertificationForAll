@@ -3,22 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>모두의자격증</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet"><!--구글폰트-->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css"></style>
 	<link rel="stylesheet" href="../../css/loginstyle.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&family=Poppins:wght@400;600&display=swap"
-        rel="stylesheet"><!--구글폰트-->
-    <script src="https://kit.fontawesome.com/e72539902e.js" crossorigin="anonymous"></script> <!--아이콘 사용-->
-    <style>
+
+<style>
     
         /* 초기화 */
         body,h1,h2,h3,div,p,ul, li,dl, dt,dd {
@@ -198,20 +189,20 @@
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">로그인</h3>
+			      			<h3 class="mb-4">PW찾기</h3>
 			      		</div>								
 			      	</div>
 							<form action="#" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">ID</label>
-			      			<input type="text" class="form-control" placeholder="Username" required>
+			      			<input type="text" class="form-control" placeholder="아이디" required>
 			      		</div>
 		            <div class="form-group mb-3">
-		            	<label class="label" for="password">Password</label>
-		              <input type="password" class="form-control" placeholder="Password" required>
+		            	<label class="label" for="name">이름</label>
+		              <input type="text" class="form-control" placeholder="이름" required>
 		            </div>
 		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+		            	<button type="submit" class="form-control btn btn-primary submit px-3">pw찾기</button>
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
