@@ -69,7 +69,9 @@ public class SistController extends HttpServlet {
 		SistAction action = map.get(cmd);
 		System.out.println(action);
 		String viewPage = action.pro(request, response);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+		request.setAttribute("viewPage", viewPage);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp");
 		dispatcher.forward(request, response);
 	}
 
