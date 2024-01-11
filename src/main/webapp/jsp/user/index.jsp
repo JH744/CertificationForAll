@@ -10,5 +10,6 @@
 <%
 	response.sendRedirect("login.do");
 %>
+아으 유성 범진시치
 </body>
 </html>
