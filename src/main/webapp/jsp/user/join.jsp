@@ -192,14 +192,6 @@
 	  	font-size: 14px;
 	  	color: gray;
 	}
-
-
-	p {
-	  font-size: 13px;
-	  color: gray;
-		padding: 10px;
-	}
-
 	.gen {
 		float: left;
 		font-weight: bold;

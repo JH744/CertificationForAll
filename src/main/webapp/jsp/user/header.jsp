@@ -27,7 +27,7 @@
         }
 
         /*바디 기본폰트설정,구글 폰트설정함*/
-        #headerbody { 
+        #headerBody { 
         	all:unset;
        		background: white !important;
             font-family: 'Poppins', 'Noto Sans KR', sans-serif !important;
@@ -57,17 +57,17 @@
 
         }
 
-        #headerlogo img {
+        #headerLogo img {
             width: 260px !important;
             height: 90px !important;
         }
 
-        #headermenuBar {
+        #headerMenuBar {
             width: 550px !important;
             height: 90px !important;
         }
 
-        #headergnb {
+        #headerGnb {
             height: 90px !important;
             display: flex !important;
             justify-content: space-between !important;
@@ -75,11 +75,11 @@
             padding-right: 20px !important;
         }
 
-        #headergnb li {
+        #headerGnb li {
             align-self: center !important;
         }
 
-        #headertopMenu {       
+        #headerTopMenu {       
             padding-bottom: 13px !important;
             position: relative !important;
         }
@@ -93,7 +93,7 @@
             height: 25px !important;
         }
 
-        #headersearchBar {
+        #headerSearchBar {
             border: 3px solid #928e8e !important;
             border-radius: 7px !important;
             height: 31px !important;
@@ -113,29 +113,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body style="all: unset;">
-<div id="headerbody">
+<body id="headerBody">
 <header id="header" class="header">
-        <h1 id="headerlogo"><a href="main.html"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
-        <nav id="headermenuBar">
-            <ul id="headergnb">
+        <h1 id="headerLogo"><a href="main.html"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
+        <nav id="headerMenuBar">
+            <ul id="headerGnb">
                 <li><a href="#">자격증정보</a></li>
                 <li><a href="studyList.do">스터디모집</a></li>
                 <li><a href="#">마이페이지</a></li>
                 <li><a href="#">고객센터</a></li>
             </ul>
         </nav>
-        <div id="headertopMenu">
+        <div id="headerTopMenu">
             <ul id="headerTM">
                 <li><a href="login.do">로그인</a></li>
                 <span style="none">&nbsp;|&nbsp;</span>
                 <li><a href="join.do">회원가입</a></li>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </ul>
-            <input id="headersearchBar" name="headersearchBar" type="text" size="28" />
+            <input id="headerSearchBar" name="headerSearchBar" type="text" size="28" />
         </div>
 
     </header>
-    </div>
 </body>
 </html>

@@ -5,17 +5,17 @@
 <head>
 <style>
 /* ----footer CSS ---- */
-body{
+#footerBody{
 	 all: unset;
 }
-.footer {
+#footer {
 	width: 1fr;
 	height: 320px;
 	background: #4F4A45;
 	color: #ffffff;
 }
 
-.ft_info {
+#ft_info {
 	width: 1215px;
 	margin: auto;
 	padding-top: 14px;
@@ -23,36 +23,22 @@ body{
 	position: relative;
 }
 
-.ft_link {
+#ft_link {
 	margin: 20px;
 }
 
-.ft_link li {
+#ft_link li {
 	list-style: disc
 }
 
-.fa-brands {
-	width: 100px;
-	height: 30px;
-}
-
-.sns {
-	width: 350px;
-	height: 50px;
-	position: absolute;
-	right: 5px;
-	bottom: 70px;
-	display: flex;
-	align-content: space-between;
-}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body >
-	<footer id="footer" class="footer">
+<body id="footerBody" style="all: unset;">
+	<footer id="footer">
 
-		<div class="ft_info">
+		<div id="ft_info">
 			<p>
 				모두의자격증)대표자 : 김유성 서울특별시 동작구 보라매로5길 15 (신대방동, 전문건설회관) 고객센터 : 1588-3413
 				(09:00 ~ 18:00 / 토, 일, 공휴일 휴무) 이메일 : echosting@mojacorp.com <br>사업자등록번호
@@ -63,7 +49,7 @@ body{
 			<br>
 			<p>Copyright © MojaCorp. All Rights Reserved.</p>
 			<br>
-			<div class="ft_link">
+			<div id="ft_link">
 				<ul>
 					<li>회사소개</li>
 					<li>엑스퍼트 이용약관</li>
