@@ -70,6 +70,7 @@ public class SistController extends HttpServlet {
 		System.out.println(action);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
+		request.setAttribute("admin", "admin");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp");
 		dispatcher.forward(request, response);
