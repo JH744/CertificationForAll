@@ -10,5 +10,6 @@
 <%
 	response.sendRedirect("login.do");
 %>
+asdasd
 </body>
 </html>
