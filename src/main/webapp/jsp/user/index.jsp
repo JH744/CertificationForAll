@@ -10,7 +10,7 @@
 <%
 	response.sendRedirect("login.do");
 %>
-
 asdasd
+머지 충돌 테스트
 </body>
 </html>
