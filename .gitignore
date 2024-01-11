@@ -1,4 +1,3 @@
-### Eclipse ###
 .metadata
 bin/
 tmp/
@@ -129,4 +128,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
 /build/

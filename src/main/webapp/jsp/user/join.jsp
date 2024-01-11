@@ -193,13 +193,6 @@
 	  	color: gray;
 	}
 
-
-	#ptag {
-	  font-size: 13px;
-	  color: gray;
-		padding: 10px;
-	}
-
 	.gen {
 		float: left;
 		font-weight: bold;
@@ -270,20 +263,6 @@
 		height: 32px;
 		line-height: 32px;
 	}
-    
-        /* 초기화 */
-        body,h1,h2,h3,div,p,ul, li,dl, dt,dd {
-            margin: 0;
-            padding: 0
-        }
-
-        /*바디 기본폰트설정,구글 폰트설정함*/
-        body { 
-            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-            font-size: 14px;
-            line-height: 1.5
-            
-        }
 
     </style>
 </head>
