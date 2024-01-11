@@ -3,117 +3,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-/* 초기화 */
+	<link rel="stylesheet" href="../../css/loginstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet"><!--구글폰트-->
+    <script src="https://kit.fontawesome.com/e72539902e.js" crossorigin="anonymous"></script> <!--아이콘 사용-->
+    <style>
+    	@font-face {
+		 font-family: 'NanumBarunGothic' !important;
+		 font-style: normal !important;
+		 font-weight: 400 !important;
+		 src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot') !important;
+		 src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype') !important;
+	}
+   
+        /* 초기화 */
         body,h1,h2,h3,div,p,ul, li,dl, dt,dd {
             margin: 0;
-            padding: 0
+            padding: 0;
         }
 
         /*바디 기본폰트설정,구글 폰트설정함*/
-        body { 
-            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
-            font-size: 14px;
-            line-height: 1.5
+        #headerbody { 
+        	all:unset;
+       		background: white !important;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important
             
         }
 
-        .header {
-            width: 1200px;
-            height: 90px;
-            margin: 0 auto;
-            padding: 15px 10px 0px 5px;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        #header {
+            width: 1200px !important;
+            height: 90px !important;
+            margin: 0 auto !important;
+            padding: 15px 10px 0px 5px !important;
+            position: relative !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
         }
 
-        li {
-            list-style: none;
+        #header li {
+            list-style: none !important;
         }
 
-        a {
-            text-decoration: none;
-            color: #575656;
+        #header a {
+            text-decoration: none !important;
+            color: #575656 !important;
 
         }
 
-        .logo img {
-            width: 260px;
-            height: 90px;
+        #headerlogo img {
+            width: 260px !important;
+            height: 90px !important;
         }
 
-        .menuBar {
-            width: 550px;
-            height: 90px;
+        #headermenuBar {
+            width: 550px !important;
+            height: 90px !important;
         }
 
-        .gnb {
-            height: 90px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 22px;
-            padding-right: 20px;
+        #headergnb {
+            height: 90px !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            font-size: 22px !important;
+            padding-right: 20px !important;
         }
 
-        .gnb li {
-            align-self: center;
+        #headergnb li {
+            align-self: center !important;
         }
 
-        .topMenu {       
-            padding-bottom: 13px;
-            position: relative;
+        #headertopMenu {       
+            padding-bottom: 13px !important;
+            position: relative !important;
         }
 
-        .TM {
-            display: flex;
-            justify-content: flex-end;
-            font-size: 15px;
-            padding: 0 5px 0 5px;
-            width: 210px;
-            height: 25px;
+        #headerTM {
+            display: flex !important;
+            justify-content: flex-end !important;
+            font-size: 15px !important;
+            padding: 0 5px 0 5px !important;
+            width: 210px !important;
+            height: 25px !important;
         }
 
-        .searchBar {
-            border: 3px solid #928e8e;
-            border-radius: 7px;
-            height: 23px;
+        #headersearchBar {
+            border: 3px solid #928e8e !important;
+            border-radius: 7px !important;
+            height: 31px !important;
+            resize: none !important;
         }
     
         /*돋보기아이콘*/
         .fa-magnifying-glass{  
-            position: absolute;
-            right: 9px;  /*모니터 크기에 따라 위치 달라짐.필요하면 수치조정하기 */
-            bottom: 19px;
-            color: #928e8e;
+            position: absolute !important;
+            right: 9px !important;  /*모니터 크기에 따라 위치 달라짐.필요하면 수치조정하기 */
+            bottom: 19px !important;
+            color: #928e8e !important;
         }
+
 
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="all: unset;">
+<div id="headerbody">
 <header id="header" class="header">
-        <h1 class="logo"><a href="main.html"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
-        <nav class="menuBar">
-            <ul class="gnb">
+        <h1 id="headerlogo"><a href="main.html"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
+        <nav id="headermenuBar">
+            <ul id="headergnb">
                 <li><a href="#">자격증정보</a></li>
-                <li><a href="#">스터디모집</a></li>
+                <li><a href="studyList.do">스터디모집</a></li>
                 <li><a href="#">마이페이지</a></li>
                 <li><a href="#">고객센터</a></li>
             </ul>
         </nav>
-        <div class="topMenu">
-            <ul class="TM">
+        <div id="headertopMenu">
+            <ul id="headerTM">
                 <li><a href="login.do">로그인</a></li>
-                <span>&nbsp;|&nbsp;</span>
+                <span style="none">&nbsp;|&nbsp;</span>
                 <li><a href="join.do">회원가입</a></li>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </ul>
-            <input class="searchBar" id="searchBar" name="searchBar" type="text" size="28" />
+            <input id="headersearchBar" name="headersearchBar" type="text" size="28" />
         </div>
 
     </header>
+    </div>
 </body>
 </html>
