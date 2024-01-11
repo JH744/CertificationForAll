@@ -194,7 +194,7 @@
 	}
 
 
-	p {
+	#ptag {
 	  font-size: 13px;
 	  color: gray;
 		padding: 10px;
@@ -285,141 +285,6 @@
             
         }
 
-        .header {
-            width: 1200px;
-            height: 90px;
-            margin: 0 auto;
-            padding: 15px 10px 0px 5px;
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        li {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-            color: #575656;
-
-        }
-
-        .logo img {
-            width: 260px;
-            height: 90px;
-        }
-
-        .menuBar {
-            width: 550px;
-            height: 90px;
-        }
-
-        .gnb {
-            height: 90px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 22px;
-            padding-right: 20px;
-        }
-
-        .gnb li {
-            align-self: center;
-        }
-
-        .topMenu {       
-            padding-bottom: 13px;
-            position: relative;
-        }
-
-        .TM {
-            display: flex;
-            justify-content: flex-end;
-            font-size: 15px;
-            padding: 0 5px 0 5px;
-            width: 210px;
-            height: 25px;
-        }
-
-        .searchBar {
-            border: 3px solid #928e8e;
-            border-radius: 7px;
-            height: 23px;
-        }
-    
-        /*돋보기아이콘*/
-        .fa-magnifying-glass{  
-            position: absolute;
-            right: 9px;  /*모니터 크기에 따라 위치 달라짐.필요하면 수치조정하기 */
-            bottom: 19px;
-            color: #928e8e;
-        }
-
-
-
-        /*--------header CSS 끝-----*/
-
-        /* -------main css---------*/
-
-
-        /* 배너-레이아웃용이므로 삭제하고 작업 ㄱ  */
-        .banner {
-            width: 1fr;
-            height: 320px;
-            background: #DDDDDD;
-        }
-
-        .article {
-            width: 1200px;
-            height: 1000px;
-        }
-
-
-        /* -------main css끝--------*/
-
-        
-
-        /* ----footer CSS ---- */
-        
-        .footer {
-            width: 1fr;
-            height: 320px;
-            background: #4F4A45;
-            color: #ffffff;
-
-        }
-
-        .ft_info {
-            width: 1215px;
-            margin: auto;
-            padding-top: 14px;
-            font-size: 15px;
-            position: relative;
-        }
-
-        .ft_link {
-            margin: 20px;
-        }
-
-        .ft_link li {
-            list-style: disc
-        }
-
-        .fa-brands{
-            width: 100px;
-            height: 30px;
-        }
-        .sns{
-            width: 350px;
-            height: 50px;
-            position: absolute;
-            right: 5px;
-            bottom: 70px;
-            display: flex;
-            align-content: space-between;
-
-        }
     </style>
 </head>
 
@@ -465,7 +330,7 @@
                 } else {
                     guideTextBox.innerHTML = '';
                     guideTextBox.style.display = 'none';
-                }
+                }                
             }
         }).open();
     }
@@ -483,61 +348,31 @@
 
 <div class="login-form">
     <h2 align="center">Join</h2>
-    <form action="/userJoin" method="post">
+    <form action="joinOK.do" method="post">
         <a class="i_d">아이디</a>
-        <input type="text" class="id" name="username">
+        <input type="text" class="id" name="id">
         <input type="submit" class="idcheck" name="username" " value="중복확인">&nbsp;<br>
         <a class="passwd">비밀번호</a>
-        <input type="password" class="pwd" name="password" ><br>
+        <input type="password" class="pwd" name="pwd" ><br>
         <a class="passwdche">비밀번호확인</a>
-        <input type="password" class="pwdCheck" ><br>
+        <input type="password" class="pwdCheck" name="pwdCheck" ><br>
         <a class="Na">이름</a>
         <input type="text" class="name" name="name" ><br>
         <a class="adr">주소</a>
-        <input type="text" id="sample4_postcode" name="address" placeholder="우편번호">
+        <input type="text" id="sample4_postcode" name="address1" placeholder="우편번호">
         <input type="button" class="addresscheck" onclick="sample4_execDaumPostcode()" value="찾기"><br>
-        <input type="text" id="sample4_roadAddress" name="address"  placeholder="도로명주소" size="60" ><br>
-        <input type="hidden" id="sample4_jibunAddress" name="address" placeholder="지번주소"  size="60">
+        <input type="text" id="sample4_roadAddress" name="address2"  placeholder="도로명주소" size="60" ><br>
+        <input type="hidden" id="sample4_jibunAddress" name="address3" placeholder="지번주소"  size="60">
         <span id="guide" style="color:#999;display:none"></span>
-        <input type="text" id="sample4_detailAddress" name="address"  placeholder="상세주소"  size="60"><br>
+        <input type="text" id="sample4_detailAddress" name="address4"  placeholder="상세주소"  size="60"><br>
         <input type="hidden" id="sample4_extraAddress" placeholder="참고항목"  size="60">
         <input type="hidden" id="sample4_engAddress" placeholder="영문주소"  size="60" ><br>
         <br>
         <div class="birth">
             <a class="dat">생년월일</a>
             <input type="hidden" class="date" name="date">
-            <select name="date"  class="MS_select MS_birthday">
-                <option value="">생년</option>
-                <option value="1920">1920</option>
-                <option value="1921">1921</option>
-                <option value="1922">1922</option>
-                <option value="1923">1923</option>
-                <option value="1924">1924</option>
-                <option value="1925">1925</option>
-                <option value="1926">1926</option>
-                <option value="1927">1927</option>
-                <option value="1928">1928</option>
-                <option value="1929">1929</option>
-                <option value="1930">1930</option>
-                <option value="1931">1931</option>
-                <option value="1932">1932</option>
-                <option value="1933">1933</option>
-                <option value="1934">1934</option>
-                <option value="1935">1935</option>
-                <option value="1936">1936</option>
-                <option value="1937">1937</option>
-                <option value="1938">1938</option>
-                <option value="1939">1939</option>
-                <option value="1940">1940</option>
-                <option value="1941">1941</option>
-                <option value="1942">1942</option>
-                <option value="1943">1943</option>
-                <option value="1944">1944</option>
-                <option value="1945">1945</option>
-                <option value="1946">1946</option>
-                <option value="1947">1947</option>
-                <option value="1948">1948</option>
-                <option value="1949">1949</option>
+            <select name="year"  class="MS_select MS_birthday">
+                <option value="">생년</option>                
                 <option value="1950">1950</option>
                 <option value="1951">1951</option>
                 <option value="1952">1952</option>
@@ -610,11 +445,11 @@
                 <option value="2019">2019</option>
                 <option value="2020">2020</option>
                 <option value="2021">2021</option>
-                <option value="2021">2022/option>
+                <option value="2021">2022</option>
                 <option value="2021">2023</option>
             </select>
             년
-            <select name="date" class="MS_select MS_birthday">
+            <select name="month" class="MS_select MS_birthday">
                 <option value="">월</option>
                 <option value="01">1</option>
                 <option value="02">2</option>
@@ -630,7 +465,7 @@
                 <option value="12">12</option>
             </select>
             월
-            <select name="date"  class="MS_select MS_birthday">
+            <select name="day"  class="MS_select MS_birthday">
                 <option value="">일</option>
                 <option value="01">1</option>
                 <option value="02">2</option>
@@ -679,15 +514,15 @@
         <br>
         <div class="col-tit">&nbsp;&nbsp;&nbsp;&nbsp;휴대폰</div>
         <div class="col-content">
-            <select class="col_select" name="phone"  >
+            <select class="col_select" name="phone1"  >
                 <option value="010">010</option>
                 <option value="011">011</option>
                 <option value="016">016</option>
             </select>
             -
-            <input type="text" id="HPhone1" class="inpTxt" name="phone" >
+            <input type="text" id="HPhone1" class="inpTxt" name="phone2" maxlength="4">
             -
-            <input type="text" id="HPhone2" class="inpTxt" name="phone" >
+            <input type="text" id="HPhone2" class="inpTxt" name="phone3" maxlength="4" >
         </div>
        
        

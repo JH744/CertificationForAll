@@ -28,12 +28,9 @@ import action.SistAction;
 public class SistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        HashMap<String, SistAction> map;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-//		super.init(config);
     	map= new HashMap<String, SistAction>();
     	String path = config.getServletContext().getRealPath("WEB-INF");
     	try {
