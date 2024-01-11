@@ -10,10 +10,5 @@
 <%
 	response.sendRedirect("login.do");
 %>
-asdasd
-머지 충돌 테스트
-
-아으 유성 범진시치
-
 </body>
 </html>
