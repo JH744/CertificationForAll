@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +44,27 @@
 	color: #fff;
 }
 
-.rounded-pill{
-	background : #FF8C00;
+.rounded-pill {
+	background: #FF8C00;
+}
+
+.community-header__title {
+	all: unset;
+	height: 20px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: .71;
+	color: #fff;
+	height: 20px;
+}
+
+.community-header__sub-title {
+	all: unset;
+	margin-top: 12px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: #fff;
 }
 </style>
 </head>
@@ -53,9 +72,9 @@
 
 	<br>
 	<br>
-	<section class="community-header" style="background: orange">
+	<section class="community-header" style="background: #FF8C00">
 		<div class="community-header__content">
-			<h2 class="community-header__title">함께 성장할 스터디를 모집해보세요</h2>
+			<h2 class="community-header__title">함께 성장할 스터디를 모집해보세요</h2><br>
 			<p class="community-header__sub-title">강의 수강에서 더 나아가 함께 스터디까지!</p>
 		</div>
 	</section>
@@ -66,7 +85,7 @@
 
 		<div class="community-body__content">
 			<div>
-				<ul class="status" >
+				<ul class="status">
 					<li class="e-status active" data-status="">
 
 						<button class="ac-button is-md is-text tab-button "
@@ -83,13 +102,14 @@
 							style="float: left;">모집완료</button>
 					</li>
 				</ul>
-				</div>
+			</div>
 			<div class="search-filter">
-				
-				<form class="search e-search" style="float:none">
-					<div class="search-item" style="float:none">
 
-						<div class="ac-input-with-item search-by-text e-search-input " style="width:90%; float:left">
+				<form class="search e-search" style="float: none">
+					<div class="search-item" style="float: none">
+
+						<div class="ac-input-with-item search-by-text e-search-input "
+							style="width: 90%; float: left">
 							<svg width="16" height="16" viewBox="0 0 16 16"
 								xmlns="http://www.w3.org/2000/svg">
 								<path fill="#212529" fill-rule="evenodd" clip-rule="evenodd"
@@ -97,10 +117,11 @@
 							<input value="" data-kv="s" type="text" spellcheck="false"
 								placeholder="관심 스터디를 검색해보세요!" enterkeyhint="search">
 
-						</div>&nbsp;
+						</div>
+						&nbsp;
 						<button
 							class="ac-button is-md is-solid search-form__search e-search-posts"
-							style="min-width: 96px; background:#FF8C00">검색</button>
+							style="min-width: 96px; background: #FF8C00">검색</button>
 					</div>
 					<br>
 				</form>
@@ -110,7 +131,8 @@
 					<!--sort 셀렉터(템플릿 이중 관리)-->
 
 
-					<div class="ac-dropdown--text order-mb e-sel-order " style="float:left" >
+					<div class="ac-dropdown--text order-mb e-sel-order "
+						style="float: left">
 						<select>
 							<option value="recent" selected="">최신순</option>
 							<option value="score">정확도순</option>
@@ -121,7 +143,7 @@
 					<div class="posts-container-header__button-cover"></div>
 					<a
 						class="ac-button is-outlined is-gray posts-container-header__button features__guide"
-						href="https://bit.ly/3dMlj4Y" target="_blank" > <span
+						href="https://bit.ly/3dMlj4Y" target="_blank"> <span
 						class="infd-icon"><svg width="16"
 								xmlns="http://www.w3.org/2000/svg" height="16"
 								viewBox="0 0 16 16">
@@ -132,7 +154,8 @@
 					</a>
 
 					<button
-						class="ac-button is-md is-solid is-gray posts-container-header__button features__new-question e-new-question " style="float:right">
+						class="ac-button is-md is-solid is-gray posts-container-header__button features__new-question e-new-question "
+						style="float: right">
 						<span class="infd-icon"><svg width="16" height="16"
 								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
 								<path fill="#ffffff" fill-rule="evenodd"
@@ -141,9 +164,10 @@
 							class="posts-container-header__button-text">글쓰기</span>
 					</button>
 				</div>
+				<br>
 				<ul class="question-list">
 					<li class="question-container"><a class="e-click-post"
-						href="/studies/1136817/삼성역-코엑스-웹개발-모각코" >
+						href="/studies/1136817/삼성역-코엑스-웹개발-모각코">
 
 							<div class="question">
 								<div class="question__info">
@@ -151,7 +175,7 @@
 										<div class="title-sub__text">
 
 											<div
-												class="bootstrap-components question__status-tag question__status-tag--unrecruited" >
+												class="bootstrap-components question__status-tag question__status-tag--unrecruited">
 
 												<span class="badge rounded-pill"> 모집중 </span>
 
@@ -317,8 +341,8 @@
 					페이지</a>
 				<ul class="pagination-list">
 
-					<li><a class="pagination-link"
-						href="?page=1&amp;order=recent" aria-label="1 페이지로 이동">1</a></li>
+					<li><a class="pagination-link" href="?page=1&amp;order=recent"
+						aria-label="1 페이지로 이동">1</a></li>
 
 
 					<li><a class="pagination-link "
