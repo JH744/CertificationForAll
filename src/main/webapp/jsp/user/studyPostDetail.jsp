@@ -19,6 +19,12 @@
 <link rel="stylesheet"
 	href="https://cdn.inflearn.com/dist/fontawesome/css/all.css">
 <title>Insert title here</title>
+<style>
+.pg___questions_detail .community-post-info {
+    position: relative;
+    padding: 42px 32px;
+}
+</style>
 </head>
 <body>
 
@@ -27,7 +33,7 @@
 	<main id="main">
 		<section
 			class="community-post-detail__section community-post-detail__post"
-			data-id="233255">
+			data-id="233255"  style="margin:auto; width:50%">
 			<div class="section__sider">
 				<div class="sider__space"></div>
 				<div class="sider__right">
@@ -78,8 +84,9 @@
 						<div class="header__title">
 							<h1>바닐라 JS와 알고리즘 함께 공부해요</h1>
 						</div>
+						<br>
 						<div class="header__sub-title">
-							<div class="header__sub-title__content">
+							<div class="header__sub-title__content"><!--작성자, 작성일, 시간, 조회수 -->
 								<h6 class="user-name">
 									<a href="/users/393414/@2now">감자</a>
 								</h6>
@@ -96,7 +103,7 @@
 
 						</div>
 					</div>
-					<div class="community-post-info__content">
+					<div class="community-post-info__content"> <!-- 스터디 글 내용 부분 -->
 						<div class="content__body markdown-body">
 							<div class="type-placeholder"
 								style="font-size: 15px; letter-spacing: -0.3px; color: #abb0b5; white-space: pre-wrap">
