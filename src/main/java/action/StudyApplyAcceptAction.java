@@ -11,7 +11,7 @@ public class StudyApplyAcceptAction implements SistAction {
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return "postDetail.jsp";
+		return "studyPostDetail.jsp";
 	}
 
 }
