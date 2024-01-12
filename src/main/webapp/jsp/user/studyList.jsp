@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,7 +121,7 @@
 					<div class="posts-container-header__button-cover"></div>
 					<a
 						class="ac-button is-outlined is-gray posts-container-header__button features__guide"
-						href="https://bit.ly/3dMlj4Y" target="_blank"> <span
+						href="https://bit.ly/3dMlj4Y" target="_blank" > <span
 						class="infd-icon"><svg width="16"
 								xmlns="http://www.w3.org/2000/svg" height="16"
 								viewBox="0 0 16 16">
@@ -131,7 +132,7 @@
 					</a>
 
 					<button
-						class="ac-button is-md is-solid is-gray posts-container-header__button features__new-question e-new-question ">
+						class="ac-button is-md is-solid is-gray posts-container-header__button features__new-question e-new-question " style="float:right">
 						<span class="infd-icon"><svg width="16" height="16"
 								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
 								<path fill="#ffffff" fill-rule="evenodd"
