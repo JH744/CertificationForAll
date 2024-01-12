@@ -195,11 +195,11 @@
 							<form action="#" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">ID</label>
-			      			<input type="text" class="form-control" placeholder="아이디" required>
+			      			<input type="text" class="form-control" name="id" placeholder="아이디" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="name">이름</label>
-		              <input type="text" class="form-control" placeholder="이름" required>
+		              <input type="text" class="form-control" name="name" placeholder="이름" required>
 		            </div>
 		            <div class="form-group">
 		            	<button type="submit" class="form-control btn btn-primary submit px-3">pw찾기</button>

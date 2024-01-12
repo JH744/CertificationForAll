@@ -322,6 +322,9 @@
     }
   }).open();
 }
+    $(function(){
+    	
+    })
   
   </script>
 

@@ -192,7 +192,7 @@
 			      			<h3 class="mb-4">ID찾기</h3>
 			      		</div>								
 			      	</div>
-							<form action="#" class="signin-form">
+							<form action="idFindOK.do" method="post" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">이름</label>
 			      			<input type="text" class="form-control" name="name" placeholder="이름" required>

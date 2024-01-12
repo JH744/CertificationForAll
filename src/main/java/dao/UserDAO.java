@@ -61,4 +61,44 @@ public class UserDAO {
 		return u_id;
 	}
 	
+	public String idFind(String id, String phone) {
+		String sql = "select u_id from users where u_name=? and u_phone=?";
+		String u_id = null;
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, phone);
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				u_id = rs.getString(1);
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+		}catch(Exception e) {
+			System.out.println("아이디찾기 오류 : " + e.getMessage());
+		}
+		return u_id;
+				
+	}
+	public String pwFind(String id, String name) {
+		String sql ="select u_pw from users where u_id=? and u_name=?";
+		String u_pw=null;
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt =conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, name);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				u_pw=rs.getString(1);
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+		}catch(Exception e) {
+			System.out.println("pwFind 오류 : " + e.getMessage());
+		}
+		return u_pw;
+				
+	}
+	
 }
