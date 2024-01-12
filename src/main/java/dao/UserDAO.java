@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import db.ConnectionProvider;
 import vo.UserVO;
@@ -35,6 +36,29 @@ public class UserDAO {
 		
 		
 		return re;						
+	}
+	
+	public String login(String id, String pwd) {
+		
+		String sql = "select * from users where u_id=? and pwd=?";
+		String u_id = null;
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				u_id = rs.getString(1);
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+					
+					
+			
+		}catch(Exception e) {
+			System.out.println("로그인 실패 : "+e.getMessage());
+		}
+		return u_id;
 	}
 	
 }

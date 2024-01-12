@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +116,7 @@
 </head>
 <body id="headerBody">
 <header id="header" class="header">
-        <h1 id="headerLogo"><a href="main.html"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
+        <h1 id="headerLogo"><a href="homepage.do"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
         <nav id="headerMenuBar">
             <ul id="headerGnb">
                 <li><a href="#">자격증정보</a></li>
@@ -126,7 +127,12 @@
         </nav>
         <div id="headerTopMenu">
             <ul id="headerTM">
+            <c:if test="${id} != null">
+                <li><a href="homepage.do">로그아웃</a></li>
+            </c:if>
+            <c:if test="${id} == null">
                 <li><a href="login.do">로그인</a></li>
+            </c:if>
                 <span style="none">&nbsp;|&nbsp;</span>
                 <li><a href="join.do">회원가입</a></li>
                 <i class="fa-solid fa-magnifying-glass"></i>

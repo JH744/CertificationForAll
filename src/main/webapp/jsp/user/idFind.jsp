@@ -200,15 +200,15 @@
 		            <div class="form-group mb-3">
 		            	<div class="col-tit">휴대폰</div>
         <div class="col-content">
-            <select class="col_select" name="phone"  >
+            <select class="col_select" name="phone1">
                 <option value="010">010</option>
                 <option value="011">011</option>
                 <option value="016">016</option>
             </select>
             -
-            <input type="text" id="HPhone1" class="inpTxt" name="phone" maxlength="4" size="10">
+            <input type="text" id="HPhone1" class="inpTxt" name="phone2" maxlength="4" size="10">
             -
-            <input type="text" id="HPhone2" class="inpTxt" name="phone" maxlength="4" size="10">
+            <input type="text" id="HPhone2" class="inpTxt" name="phone3" maxlength="4" size="10">
         </div>
 		            </div>
 		            <div class="form-group">

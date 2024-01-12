@@ -51,14 +51,14 @@ body{
 							<form action="#" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">ID</label>
-			      			<input type="text" class="form-control" placeholder="Username" required>
+			      			<input type="text" class="form-control" name="id" placeholder="아이디를 입력해주세요" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Password</label>
-		              <input type="password" class="form-control" placeholder="Password" required>
+		              <input type="password" class="form-control" name = "pwd" placeholder="비밀번호를 입력해주세요" required>
 		            </div>
 		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+		            	<button type="submit" class="form-control btn btn-primary submit px-3" onclick="location.href='loginOK.do'">Sign In</button>
 		            </div>
 		            <div class="form-group d-md-flex">
 		            	<div class="w-50 text-left">
