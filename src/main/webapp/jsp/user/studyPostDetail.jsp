@@ -10,7 +10,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&family=Poppins:wght@400;600&display=swap"
 	rel="stylesheet">
-	
+
 <link rel="stylesheet"
 	href="https://cdn.inflearn.com/dist/css/npm_tinymce.11812fb7b9e7501ca2a8.css">
 <link rel="stylesheet"
@@ -25,7 +25,7 @@
 	href="https://cdn.inflearn.com/dist/vendor/bulma-tooltip.min.css">
 <link rel="stylesheet"
 	href="https://cdn.inflearn.com/dist/fontawesome/css/all.css">
-	
+
 <title>Insert title here</title>
 <style>
 .pg___questions_detail .community-post-info {
@@ -33,13 +33,14 @@
 	padding: 42px 32px;
 }
 
-.pg___questions_detail .answer-info .answer-info__header .answer-info__title {
-    height: 27px;
-    margin-bottom: 0;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -.3px;
-    color: #495057;
+.pg___questions_detail .answer-info .answer-info__header .answer-info__title
+	{
+	height: 27px;
+	margin-bottom: 0;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: -.3px;
+	color: #495057;
 }
 </style>
 </head>
@@ -50,7 +51,8 @@
 	<main id="main">
 		<section
 			class="community-post-detail__section community-post-detail__post"
-			data-id="233255" style="margin: auto; width: 50%; border:solid;padding:20px; border-color:#ff8C00;border-radius:10px">
+			data-id="233255"
+			style="margin: auto; width: 50%; border: solid; padding: 20px; border-color: #ff8C00; border-radius: 10px">
 
 			<div class="section__content">
 				<div class="community-post-info">
@@ -83,7 +85,8 @@
 					<div class="community-post-info__content">
 						<!-- 스터디 글 내용 부분 -->
 
-						<div style="min-height:300px">
+						<div style="min-height: 300px">
+							<pre>
 						여기는 글 내용 부분입니다\ㅏ\ㅏ\n
 						ㅏㅏ
 						ㅏ
@@ -96,30 +99,36 @@
 						
 						
 						
+						
 						</div>
-						<br><br>
+						<br>
+						<br>
 						<div class="post__features">
 							<!-- 모집완료, 좋아요-->
 
 							<div class="flex-row feature__status e-status e-hover-toggle"
-								data-status="1" style="float: left">
+								data-status="1" style="float: right">
 
 								<button
 									class="ac-button is-md is-solid button-rounded undefined "
-									disabled="" style=" background: #ff8c00">모집완료</button>
+									style="background: #ff8c00" onclick="history.back()">
+									<b>글 목록</b>
+								</button>
 							</div>
-							
+							<!-- 글목록 끝 -->
+
 							<div class="flex-row feature__status e-status e-hover-toggle"
 								data-status="1" style="float: left">
 
 								<button
 									class="ac-button is-md is-solid button-rounded undefined "
-									disabled="" style=" background: #ff8c00">글 목록</button>
-							</div><!-- 글목록 끝 -->
+									disabled="" style="background: #ff8c00">모집완료</button>
+							</div>
+							<!-- 모집완료 버튼 끝 -->
 
 							<div
 								class="flex-row feature__recommend e-post-like e-hover-toggle"
-								data-id="233255" data-status="" data-cnt="2" >
+								data-id="233255" data-status="" data-cnt="2">
 
 								<button
 									class="ac-button is-md is-outlined is-white button-rounded undefined ">
@@ -140,18 +149,20 @@
 		</section>
 		<br>
 		<section
-			class="community-post-detail__section community-post-detail__answer" style="margin:auto;width:50%;background:#F8F9FA;padding:30px;border-radius:20px"><!--댓글 부분  -->
+			class="community-post-detail__section community-post-detail__answer"
+			style="margin: auto; width: 50%; background: #F8F9FA; padding: 30px; border-radius: 20px">
+			<!--댓글 부분  -->
 			<div class="section__content">
 
 				<div class="answer-info">
-					<div class="answer-info__header" style=" padding:10px">
+					<div class="answer-info__header" style="padding: 10px">
 						<div class="answer-info__title">
 							댓글 <span class="answer-info__title--count">4</span>
 						</div>
 
 					</div>
 					<div class="community-post-info__content">
-						<div class="answer-comment"data-id="new">
+						<div class="answer-comment" data-id="new">
 
 							<div class="bootstrap-components comment__input">
 
@@ -175,11 +186,11 @@
 											class="btn btn-outline-secondary e-post-comment-cancel cancel-btn">
 
 											취소</button>
+										&nbsp;
 
 
-										<button type="button" class="btn e-post-comment" style="background:#ff8C00;color:white;">
-
-											등록</button>
+										<button type="button" class="btn e-post-comment"
+											style="background: #ff8C00; color: white;">등록</button>
 
 									</div>
 								</div>
@@ -191,7 +202,8 @@
 
 								<div class="answer__comment" data-id="116324">
 									<a id="116324" class="answer__comment-snap" name="116324"></a>
-									<div class="comment__card" style="border:solid; background:white; border-color:white; border-radius:10px">
+									<div class="comment__card"
+										style="border: solid; background: white; border-color: white; border-radius: 10px">
 										<div class="comment__header flex-row">
 											<div class="flex-column comment__sub-header">
 
