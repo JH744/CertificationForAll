@@ -6,11 +6,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdminInquiryAction implements SistAction {
+public class AdminQnaDetailAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return "inquiry.jsp";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,16 +1,22 @@
 package action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdminStudyAction implements SistAction {
+import dao.InquiryDAO;
+
+public class AdminInquiryListAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return "study.jsp";
+		
+		ArrayList<InquiryDAO> list = null;
+		request.setAttribute("list", list);
+		return "inquiry.jsp";
 	}
 
 }

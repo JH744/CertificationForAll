@@ -11,15 +11,6 @@ import db.ConnectionProvider;
 import vo.UserVO;
 
 public class UserDAO {
-	private UserDAO() {}
-	public static UserDAO dao = null;
-	public static UserDAO getInstance() {
-		if (dao == null) {
-			dao = new UserDAO();
-		}
-		return dao;
-	}
-	
 	// 회원 삭제
 	public int usersDelete(String id, String pw) {
 		int re = -1;

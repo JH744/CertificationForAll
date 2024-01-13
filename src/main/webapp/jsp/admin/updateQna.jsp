@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,24 +18,22 @@
 </head>
 <body>
 	<div style="width: 80%; height: auto; margin: auto; padding: 20px;">
-		<form method="post">
+		<form method="post" action="qnaUpdateOK.do">
 			<div style="width: 80%; height: auto; margin: auto;">
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">제목</h5>
+						<h5 class="card-title">${q.q_title }</h5>
 						<input type="text" placeholder="제목을 입력해주세요"
 							style="width: 100%; height: 50px; font-size: 30px;">
 						<hr>
-						<p style="height: 100%;" class="card-text">내용</p>
+						<p style="height: 100%;" class="card-text">${q.q_answer }</p>
 						<textarea rows="20" style="width: 100%;" placeholder="내용을 입력해주세요"></textarea>
 					</div>
 				</div>
-				<input type="submit" value="등록" class="btn btn-primary btn-lg"
+				<input type="submit" value="수정" class="btn btn-primary btn-lg"
 					style="float: right;">
 			</div>
 		</form>
-		<input type="submit" value="수정" class="btn btn-primary btn-lg"
-			style="float: right;">
 	</div>
 </body>
 </html>

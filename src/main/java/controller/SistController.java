@@ -38,7 +38,6 @@ public class SistController extends HttpServlet {
     	String path = config.getServletContext().getRealPath("WEB-INF");
     	try {
     		FileReader fr = new FileReader(path+"/sist.properties");
-    		System.out.println(fr);
     		Properties prop = new Properties();
     		prop.load(fr);
     		Set keyList = prop.keySet();

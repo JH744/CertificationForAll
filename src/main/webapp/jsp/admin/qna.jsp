@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,14 @@
 						</tr>
 					</tfoot>
 					<tbody>
-						<td><input type="checkbox"></td>
+						<c:forEach var="q" items="${list }">
+						<tr>
+							<td><a>${q.q_id }</a></td>
+							<td>${q.q_title }</td>
+							<td>${q.q_answer }</td>
+							<td><input type="checkbox"></td>
+						</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>

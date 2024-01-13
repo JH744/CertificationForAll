@@ -9,26 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import dao.InquiryDAO;
 import vo.InquiryVO;
 
-public class AdminInquiryDetailAction implements SistAction {
+public class AdminInquiryAnswerAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String viewPage = "detailInquiry.jsp";
-		String comment = null;
+		String answer = request.getParameter("floatingTextarea");
 		int i_id = Integer.parseInt(request.getParameter("i_id"));
 		InquiryDAO dao = new InquiryDAO();
-		InquiryVO vo = dao.inquiryDetail(i_id);
-		
-		if (vo == null) {
-			viewPage = "inquiry.jsp";
-		}
-		
-		if (request.getParameter("floatingTextarea") != null) {
-			comment = request.getParameter("floatingTextarea");
-		}
+		InquiryVO vo = dao.inquiryAnswer(i_id, answer);
 		
 		request.setAttribute("vo", vo);
-		request.setAttribute("answer", comment);
 		
 		return "detailInquiry.jsp";
 	}

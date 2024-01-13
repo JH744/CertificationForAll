@@ -42,12 +42,11 @@
 					<tbody>
 					<c:forEach var="u" items="${list }">
 						<tr>
-							<td>${u.u_id }</td>
+							<td><a>${u.u_id }</a></td>
 							<td>${u.u_name }</td>
-							<td>${u.u_id }</td>
-							<td>${u.u_id }</td>
-							<td>${u.u_id }</td>
-							<td>${u.u_id }</td>
+							<td>${u.u_birth }</td>
+							<td>${u.u_addr }</td>
+							<td>${u.u_interest }</td>
 							<td><input type="checkbox"></td>
 						</tr>
 					</c:forEach>

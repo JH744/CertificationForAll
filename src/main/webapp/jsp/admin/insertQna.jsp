@@ -18,7 +18,7 @@
 <body>
 	<div id="layoutSidenav_content">
 
-			<form>
+			<form method="post" action="qnaInsertOK.do">
 				<div style="width: 80%; height: auto; margin: auto;">
 					<h2>QNA µî·Ï</h2>
 					<div class="card">

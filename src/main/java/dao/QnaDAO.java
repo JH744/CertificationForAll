@@ -10,6 +10,29 @@ import db.ConnectionProvider;
 import vo.QnaVO;
 
 public class QnaDAO {
+	// QNA 상세
+	public QnaVO qnaDetail(int q_id) {
+		QnaVO q = new QnaVO();
+		String sql = "select * from qna where q_id=?";
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			if (rs.next()) {
+				q.setQ_id(q_id);
+				q.setQ_title(rs.getString(2));
+				q.setQ_answer(rs.getString(3));
+			}
+			
+			ConnectionProvider.close(conn, stmt, rs);
+		} catch (Exception e) {
+			System.out.println("qna 상세 " + e.getMessage());
+		}
+		
+		return q;
+	}
 	
 	// QNA 목록 가져오는 메소드
 	public ArrayList<QnaVO> qnaList() {

@@ -92,7 +92,7 @@
 								<a class="nav-link" href="qna.do">자주 묻는 질문 목록</a>
 							</nav>
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">자주 묻는 질문 추가</a>
+								<a class="nav-link" href="insertQna.do">자주 묻는 질문 추가</a>
 							</nav>
 						</div>
 						<div class="sb-sidenav-menu-heading">관리</div>
