@@ -21,8 +21,8 @@ public class IdFindOKAction implements SistAction {
 		
 		String u_id = dao.idFind(name, phone);
 		if(u_id==null) {
-			request.setAttribute("msg", "찾으시는 아이디가 없습니다");
-			viewPage="idFind.jsp";
+			request.setAttribute("msg", "찾으시는 아이디가 없습니다");			
+			viewPage="error.jsp";
 		}
 		request.setAttribute("findId", u_id);
 		return viewPage;

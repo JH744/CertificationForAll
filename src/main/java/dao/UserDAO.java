@@ -40,7 +40,7 @@ public class UserDAO {
 	
 	public String login(String id, String pwd) {
 		
-		String sql = "select * from users where u_id=? and pwd=?";
+		String sql = "select * from users where u_id=? and u_pw=?";
 		String u_id = null;
 		try {
 			Connection conn = ConnectionProvider.getConnection();

@@ -127,15 +127,15 @@
         </nav>
         <div id="headerTopMenu">
             <ul id="headerTM">
-            <c:if test="${id} != null">
-                <li><a href="homepage.do">로그아웃</a></li>
-            </c:if>
-            <c:if test="${id} == null">
-                <li><a href="login.do">로그인</a></li>
-            </c:if>
-                <span style="none">&nbsp;|&nbsp;</span>
+            <c:choose>
+	            <c:when test="${id ne null}"><li><a href="logout.do">로그아웃</a></li></c:when>
+	            <c:when test="${id eq null}"><li><a href="login.do">로그인</a></li>
+	            <span style="none">&nbsp;|&nbsp;</span>
                 <li><a href="join.do">회원가입</a></li>
                 <i class="fa-solid fa-magnifying-glass"></i>
+                </c:when>
+            </c:choose>
+                
             </ul>
             <input id="headerSearchBar" name="headerSearchBar" type="text" size="28" />
         </div>

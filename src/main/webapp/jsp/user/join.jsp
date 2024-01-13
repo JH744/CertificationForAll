@@ -4,6 +4,124 @@
 <html lang="ko">
 
 <head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+
+
+$(function(){
+	
+	
+	
+	
+	$("#btnSub").click(function(event){
+		var id = $("#id").val()
+		var pw =$("#pwd").val()
+		var pwCheck = $("#pwd2").val()
+		var name = $("#name").val();
+		var addr1 = $("#sample4_postcode").val();
+		var addr2 = $("#sample4_roadAddress").val();
+		var addr3 = $("#sample4_detailAddress").val();
+		var phone1 = $("#HPhone1").val();
+		var phone2 = $("#HPhone2").val();
+		
+		if(!id){
+			event.preventDefault()
+			alert("아이디를 입력해주세요")
+			$("#id").focus()
+			
+		}
+		else if(!pw){
+			event.preventDefault()
+			alert("비밀번호를 입력해주세요")
+			$("#pwd").focus()
+		}
+		else if(!pwCheck){
+			event.preventDefault()
+			alert("비밀번호 확인을 입력해주세요")
+			$("#pwd2").focus()
+		}
+		else if(!name){
+			event.preventDefault()
+			alert("이름을 입력해주세요")
+			$("#name").focus()
+		}
+		else if(!addr1){
+			event.preventDefault()
+			alert("주소를 입력해주세요")
+			$("#sample4_postcode").focus()
+		}
+		else if(!addr2){
+			event.preventDefault()
+			alert("주소를 입력해주세요")
+			$("#sample4_roadAddress").focus()
+		}
+		else if(!addr3){
+			event.preventDefault()
+			alert("주소를 입력해주세요")
+			$("#sample4_jibunAddress").focus()
+		}
+		else if(!phone1){
+			event.preventDefault()
+			alert("전화번호를 입력해주세요")
+			$("#HPhone1").focus()
+		}
+		else if(!phone2){
+			event.preventDefault()
+			alert("전화번호를 입력해주세요")
+			$("#HPhone2").focus()
+		}
+		else if(pw !== pwCheck){
+			event.preventDefault()
+			alert("비밀번호가 일치하지 않습니다")
+			$("#pwd").focus()
+		}
+		
+	})
+	
+	$.each(${list},function(){
+		var option = $("<option></option>").html(this);
+		$(option).attr("select",this);
+		$("#interest").append(option);
+	})
+	
+	 $("#name").bind('focusin keyup', function(){
+         var check = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+         if(check.test(this.value)){
+             this.value="";
+             alert('한글만 입력하세요');
+         }
+     });
+	 $("#id").bind('focusin keyup', function(){
+         var check = /^[a-zA-Z0-9]*$/;
+         if(!check.test(this.value)){
+             this.value="";
+             alert('영어와 숫자만 입력하세요');
+         }
+     });
+	 
+	$("#HPhone1").bind('focusin keyup', function(){
+        var check_p = /^[0-9]*$/;
+        if(!check_p.test(this.value)){
+            this.value="";
+            alert('숫자만 입력하세요');
+        }
+    });
+	
+	$("#HPhone2").bind('focusin keyup', function(){
+        var check_p = /^[0-9]*$/;
+        if(!check_p.test(this.value)){
+            this.value="";
+            alert('숫자만 입력하세요');
+        }
+    });
+	
+		 
+})
+
+
+
+
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의자격증</title>
@@ -322,9 +440,7 @@
     }
   }).open();
 }
-    $(function(){
-    	
-    })
+
   
   </script>
 
@@ -332,14 +448,14 @@
     <h2 align="center">Join</h2>
     <form action="joinOK.do" method="post">
         <a class="i_d">아이디</a>
-        <input type="text" class="id" name="id">
-        <input type="submit" class="idcheck" name="username" " value="중복확인">&nbsp;<br>
+        <input type="text" class="id" name="id" id="id">
+        <input type="submit" class="idcheck" name="username" value="중복확인">&nbsp;<br>
         <a class="passwd">비밀번호</a>
-        <input type="password" class="pwd" name="pwd" ><br>
+        <input type="password" class="pwd" id="pwd"name="pwd" ><br>
         <a class="passwdche">비밀번호확인</a>
-        <input type="password" class="pwdCheck" name="pwdCheck" ><br>
+        <input type="password" class="pwdCheck"  id="pwd2" name="pwdCheck" ><br>
         <a class="Na">이름</a>
-        <input type="text" class="name" name="name" ><br>
+        <input type="text" class="name" name="name" id="name" placeholder="한글만 입력 가능합니다"><br>
         <a class="adr">주소</a>
         <input type="text" id="sample4_postcode" name="address1" placeholder="우편번호">
         <input type="button" class="addresscheck" onclick="sample4_execDaumPostcode()" value="찾기"><br>
@@ -486,11 +602,7 @@
         <br>
         <span class="interest">관심목록</span>
         <select name="interest" id="interest">
-        	<option>1</option>
-        	<option>2</option>
-        	<option>3</option>
-        	<option>4</option>
-        	<option>5</option>
+
         </select>
 
         <br>
@@ -508,7 +620,7 @@
         </div>
        
        
-        <input type="submit" class="join" value="가입하기">
+        <input type="submit" class="join" value="가입하기" id="btnSub">
 
     </form>
 </div>

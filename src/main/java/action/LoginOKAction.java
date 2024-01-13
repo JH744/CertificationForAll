@@ -14,21 +14,26 @@ public class LoginOKAction implements SistAction {
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String viewPage="LoginOK.jsp";
+		String viewPage="loginOK.jsp";
 		UserDAO dao = new UserDAO();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		
 		String u_id=dao.login(id, pwd);
-		if(u_id==null) {
-			viewPage="login.jsp";
-			System.out.println("로그인실패");
-		}
 		
 		HttpSession session = request.getSession();
+		
 		session.setAttribute("id", u_id);
 		
+		if(u_id==null) {
+			viewPage="error.jsp";
+			request.setAttribute("msg", "로그인 정보가 없습니다");
+			request.setAttribute("loginAgain", "로그인");
+		}
 		
+		
+		
+		System.out.println(session.getAttribute("id"));
 		return viewPage;
 		
 		

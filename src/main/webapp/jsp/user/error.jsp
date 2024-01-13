@@ -45,13 +45,14 @@ body{
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">회원가입 완료</h3>
+			      			<h3 class="mb-4">ID찾기</h3>
 			      		</div>								
 			      	</div>
 			      		<div class="form-group mb-3">
 			      			
-			      			<h1 class="label">회원가입이 완료되었습니다</h1>
-			      			<a href="login.do">로그인</a>
+			      			<label class="label">${msg }</label>
+			      			<a href="login.do">${loginAgain}</a>
+			      			
 			      		</div>
 		            
 		            <div class="form-group d-md-flex">
