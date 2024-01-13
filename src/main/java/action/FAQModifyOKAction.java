@@ -6,12 +6,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class StudyApplyAction implements SistAction {
+public class FAQModifyOKAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		return "studyPostDetail.jsp";
+		return "FAQDetail.jsp";
 	}
 
 }
