@@ -37,7 +37,7 @@ public class UserDAO {
 		
 		return re;						
 	}
-	
+	//로그인메소드
 	public String login(String id, String pwd) {
 		
 		String sql = "select * from users where u_id=? and u_pw=?";
@@ -60,7 +60,7 @@ public class UserDAO {
 		}
 		return u_id;
 	}
-	
+	//아이디찾기 메소드
 	public String idFind(String id, String phone) {
 		String sql = "select u_id from users where u_name=? and u_phone=?";
 		String u_id = null;
@@ -81,6 +81,7 @@ public class UserDAO {
 		return u_id;
 				
 	}
+	//비밀번호 찾기 메소드
 	public String pwFind(String id, String name) {
 		String sql ="select u_pw from users where u_id=? and u_name=?";
 		String u_pw=null;
