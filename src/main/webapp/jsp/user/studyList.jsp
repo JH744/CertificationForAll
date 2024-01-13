@@ -167,7 +167,7 @@
 				<br>
 				<ul class="question-list">
 					<li class="question-container"><a class="e-click-post"
-						href="/studies/1136817/삼성역-코엑스-웹개발-모각코">
+						href="studyPostDetail.do">
 
 							<div class="question">
 								<div class="question__info">
