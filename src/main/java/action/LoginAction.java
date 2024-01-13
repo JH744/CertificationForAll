@@ -12,7 +12,7 @@ public class LoginAction implements SistAction {
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String viewPage = "login.jsp";
 		
-		
+			
 		return viewPage;
 	}
 
