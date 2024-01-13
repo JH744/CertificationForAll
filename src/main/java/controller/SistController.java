@@ -47,7 +47,6 @@ public class SistController extends HttpServlet {
     			String clsName = prop.getProperty(key);
     			Object obj = Class.forName(clsName).newInstance();
     			map.put(key,(SistAction)obj);
-    			
     		}
     		fr.close();
     	}catch(Exception e) {
@@ -66,9 +65,9 @@ public class SistController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.indexOf("/",1)+1);
-		System.out.println(cmd + " , URL");
+		System.out.println(cmd);
 		SistAction action = map.get(cmd);
-		System.out.println(action + " , action");
+		System.out.println(action);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
 		request.setAttribute("admin", "admin");
