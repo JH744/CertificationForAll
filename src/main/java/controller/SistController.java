@@ -38,6 +38,7 @@ public class SistController extends HttpServlet {
     	String path = config.getServletContext().getRealPath("WEB-INF");
     	try {
     		FileReader fr = new FileReader(path+"/sist.properties");
+    		System.out.println(fr);
     		Properties prop = new Properties();
     		prop.load(fr);
     		Set keyList = prop.keySet();
@@ -47,6 +48,7 @@ public class SistController extends HttpServlet {
     			String clsName = prop.getProperty(key);
     			Object obj = Class.forName(clsName).newInstance();
     			map.put(key,(SistAction)obj);
+    			
     		}
     		fr.close();
     	}catch(Exception e) {
@@ -65,9 +67,9 @@ public class SistController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.indexOf("/",1)+1);
-		System.out.println(cmd);
+		System.out.println(cmd + " , URL");
 		SistAction action = map.get(cmd);
-		System.out.println(action);
+		System.out.println(action + " , action");
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
 		request.setAttribute("admin", "admin");
