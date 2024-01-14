@@ -114,8 +114,6 @@
 			목록으로
 		</button>
 	</div>
-		
-		
 	</div>
 </body>
 </html>
