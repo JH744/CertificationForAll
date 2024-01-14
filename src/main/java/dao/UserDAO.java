@@ -11,16 +11,43 @@ import db.ConnectionProvider;
 import vo.UserVO;
 
 public class UserDAO {
+	// 회원 복수 삭제
+		public int userAllDelete(String[] arr) {
+			int re = -1;
+			String sql = "delete from users where u_id in (";
+			
+			for (int i = 0; i < arr.length; i++) {
+				sql += arr[i];
+				if (i < arr.length - 1) {
+					sql += ", ";
+				}
+			}
+			
+			sql += ")";
+			
+			try {
+				Connection conn = ConnectionProvider.getConnection();
+				Statement stmt = conn.createStatement();
+				re = stmt.executeUpdate(sql);
+				
+				ConnectionProvider.close(conn, stmt);
+				
+			} catch (Exception e) {
+				System.out.println("체크 유저 삭제 " + e.getMessage());
+			}
+			
+			return re;
+		}
+	
 	// 회원 삭제
-	public int usersDelete(String id, String pw) {
+	public int usersDelete(String id) {
 		int re = -1;
-		String sql = "delete from users where u_id=? and u_pw=?";
+		String sql = "delete from users where u_id=?";
 		
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
 			
 			re = pstmt.executeUpdate();
 			

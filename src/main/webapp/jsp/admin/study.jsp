@@ -10,9 +10,7 @@
 <body class="sb-nav-fixed">
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">스터디</h1>
-		<ol class="breadcrumb mb-4">
-		</ol>
-
+		<form method="post" action="studyAllDelete.do">
 		<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table me-1"></i> 스터디 글 목록
@@ -50,13 +48,17 @@
 							<td>${s.s_state }</td>
 							<td>${s.s_id }</td>
 							<td>${s.e_id }</td>
-							<td><input type="checkbox"></td>
+							<td><input type="checkbox" value="${s.s_id }" id="del_id"></td>
 						</tr>
 					</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<div>
+			<input type="submit" value="삭제" style="float: right;">		
+		</div>
+		</form>
 	</div>
 </body>
 </html>

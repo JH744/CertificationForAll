@@ -6,11 +6,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdmiUserAction implements SistAction {
+import dao.QnaDAO;
+
+public class AdminQnaDeleteAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return "user.jsp";
+		int q_id = Integer.parseInt(request.getParameter("q_id"));	
+		QnaDAO dao = new QnaDAO();
+		dao.qnaDelete(q_id);
+		
+		
+		return "qna.jsp";
 	}
-
 }

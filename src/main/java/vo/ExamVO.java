@@ -14,6 +14,7 @@ public class ExamVO {
 	private int mdobligfldcd;//중직무분야코드
 	private String mdobligfldnmm;//중직무분야명
 	private String detail; //상세설명
+	private int e_count;
 	public int getE_id() {
 		return e_id;
 	}
@@ -92,12 +93,15 @@ public class ExamVO {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-	public ExamVO() {
-		super();
-		// TODO Auto-generated constructor stub
+	public int getE_count() {
+		return e_count;
+	}
+	public void setE_count(int e_count) {
+		this.e_count = e_count;
 	}
 	public ExamVO(int e_id, String qualgbcd, String qualgbnm, int seriescd, String seriesnm, int jmcd, String jmfldnm,
-			int y_id, int obligfldcd, String obligfldnm, int mdobligfldcd, String mdobligfldnmm, String detail) {
+			int y_id, int obligfldcd, String obligfldnm, int mdobligfldcd, String mdobligfldnmm, String detail,
+			int e_count) {
 		super();
 		this.e_id = e_id;
 		this.qualgbcd = qualgbcd;
@@ -112,8 +116,12 @@ public class ExamVO {
 		this.mdobligfldcd = mdobligfldcd;
 		this.mdobligfldnmm = mdobligfldnmm;
 		this.detail = detail;
+		this.e_count = e_count;
 	}
-	
-	
+	public ExamVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	
 }

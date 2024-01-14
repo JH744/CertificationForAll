@@ -1,7 +1,6 @@
 package action;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,14 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import dao.InquiryDAO;
 import vo.InquiryVO;
 
-public class AdminInquiryListAction implements SistAction {
+public class AdminInquiryAnswerDeleteAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int i_id = Integer.parseInt(request.getParameter("i_id"));
 		InquiryDAO dao = new InquiryDAO();
-		ArrayList<InquiryVO> list = dao.inquiryList();
-		request.setAttribute("list", list);
-		return "inquiry.jsp";
+		InquiryVO i = dao.inquiryAnswerDelete(i_id);
+		String viewPage = "inquiry.jsp";
+		if (i == null) {
+			viewPage = "detailInquiry.jsp";
+		}
+		
+		request.setAttribute("vo", i);
+		
+		return viewPage;
 	}
 
 }

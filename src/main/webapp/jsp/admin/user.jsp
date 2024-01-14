@@ -10,9 +10,7 @@
 <body class="sb-nav-fixed">
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">회원관리</h1>
-		<ol class="breadcrumb mb-4">
-		</ol>
-
+		<form method="post" action="userAllDelete.do">
 		<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table me-1"></i> 회원 목록
@@ -47,13 +45,17 @@
 							<td>${u.u_birth }</td>
 							<td>${u.u_addr }</td>
 							<td>${u.u_interest }</td>
-							<td><input type="checkbox"></td>
+							<td><input type="checkbox" id="del_id" value="${u.u_id }"></td>
 						</tr>
 					</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<div>
+			<input type="submit" value="삭제" style="float: right;">		
+		</div>
+		</form>
 	</div>
 </body>
 </html>

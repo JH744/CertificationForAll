@@ -6,11 +6,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdminExamAction implements SistAction {
+import dao.UserDAO;
+
+public class AdminUserDeleteAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return "exam.jsp";
+		String u_id = request.getParameter("u_id");
+		UserDAO dao = new UserDAO();
+		dao.usersDelete(u_id);
+		
+		return "user.jsp";
 	}
 
 }

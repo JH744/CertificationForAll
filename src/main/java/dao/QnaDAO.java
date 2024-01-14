@@ -10,6 +10,34 @@ import db.ConnectionProvider;
 import vo.QnaVO;
 
 public class QnaDAO {
+	// QNA 복수 삭제
+	public int qnaAllDelete(String[] arr) {
+		int re = -1;
+		String sql = "delete from qna where q_id in (";
+		
+		for (int i = 0; i < arr.length; i++) {
+			sql += Integer.parseInt(arr[i]);
+			if (i < arr.length - 1) {
+				sql += ", ";
+			}
+		}
+		
+		sql += ")";
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement stmt = conn.createStatement();
+			re = stmt.executeUpdate(sql);
+			
+			ConnectionProvider.close(conn, stmt);
+			
+		} catch (Exception e) {
+			System.out.println("체크 qna 삭제 " + e.getMessage());
+		}
+		
+		return re;
+	}
+	
 	// QNA 상세
 	public QnaVO qnaDetail(int q_id) {
 		QnaVO q = new QnaVO();

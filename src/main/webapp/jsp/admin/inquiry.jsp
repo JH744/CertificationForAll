@@ -10,9 +10,7 @@
 <body class="sb-nav-fixed">
 	<div class="container-fluid px-4">
 		<h1 class="mt-4">문의</h1>
-		<ol class="breadcrumb mb-4">
-		</ol>
-
+		<form method="post" action="inquiryAllDelete.do">
 		<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table me-1"></i> 문의 글 목록
@@ -57,9 +55,10 @@
 				</table>
 			</div>
 		</div>
-			<form style="display:nonep;float:right;">
-				<input type="submit" value="삭제">
-			</form>
+			<div>
+			<input type="submit" value="삭제" style="float: right;">		
+		</div>
+		</form>
 	</div>
 </body>
 </html>

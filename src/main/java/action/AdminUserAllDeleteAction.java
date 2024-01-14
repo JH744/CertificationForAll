@@ -6,11 +6,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdminInquiryAction implements SistAction {
+import dao.QnaDAO;
+import dao.UserDAO;
+
+public class AdminUserAllDeleteAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return "inquiry.jsp";
-	}
+		String[] id_arr = request.getParameterValues("del_id");
+		
+		UserDAO dao = new UserDAO();
+		dao.userAllDelete(id_arr);
 
+		return "user.jsp";
+	}
 }
