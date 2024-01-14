@@ -15,7 +15,7 @@
 	}
 </style>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>모두의 자격증 - 모자</title>
 </head>
 <body>
 	<header class="bg-dark py-5">

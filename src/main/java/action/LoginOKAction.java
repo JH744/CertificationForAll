@@ -18,7 +18,7 @@ public class LoginOKAction implements SistAction {
 		UserDAO dao = new UserDAO();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		
+		System.out.println("id:"+id+" pwd:"+pwd);
 		String u_id=dao.login(id, pwd);
 		
 		HttpSession session = request.getSession();

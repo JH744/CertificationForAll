@@ -10,8 +10,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-
 .ac-button.is-text {
 	border: unset;
 	background-color: unset;
@@ -19,11 +17,9 @@
 	font-weight: 500;
 }
 
-
 .rounded-pill {
 	background: #FF8C00;
 }
-
 </style>
 </head>
 <body>
@@ -86,8 +82,7 @@
 				</form>
 			</div>
 			<div class="question-list-container">
-				<div class="posts-container-header"
-					style="overflow: hidden;">
+				<div class="posts-container-header" style="overflow: hidden;">
 					<!--sort 셀렉터(템플릿 이중 관리)-->
 					<div class="ac-dropdown--text order-mb e-sel-order "
 						style="float: left;">
