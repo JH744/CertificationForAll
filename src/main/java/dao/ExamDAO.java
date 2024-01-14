@@ -12,7 +12,81 @@ import vo.ExamVO;
 
 public class ExamDAO {
 	
-	//대분류코드 목록 리스트 출력 메소드
+	//페이징 처리 위한 변수
+	public static int pageSize=20;
+	public static int totalRecord=0;
+	public static int totalPage=0;
+	
+	public int getTotalRecord() {
+		int re=0;
+		String sql ="select count(*) from exam";
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				re=rs.getInt(1);
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return re;
+		
+	}
+	
+	
+	public ArrayList<ExamVO> pagingExam(int pageNum){
+		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
+		
+		totalRecord=getTotalRecord();
+		totalPage=(int)Math.ceil(totalRecord*1.0/pageSize);
+		
+		int start = (pageNum-1)*pageSize +1;
+		int end = start+pageSize-1;
+		if(end>totalRecord) {
+			end=totalRecord;
+		}
+		String sql ="SELECT e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img FROM (  SELECT rownum n, e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img FROM ( SELECT e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img FROM exam ORDER BY e_id DESC ))a WHERE a.n between ? and ?";
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new ExamVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9),rs.getString(10),rs.getInt(11),rs.getString(12),rs.getString(13),rs.getInt(14),rs.getString(15)));
+
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+		}catch (Exception e) {
+			System.out.println("paging 오류 : " + e.getMessage());
+		}
+		return list;
+	}
+	
+	
+	
+	//대직무분야명 목록 리스트 출력메소드
+	public ArrayList<String> obligfldnmList(){
+		ArrayList<String> list = new ArrayList<String>();
+		String sql = "select distinct obligfldnm from exam where obligfldnm is not null";
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt= conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString(1));
+			}
+		ConnectionProvider.close(conn, pstmt, rs);	
+		}
+		
+		catch(Exception e) {
+			System.out.println("목록 출력 실패 : " + e.getMessage());
+		}
+		return list;
+	}
+	//중직무분야명 목록 리스트 출력 메소드
 	public ArrayList<String> mdobligfldnmList(){
 		ArrayList<String> list = new ArrayList<String>();
 		String sql = "select distinct mdobligfldnm from exam where mdobligfldnm is not null";
@@ -31,6 +105,27 @@ public class ExamDAO {
 		}
 		return list;
 	}
+	
+	//자격증 총 갯수 출력
+	public int totalExamCount() {
+		String sql = "select count(*) from exam";
+		int re=0;
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				re = rs.getInt(1);
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+			
+		}catch(Exception e) {
+			System.out.println("총 시험 갯수 출력오류 : "+ e.getMessage()); 
+		}
+		return re;
+	}
+	
+	
 	//조회수가 높은 시험수 4개 정보 출력
 	public ArrayList<ExamVO> bestExamList(){
 		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
@@ -50,6 +145,26 @@ public class ExamDAO {
 		}
 		return list;
 	}
+	
+	//전체 자격증 목록 출력
+	public ArrayList<ExamVO> examList(){
+		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
+		String sql ="select * from exam";
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new ExamVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9),rs.getString(10),rs.getInt(11),rs.getString(12),rs.getString(13),rs.getInt(14),rs.getString(15)));
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+					
+		}catch(Exception e) {
+			System.out.println("자격증 전체 목록 출력오류 : " + e.getMessage());
+		}
+		return list;
+	}
+	
 	//유튜브 링크 조인해서 가져오는 메소드
 	public ArrayList<HashMap<String, Object>> listYoutube(){
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String,Object>>();

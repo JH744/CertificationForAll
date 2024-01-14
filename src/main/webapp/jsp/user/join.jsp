@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="utf-8">
 
 <head>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-
-
+function check() {
+	
+    if (!$("#id").val()) {
+        alert("아이디를 입력해주세요!");
+    } else {
+        var url = 'idCheck.do?id=' + $("#id").val();
+        open(url, 'confirm', 'menubar=no, statusbar=no, scrollbar=no, width=400, height=400');
+    }
+}
+		
 $(function(){
-	
-	
-	
-	
 	$("#btnSub").click(function(event){
 		var id = $("#id").val()
 		var pw =$("#pwd").val()
@@ -29,6 +33,10 @@ $(function(){
 			alert("아이디를 입력해주세요")
 			$("#id").focus()
 			
+		}
+		else if($("#idDuplicate").val()!="idCheck"){
+			event.preventDefault()
+			alert("아이디 중복체크를 진행해주세요")
 		}
 		else if(!pw){
 			event.preventDefault()
@@ -91,6 +99,7 @@ $(function(){
              alert('한글만 입력하세요');
          }
      });
+	$("#")
 	 $("#id").bind('focusin keyup', function(){
          var check = /^[a-zA-Z0-9]*$/;
          if(!check.test(this.value)){
@@ -449,7 +458,8 @@ $(function(){
     <form action="joinOK.do" method="post">
         <a class="i_d">아이디</a>
         <input type="text" class="id" name="id" id="id">
-        <input type="submit" class="idcheck" name="username" value="중복확인">&nbsp;<br>
+        <input type="button" class="idcheck" name="username" id="idcheck" value="중복확인" onclick="check()">&nbsp;<br>
+        <input type="hidden" value="idUncheck" id="idDuplicate" name="idDuplicate">
         <a class="passwd">비밀번호</a>
         <input type="password" class="pwd" id="pwd"name="pwd" ><br>
         <a class="passwdche">비밀번호확인</a>

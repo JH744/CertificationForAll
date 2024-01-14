@@ -44,5 +44,6 @@ $(function(){
 	<div id="footer" style="position : absolute;">
 		<jsp:include page="footer.jsp"/>
 	</div>
+	
 </body>
 </html>

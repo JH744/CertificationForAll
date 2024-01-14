@@ -151,7 +151,7 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
         <h1 id="headerLogo"><a href="homepage.do"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
         <nav id="headerMenuBar">
             <ul id="headerGnb">
-                <li><a href="#">자격증정보</a></li>
+                <li><a href="examSearch.do">자격증정보</a></li>
                 <li><a href="studyList.do">스터디모집</a></li>
                 <li><a href="#">마이페이지</a></li>
                 <li><a href="#">고객센터</a></li>
