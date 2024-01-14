@@ -130,22 +130,31 @@
             <div class="custom-pagination ml-auto">
          
               <div class="d-inline-block">
-			            <c:set var="currentPage" value="${param.pageNUM ne null ? param.pageNUM : 1}" />
+<c:set var="currentPage" value="${param.pageNUM ne null ? param.pageNUM : 1}" />
+<c:set var="startRange" value="${currentPage - 2}" />
+<c:set var="endRange" value="${currentPage + 2}" />
+<c:if test="${startRange < 1}">
+  <c:set var="startRange" value="1" />
+  <c:set var="endRange" value="5" />
+</c:if>
+<c:if test="${endRange > totalPage}">
+  <c:set var="endRange" value="${totalPage}" />
+  <c:set var="startRange" value="${totalPage - 4}" />
+</c:if>
+
 <c:if test="${currentPage > 1}">
   <a href="examSearch.do?pageNUM=${currentPage - 1}">&lt;</a>
 </c:if>
 
-<c:forEach var="i" begin="1" end="${totalPage}" varStatus="loop">
-  <c:if test="${loop.index <= 5}">
-    <c:choose>
-      <c:when test="${loop.index == currentPage}">
-        <span>${loop.index}&nbsp;</span>
-      </c:when>
-      <c:otherwise>
-        <a href="examSearch.do?pageNUM=${loop.index}">${loop.index}&nbsp;</a>
-      </c:otherwise>
-    </c:choose>
-  </c:if>
+<c:forEach var="i" begin="${startRange}" end="${endRange}" varStatus="loop">
+  <c:choose>
+    <c:when test="${loop.index == currentPage}">
+      <span>${loop.index}&nbsp;</span>
+    </c:when>
+    <c:otherwise>
+      <a href="examSearch.do?pageNUM=${loop.index}">${loop.index}&nbsp;</a>
+    </c:otherwise>
+  </c:choose>
 </c:forEach>
 
 <c:if test="${currentPage < totalPage}">
