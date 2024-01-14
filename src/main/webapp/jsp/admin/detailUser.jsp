@@ -18,22 +18,24 @@
 </head>
 <body>
 	<div style="width: 80%; height: auto; margin: auto;padding:20px;">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">${q.q_title }</h5>
-				<h6 class="card-subtitle mb-2 text-body-secondary">관리자</h6>
-				<hr>
-				<p style="height: 100%;" class="card-text">${q.q_answer }</p>
-			</div>
+		<div class="card" style="width: 18rem;">
+		  <img src="..." class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">${u.u_name }</h5>
+		    <p class="card-text">관심목록 ${u.u_interest }</p>
+		  </div>
+		  <ul class="list-group list-group-flush">
+		    <li class="list-group-item">아이디 : ${u.u_id }</li>
+		    <li class="list-group-item">생일 : ${u.u_birth }</li>
+		    <li class="list-group-item">전화번호 : ${u.u_phone }</li>
+		    <li class="list-group-item">주소 : ${u.u_addr }</li>
+		  </ul>
+		  <div class="card-body">
+		    <a href="deleteUser.do?u_id=${u.u_id }" class="card-link">삭제</a>
+		  </div>
 		</div>
-		<button style="float:left;" onclick="location.href='qna.do'">
+		<button style="float:right;" onclick="location.href='user.do'">
 			목록으로
-		</button>
-		<button value="수정" style="float:right;" onclick="location.href='qnaUpdate.do?q_id=${q.q_id}'">
-			수정
-		</button>
-		<button value="삭제" style="float:right;" onclick="location.href='qnaDelete.do?q_id=${q.q_id}'">
-			삭제
 		</button>
 	</div>
 </body>

@@ -25,7 +25,7 @@
 		<a class="navbar-brand ps-3" href="index.html">모두의 자격증</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-			id="sidebarToggle" href="#!">
+			id="sidebarToggle" href="qna.do">
 			<i class="fas fa-bars"></i>
 		</button>
 		<!-- Navbar Search-->
@@ -92,7 +92,7 @@
 								<a class="nav-link" href="qna.do">자주 묻는 질문 목록</a>
 							</nav>
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="insertQna.do">자주 묻는 질문 추가</a>
+								<a class="nav-link" href="qnaInsert.do">자주 묻는 질문 추가</a>
 							</nav>
 						</div>
 						<div class="sb-sidenav-menu-heading">관리</div>

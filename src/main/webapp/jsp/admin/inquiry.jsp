@@ -44,7 +44,7 @@
 					<tbody>
 						<c:forEach var="i" items="${list }">
 						<tr>
-							<td><a>${i.i_id }</a></td>
+							<td><a href="inquiryDetail.do?i_id=${i.i_id }">${i.i_id }</a></td>
 							<td>${i.i_title }</td>
 							<td>${i.i_content }</td>
 							<td>${i.i_inquiryDate }</td>

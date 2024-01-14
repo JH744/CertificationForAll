@@ -38,7 +38,7 @@
 					<tbody>
 						<c:forEach var="q" items="${list }">
 						<tr>
-							<td><a>${q.q_id }</a></td>
+							<td><a href="qnaDetail.do?q_id=${q.q_id }">${q.q_id }</a></td>
 							<td>${q.q_title }</td>
 							<td>${q.q_answer }</td>
 							<td><input type="checkbox"></td>

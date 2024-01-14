@@ -42,7 +42,7 @@
 					<tbody>
 					<c:forEach var="u" items="${list }">
 						<tr>
-							<td><a>${u.u_id }</a></td>
+							<td><a href="userDetail.do?u_id=${u.u_id }">${u.u_id }</a></td>
 							<td>${u.u_name }</td>
 							<td>${u.u_birth }</td>
 							<td>${u.u_addr }</td>

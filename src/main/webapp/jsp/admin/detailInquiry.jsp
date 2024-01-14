@@ -34,6 +34,7 @@
 			    <h5 class="card-title">관리자</h5>
 			    <h6 class="card-subtitle mb-2 text-body-secondary">${vo.i_answerDate }</h6>
 			    <p class="card-text">${vo.i_answer }</p>
+			    <a href="inquiryAnswerDelete.do?i_id=${vo.i_id }" style="float:right;">삭제</a>
 			  </div>
 			</div>
 		</c:if>
@@ -46,6 +47,9 @@
 			<input type="submit" value="답변하기" style="float:right;">
 		</form>
 		</c:if>
+		<button style="float:right;" onclick="location.href='inquiry.do'">
+			목록으로
+		</button>
 	</div>
 </body>
 </html>

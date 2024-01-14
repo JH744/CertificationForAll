@@ -58,7 +58,9 @@
 			</div>
 		</div>
 		<div>
-		<input type="submit" value="삭제" style="float:right;">
+			<form method="post">
+				<input type="submit" value="삭제" style="float:right;">
+			</form>
 		</div>
 	</div>
 	
