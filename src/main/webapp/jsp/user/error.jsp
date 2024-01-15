@@ -51,7 +51,7 @@ body{
 			      		<div class="form-group mb-3">
 			      			
 			      			<label class="label">${msg }</label>
-			      			<a href="login.do">${loginAgain}</a>
+			      			<a href="login.do">로그인</a>
 			      			
 			      		</div>
 		            

@@ -19,8 +19,8 @@ public class PwFindOKAction implements SistAction {
 		
 		String u_id = dao.idFind(id,name);
 		if(u_id==null) {
-			request.setAttribute("msg", "찾으시는 아이디가 없습니다");
-			viewPage="idFind.jsp";
+			request.setAttribute("msg", "찾으시는 비밀번호가 없습니다");
+			viewPage="error.jsp";
 		}
 		request.setAttribute("findId", u_id);
 		return viewPage;

@@ -114,6 +114,7 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 }
 
 #headerTopMenu {
+
 	padding-bottom: 13px !important;
 	position: relative !important;
 }
@@ -151,7 +152,7 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
         <h1 id="headerLogo"><a href="homepage.do"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
         <nav id="headerMenuBar">
             <ul id="headerGnb">
-                <li><a href="#">자격증정보</a></li>
+                <li><a href="examSearch.do">자격증정보</a></li>
                 <li><a href="studyList.do">스터디모집</a></li>
                 <li><a href="#">마이페이지</a></li>
                 <li><a href="#">고객센터</a></li>
@@ -164,12 +165,12 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 	            <c:when test="${id eq null}"><li><a href="login.do">로그인</a></li>
 	            <span style="none">&nbsp;|&nbsp;</span>
                 <li><a href="join.do">회원가입</a></li>
-                <i class="fa-solid fa-magnifying-glass"></i>
+                
                 </c:when>
             </c:choose>
                 
             </ul>
-            <input id="headerSearchBar" name="headerSearchBar" type="text" size="28" />
+
         </div>
 
     </header>

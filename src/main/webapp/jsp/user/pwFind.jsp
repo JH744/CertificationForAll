@@ -192,7 +192,7 @@
 			      			<h3 class="mb-4">PW찾기</h3>
 			      		</div>								
 			      	</div>
-							<form action="#" class="signin-form">
+							<form action="pwFindOK.do" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">ID</label>
 			      			<input type="text" class="form-control" name="id" placeholder="아이디" required>
