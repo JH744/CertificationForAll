@@ -36,9 +36,9 @@ public class ExamDAO {
 	}
 	
 	
-	public ArrayList<ExamVO> pagingExam(int pageNum){
+	public ArrayList<ExamVO> pagingExam(int pageNum, String search, String bCate){
 		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
-		
+		System.out.println("paging실행");
 		totalRecord=getTotalRecord();
 		totalPage=(int)Math.ceil(totalRecord*1.0/pageSize);
 		
@@ -47,12 +47,30 @@ public class ExamDAO {
 		if(end>totalRecord) {
 			end=totalRecord;
 		}
-		String sql ="SELECT e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img FROM (  SELECT rownum n, e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img FROM ( SELECT e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img FROM exam ORDER BY e_id DESC ))a WHERE a.n between ? and ?";
+		if(search==null) {
+			search="";
+		}
+		if(bCate==null) {
+			bCate="";
+		}
+		String sql ="SELECT e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img " +
+				"FROM ( " +
+				"    SELECT e_id, qualgbcd, qualgbnm, seriescd, seriesnm, jmcd, jmfldnm, y_id, obligfldcd, obligfldnm, mdobligfldcd, mdobligfldnm, detail, e_count, img, " +
+				"           ROW_NUMBER() OVER (ORDER BY e_id DESC) AS rnum " +
+				"    FROM exam " +
+				"    WHERE jmfldnm LIKE '%"+search+"%' AND obligfldnm LIKE '%"+bCate+"%' " +
+				") " +
+				"WHERE rnum BETWEEN ? AND ?";
+		
+		
+		System.out.println(sql);
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
+			System.out.println(start);
+			System.out.println(end);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				list.add(new ExamVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9),rs.getString(10),rs.getInt(11),rs.getString(12),rs.getString(13),rs.getInt(14),rs.getString(15)));
@@ -189,4 +207,3 @@ public class ExamDAO {
 		
 	}
 	
-

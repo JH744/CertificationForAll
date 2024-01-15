@@ -8,16 +8,15 @@
   <script>
   
   $(function(){
-	  $.each(${sCate},function(){
-			var option = $("<option></option>").html(this);
-			$(option).attr("select",this);
-			$("#sCate").append(option);
-		})	  
+
 	  $.each(${bCate},function(){
 			var option = $("<option></option>").html(this);
 			$(option).attr("select",this);
 			$("#bCate").append(option);
+			$("select").attr("name","bCate");
+
 		})	  
+
   })
  
   </script>
@@ -76,10 +75,10 @@
                   </select>
                 </div>
 				<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                  <input type="text" class="form-control form-control-lg" placeholder="자격증명">
+                  <input type="text" class="form-control form-control-lg" name="search" placeholder="자격증명">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                  <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>자격증 검색</button>
+                  <button type="submit" id="examSearch" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>자격증 검색</button>
                 </div>
               </div>
              
@@ -102,20 +101,21 @@
         <ul class="job-listings mb-5">
           <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
             <a href="job-single.html"></a>
+                            <h3>${list.qualgbnm }</h2>
+            
             <div class="job-listing-logo">
-              <img src="../../image/${list.img }" alt="Image" class="img-fluid">
             </div>
 
             <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
               <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
                 <h2>${list.jmfldnm }</h2>
-                <strong>${list.qualgbnm}</strong>
+                <strong>${list.seriesnm}</strong>
               </div>
               <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
                  ${list.mdobligfldnmm}
               </div>
               <div class="job-listing-meta">
-                <button>상세보기</button>
+                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'">상세보기</button>
               </div>
             </div>
             
@@ -130,7 +130,7 @@
             <div class="custom-pagination ml-auto">
          
               <div class="d-inline-block">
-<c:set var="currentPage" value="${param.pageNUM ne null ? param.pageNUM : 1}" />
+<c:set var="currentPage" value="${param.pageNum ne null ? param.pageNum : 1}" />
 <c:set var="startRange" value="${currentPage - 2}" />
 <c:set var="endRange" value="${currentPage + 2}" />
 <c:if test="${startRange < 1}">
@@ -143,22 +143,25 @@
 </c:if>
 
 <c:if test="${currentPage > 1}">
-  <a href="examSearch.do?pageNUM=${currentPage - 1}">&lt;</a>
+  <a href="examSearch.do?pageNum=${currentPage - 1}">&lt;</a>
 </c:if>
 
+
+<c:when test="${search ne null}">
 <c:forEach var="i" begin="${startRange}" end="${endRange}" varStatus="loop">
   <c:choose>
     <c:when test="${loop.index == currentPage}">
       <span>${loop.index}&nbsp;</span>
     </c:when>
     <c:otherwise>
-      <a href="examSearch.do?pageNUM=${loop.index}">${loop.index}&nbsp;</a>
+      <a href="examSearch.do?pageNum=${loop.index}">${loop.index}&nbsp;</a>
     </c:otherwise>
   </c:choose>
 </c:forEach>
 
+</c:when>
 <c:if test="${currentPage < totalPage}">
-  <a href="examSearch.do?pageNUM=${currentPage + 1}">&gt;</a>
+  <a href="examSearch.do?pageNum=${currentPage + 1}">&gt;</a>
 </c:if>
               </div>
          

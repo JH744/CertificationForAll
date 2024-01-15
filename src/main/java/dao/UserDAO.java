@@ -103,25 +103,25 @@ public class UserDAO {
 	}
 	
 	//아이디 중복검사 메소드
-	public boolean idValidate(String id) {
+	public int idValidate(String id) {
 		String sql ="select u_id from users where u_id=?";
-		Boolean check =false;
+		int re =-1;
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
-				check=false;
+				re=0;
 				
 			}else {
-				check=true;
+				re=1;
 			}
 			ConnectionProvider.close(conn, pstmt, rs);
 		}catch(Exception e) {
 			System.out.println("아이디 중복검사 오류 : " + e.getMessage());
 		}
-		return check;
+		return re;
 		
 	}
 	
