@@ -152,7 +152,7 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 				<li><a href="#">자격증정보</a></li>
 				<li><a href="studyList.do">스터디모집</a></li>
 				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">고객센터</a></li>
+				<li><a href="faq_page.do">고객센터</a></li>
 			</ul>
 		</nav>
 		<div id="headerTopMenu">
