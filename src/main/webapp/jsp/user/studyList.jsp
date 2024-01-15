@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 .ac-button.is-text {
 	border: unset;
@@ -21,6 +21,11 @@
 	background: #FF8C00;
 }
 </style>
+<script>
+	window.onload = function() {
+		history.pushState(null, null, 'studyList.do');
+	}
+</script>
 </head>
 <body>
 
@@ -110,173 +115,65 @@
 
 				</div>
 				<br>
-				<ul class="question-list">
-					<li class="question-container"><a class="e-click-post"
-						href="studyPostDetail.do">
+				<c:forEach var="study" items="${studyList }">
+					<ul class="question-list">
+						<li class="question-container"><a class="e-click-post"
+							href="studyPostDetail.do?s_id=${study.s_id }">
 
-							<div class="question">
-								<div class="question__info">
-									<div class="question__title">
-										<div class="title-sub__text">
+								<div class="question">
+									<div class="question__info">
+										<div class="question__title">
+											<div class="title-sub__text">
 
-											<div
-												class="bootstrap-components question__status-tag question__status-tag--unrecruited">
-
-												<span class="badge rounded-pill"> 모집중 </span>
+												<div
+													class="bootstrap-components question__status-tag question__status-tag--unrecruited">
+													<c:if test="${study.s_state eq '모집중' }">
+														<span class="badge rounded-pill"> 모집중 </span>
+													</c:if>
+													<c:if test="${study.s_state eq '모집완료' }">
+														<span class="badge rounded-pill" style="background: gray">
+															모집완료 </span>
+													</c:if>
+												</div>
 
 											</div>
+											<h3 class="title__text">
+												${study.s_title } <span class="infd-icon title__icon">
 
+												</span>
+											</h3>
 										</div>
-										<h3 class="title__text">
-											삼성역, 코엑스 웹개발 모각코 <span class="infd-icon title__icon">
+										<p class="question__body">${study.s_content }</p>
 
-											</span>
-										</h3>
-									</div>
-									<p class="question__body">[개발 스터디 모집 내용 예시]스터디 주제 : 삼성역,
-										코엑스 웹개발 모각코스터디 목표 : 퇴근 후 모여 자기전까지 모각코&nbsp;예상 스터디 일정(횟수) : 일단
-										화,수로 시작예상 커리큘럼 간략히 :예상 모집인원 : 6스터디 소개와 개설 이유스터디 관련 주의사항 :스터디에
-										지원할 수 있는 방법을 남겨주세요. (이메일, 카카오 오픈채팅방, 구글폼 등.)댓글 남겨주시고 오픈채팅방
-										들어오시면 됩니다.https://open.kakao.com/o/gpr1kZ0f&nbsp;비번 0001</p>
-
-									<div class="question__info-footer">
-										<div class="question__info-detail">
-											<span class="question__info-user-name">지은</span> <span>&nbsp;·&nbsp;</span>
-											<span>10시간 전</span>
+										<div class="question__info-footer">
+											<div class="question__info-detail">
+												<span class="question__info-user-name">${study.u_id }</span>
+												<span>&nbsp;·&nbsp;</span> <span>${study.s_date }</span>
 
 
-										</div>
-										<div class="question__info-userData">
-											<dl>
-												<dt class="visually-hidden">좋아요</dt>
-												<dd class="comment__count">
-													<i class="fa-regular fa-heart"></i> <span class="text">0</span>
-												</dd>
-												<dt class="visually-hidden">조회수</dt>
-												<dd class="view__count">
-													<i class="fa-regular fa-eye"></i> <span class="text">72</span>
-												</dd>
-												<dt class="visually-hidden">댓글</dt>
-												<dd class="comment__count">
-													<i class="fa-regular fa-comment"></i> <span class="text">0</span>
-												</dd>
-											</dl>
+											</div>
+											<div class="question__info-userData">
+												<dl>
+													<dt class="visually-hidden">좋아요</dt>
+													<dd class="comment__count">
+														<i class="fa-regular fa-heart"></i> <span class="text">0</span>
+													</dd>
+													<dt class="visually-hidden">조회수</dt>
+													<dd class="view__count">
+														<i class="fa-regular fa-eye"></i> <span class="text">72</span>
+													</dd>
+													<dt class="visually-hidden">댓글</dt>
+													<dd class="comment__count">
+														<i class="fa-regular fa-comment"></i> <span class="text">0</span>
+													</dd>
+												</dl>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-					</a></li>
-					<li class="question-container"><a class="e-click-post"
-						href="/studies/1136723/온라인-코딩테스트-스터디-모집합니다-java">
-
-							<div class="question">
-								<div class="question__info">
-									<div class="question__title">
-										<div class="title-sub__text">
-
-											<div
-												class="bootstrap-components question__status-tag question__status-tag--unrecruited">
-
-												<span class="badge rounded-pill"> 모집중 </span>
-
-											</div>
-
-
-										</div>
-										<h3 class="title__text">
-											온라인 코딩테스트 스터디 모집합니다. (JAVA) <span
-												class="infd-icon title__icon"> </span>
-										</h3>
-									</div>
-									<p class="question__body">[개발 스터디 모집 내용 예시]스터디 주제 : 온라인
-										코딩테스트 스터디&nbsp;예상 스터디 일정(횟수) : 주 1-2회&nbsp;예상 커리큘럼: &nbsp;인프런
-										하루코딩님의 강의 알고리즘 코딩테스트 문제풀이 with JAVA - 입문편1를 한 주제씩 각자 시청하고 그
-										주제에 맞는 문제를 몇 개 선정한 후 서로 풀이한 내용을 공유 및 토론하는 방식으로 진행할
-										예정입니다.&nbsp;예상 모집인원 : 5~6명&nbsp;스터디에 지원할 수 있는 방법을 남겨주세요. (이메일,
-										카카오 오픈채팅방, 구글폼 등.) : https://open.kakao.com/o/sQce0a3f</p>
-
-									<div class="question__info-footer">
-										<div class="question__info-detail">
-											<span class="question__info-user-name">yeonjaery</span> <span>&nbsp;·&nbsp;</span>
-											<span>11시간 전</span>
-
-
-										</div>
-										<div class="question__info-userData">
-											<dl>
-												<dt class="visually-hidden">좋아요</dt>
-												<dd class="comment__count">
-													<i class="fa-regular fa-heart"></i> <span class="text">0</span>
-												</dd>
-												<dt class="visually-hidden">조회수</dt>
-												<dd class="view__count">
-													<i class="fa-regular fa-eye"></i> <span class="text">89</span>
-												</dd>
-												<dt class="visually-hidden">댓글</dt>
-												<dd class="comment__count">
-													<i class="fa-regular fa-comment"></i> <span class="text">0</span>
-												</dd>
-											</dl>
-										</div>
-									</div>
-								</div>
-							</div>
-					</a></li>
-					<li class="question-container"><a class="e-click-post"
-						href="/studies/1136409/일산-주말-모각코-오프라인">
-
-							<div class="question">
-								<div class="question__info">
-									<div class="question__title">
-										<div class="title-sub__text">
-
-											<div
-												class="bootstrap-components question__status-tag question__status-tag--unrecruited">
-
-												<span class="badge rounded-pill"> 모집중 </span>
-
-											</div>
-
-
-										</div>
-										<h3 class="title__text">
-											일산 주말 모각코(오프라인) <span class="infd-icon title__icon"> </span>
-										</h3>
-									</div>
-									<p class="question__body">안녕하세요 주말 오후에 카페에 같이 모여서개발 관련 공부하실
-										분들 모집합니다~각자 하고 싶은 공부 + 개발 관련 정보 공유 하면 좋을거 같아요 ㅎ장소는 정발산역 근처 카페가
-										될 것 같습니당대학생, 취준생, 직장인 분들 모두 환영입니다!부담없이 오실 수 있는 일산러분들
-										환영입니다~궁금하신 사항은 오픈카톡으로 질문주세요~https://open.kakao.com/o/gDl5282f
-									</p>
-
-									<div class="question__info-footer">
-										<div class="question__info-detail">
-											<span class="question__info-user-name">Ubik</span> <span>&nbsp;·&nbsp;</span>
-											<span>13시간 전</span>
-
-
-										</div>
-										<div class="question__info-userData">
-											<dl>
-												<dt class="visually-hidden">좋아요</dt>
-												<dd class="comment__count">
-													<i class="fa-regular fa-heart"></i> <span class="text">0</span>
-												</dd>
-												<dt class="visually-hidden">조회수</dt>
-												<dd class="view__count">
-													<i class="fa-regular fa-eye"></i> <span class="text">40</span>
-												</dd>
-												<dt class="visually-hidden">댓글</dt>
-												<dd class="comment__count">
-													<i class="fa-regular fa-comment"></i> <span class="text">0</span>
-												</dd>
-											</dl>
-										</div>
-									</div>
-								</div>
-							</div>
-					</a></li>
-				</ul>
+						</a></li>
+					</ul>
+				</c:forEach>
 			</div>
 			<br>
 			<nav class="pagination is-centered is-small" role="navagation"

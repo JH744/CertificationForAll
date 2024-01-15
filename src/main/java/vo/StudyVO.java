@@ -8,7 +8,7 @@ public class StudyVO {
 	private String s_title;
 	private String s_content;
 	private Date s_date;
-	private boolean s_state;
+	private String s_state;
 	private String u_id;
 	private String exam_name;
 	private int s_count;
@@ -43,10 +43,10 @@ public class StudyVO {
 	public void setS_date(Date s_date) {
 		this.s_date = s_date;
 	}
-	public boolean isS_state() {
+	public String isS_state() {
 		return s_state;
 	}
-	public void setS_state(boolean s_state) {
+	public void setS_state(String s_state) {
 		this.s_state = s_state;
 	}
 	public String getU_id() {
@@ -61,11 +61,17 @@ public class StudyVO {
 	public void setE_id(String exam_name) {
 		this.exam_name = exam_name;
 	}
+	public String getS_state() {
+		return s_state;
+	}
+	public void setExam_name(String exam_name) {
+		this.exam_name = exam_name;
+	}
 	public StudyVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public StudyVO(int s_id, String s_title, String s_content, Date s_date, boolean s_state, String u_id, String exam_name,int s_count) {
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id, String exam_name, int s_count) {
 		super();
 		this.s_id = s_id;
 		this.s_title = s_title;

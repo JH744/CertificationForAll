@@ -24,6 +24,7 @@ public class StudyPostWriteOKAction implements SistAction {
 		
 		StudyDAO dao = new StudyDAO();
 		dao.studyPostWrite(s_title, s_content, id, exam_name);
+		new StudyPostListAction().pro(request, response);
 		return "studyList.jsp";
 	}
 

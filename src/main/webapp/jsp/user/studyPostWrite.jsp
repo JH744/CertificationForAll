@@ -67,7 +67,6 @@
 						<span class="mantine-1ryt1ht mantine-Button-label">취소</span>
 					</div>
 				</button>
-
 			</div>
 		</form>
 	</div>
