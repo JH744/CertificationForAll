@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>╦П╣нюг юз╟щаУ - ╫цгХ</title>
+<title>К╙╗К▒░Л²≤ Л·░Й╡╘Л╕² - Л▀°М≈≤</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
 	rel="stylesheet" />
@@ -22,25 +22,14 @@
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.html">╦П╣нюг юз╟щаУ</a>
+		<a class="navbar-brand ps-3" href="exam.do">К╙╗К▒░Л²≤ Л·░Й╡╘Л╕²</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-			id="sidebarToggle" href="#!">
+			id="sidebarToggle" style="float:right;" href="qna.do">
 			<i class="fas fa-bars"></i>
 		</button>
-		<!-- Navbar Search-->
-		<form
-			class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-			<div class="input-group">
-				<input class="form-control" type="text" placeholder="Search for..."
-					aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-				<button class="btn btn-primary" id="btnNavbarSearch" type="button">
-					<i class="fas fa-search"></i>
-				</button>
-			</div>
-		</form>
 		<!-- Navbar-->
-		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" style="float:right;">
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 				role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
@@ -53,19 +42,19 @@
 				id="sidenavAccordion">
 				<div class="sb-sidenav-menu">
 					<div class="nav">
-						<div class="sb-sidenav-menu-heading">╦Я╥о</div>
+						<div class="sb-sidenav-menu-heading">К╙╘К║²</div>
 						<a class="nav-link" href="study.do">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-tachometer-alt"></i>
-							</div> ╫╨ем╣П ╟Э╦╝
+							</div> Л┼╓М└╟К■■ Й╢─К╕╛
 						</a>
-						<div class="sb-sidenav-menu-heading">╧╝юг</div>
+						<div class="sb-sidenav-menu-heading">К╛╦Л²≤</div>
 						<a class="nav-link collapsed" href="inquiry.do"
 							data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-columns"></i>
-							</div> ╧╝юг ╟Э╦╝
+							</div> К╛╦Л²≤ Й╢─К╕╛
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -73,7 +62,7 @@
 						<div class="collapse" id="collapseLayouts"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="inquiry.do">╧╝юг ╦Я╥о</a>
+								<a class="nav-link" href="inquiry.do">К╛╦Л²≤ К╙╘К║²</a>
 							</nav>
 						</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -81,7 +70,7 @@
 							aria-controls="collapsePages">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-book-open"></i>
-							</div> юзаж╧╞╢б аЗ╧╝
+							</div> Л·░Лё╪К╛╩К┼■ Л╖┬К╛╦
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -89,21 +78,21 @@
 						<div class="collapse" id="collapsePages"
 							aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="qna.do">юзаж ╧╞╢б аЗ╧╝ ╦Я╥о</a>
+								<a class="nav-link" href="qna.do">Л·░Лё╪ К╛╩К┼■ Л╖┬К╛╦ К╙╘К║²</a>
 							</nav>
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">юзаж ╧╞╢б аЗ╧╝ цъ╟║</a>
+								<a class="nav-link" href="qnaInsert.do">Л·░Лё╪ К╛╩К┼■ Л╖┬К╛╦ Л╤■Й╟─</a>
 							</nav>
 						</div>
-						<div class="sb-sidenav-menu-heading">╟Э╦╝</div>
+						<div class="sb-sidenav-menu-heading">Й╢─К╕╛</div>
 						<a class="nav-link" href="user.do">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-chart-area"></i>
-							</div> х╦©Ь╟Э╦╝
+							</div> М ▄Л⌡░Й╢─К╕╛
 						</a> <a class="nav-link" href="exam.do">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-table"></i>
-							</div> юз╟щаУ╟Э╦╝
+							</div> Л·░Й╡╘Л╕²Й╢─К╕╛
 						</a>
 					</div>
 				</div>

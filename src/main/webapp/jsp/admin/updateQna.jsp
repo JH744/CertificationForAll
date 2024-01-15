@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>¹®ÀÇ »ó¼¼</title>
+<meta charset="utf-8" />
+<title>ë¬¸ì˜ ìƒì„¸</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,24 +18,22 @@
 </head>
 <body>
 	<div style="width: 80%; height: auto; margin: auto; padding: 20px;">
-		<form method="post">
+		<form method="post" action="qnaUpdateOK.do?q_id=${q.q_id }">
 			<div style="width: 80%; height: auto; margin: auto;">
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">Á¦¸ñ</h5>
-						<input type="text" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"
-							style="width: 100%; height: 50px; font-size: 30px;">
+						<h5 class="card-title">ì œëª©</h5>
+						<input type="text" placeholder="ì œëª©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”" value="${q.q_title }"
+							style="width: 100%; height: 50px; font-size: 30px;" name="q_title">
 						<hr>
-						<p style="height: 100%;" class="card-text">³»¿ë</p>
-						<textarea rows="20" style="width: 100%;" placeholder="³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"></textarea>
+						<p style="height: 100%;" class="card-text">ë‚´ìš©</p>
+						<textarea rows="20" style="width: 100%;" placeholder="ë‚´ìš©ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”" value="${q.q_answer }" name="q_answer"></textarea>
 					</div>
 				</div>
-				<input type="submit" value="µî·Ï" class="btn btn-primary btn-lg"
+				<input type="submit" value="ìˆ˜ì •" class="btn btn-primary btn-lg"
 					style="float: right;">
 			</div>
 		</form>
-		<input type="submit" value="¼öÁ¤" class="btn btn-primary btn-lg"
-			style="float: right;">
 	</div>
 </body>
 </html>
