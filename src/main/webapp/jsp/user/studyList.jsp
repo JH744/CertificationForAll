@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <style>
 .ac-button.is-text {
 	border: unset;
@@ -24,11 +25,17 @@
 <script>
 	window.onload = function() {
 		history.pushState(null, null, 'studyList.do');
-		
-		$(".sortSelect").on("change",function(){
-			var studySort = 'studyList.do?sort='+this.value;
+
+		$(".sortSelect").on("change", function() {
+			var studySort = 'studyList.do?sort=' + this.value;
 			location.href = studySort;
 		})
+
+		$(".s_stateSelect").on("click", function() {
+			var studySort = 'studyList.do?s_state=' + this.value;
+			location.href = studySort;
+		})
+
 	}
 </script>
 </head>
@@ -52,19 +59,18 @@
 			<div>
 				<ul class="status">
 					<li class="e-status active" data-status="">
-
-						<button class="ac-button is-md is-text tab-button "
-							style="float: left;">전체</button>
+						<button class="ac-button is-md is-text tab-button s_stateSelect"
+							style="float: left;" value="all">전체</button>
 					</li>
 					<li class="e-status " data-status="unrecruited">
 
-						<button class="ac-button is-md is-text tab-button "
-							style="float: left;">모집중</button>
+						<button class="ac-button is-md is-text tab-button s_stateSelect"
+							style="float: left;" value="N">모집중</button>
 					</li>
 					<li class="e-status " data-status="recruited">
 
-						<button class="ac-button is-md is-text tab-button "
-							style="float: left;">모집완료</button>
+						<button class="ac-button is-md is-text tab-button s_stateSelect"
+							style="float: left;" value="Y">모집완료</button>
 					</li>
 				</ul>
 			</div>
@@ -183,44 +189,10 @@
 				<a class="pagination-next" href="?page=2&amp;order=recent">다음
 					페이지</a>
 				<ul class="pagination-list">
+					<c:forEach var="i" begin="1" end="${totalPage }">
+						<li><a class="pagination-link" href="studyList.do?pageNUM=${i }">${i }</a></li>
+					</c:forEach>
 
-					<li><a class="pagination-link" href="?page=1&amp;order=recent"
-						aria-label="1 페이지로 이동">1</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=2&amp;order=recent" aria-label="2 페이지로 이동">2</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=3&amp;order=recent" aria-label="3 페이지로 이동">3</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=4&amp;order=recent" aria-label="4 페이지로 이동">4</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=5&amp;order=recent" aria-label="5 페이지로 이동">5</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=6&amp;order=recent" aria-label="6 페이지로 이동">6</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=7&amp;order=recent" aria-label="7 페이지로 이동">7</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=8&amp;order=recent" aria-label="8 페이지로 이동">8</a></li>
-
-
-					<li><a class="pagination-link "
-						href="?page=9&amp;order=recent" aria-label="9 페이지로 이동">9</a></li>
-
-					<li><a class="pagination-link "
-						href="?page=10&amp;order=recent" aria-label="10 페이지로 이동">10</a></li>
 					<li><a class="pagination-link "
 						href="?page=11&amp;order=recent" aria-label="다음 페이지 모음으로 이동">…</a></li>
 				</ul>

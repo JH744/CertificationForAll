@@ -22,8 +22,19 @@ public class StudyPostListAction implements SistAction {
 		if(request.getParameter("sort")!=null) {
 			sort = request.getParameter("sort");
 		}
+		String s_state = null;
+		if(request.getParameter("s_state")!=null) {
+			s_state = request.getParameter("s_state");
+		}
 		System.out.println(sort);
-		ArrayList<StudyVO> studyList = sdao.studyList(sort);
+		
+		int pageNum = 1;
+		if(request.getParameter("pageNum")!=null) {
+			pageNum = Integer.parseInt(request.getParameter("pageNum"));
+		}
+		System.out.println("pageNum : "+pageNum);
+		request.setAttribute("totalPage", sdao.getTotalPage());
+		ArrayList<StudyVO> studyList = sdao.studyList(sort,s_state,pageNum);
 		
 		request.setAttribute("studyList", studyList);
 		System.out.println(studyList.get(0).getS_state());

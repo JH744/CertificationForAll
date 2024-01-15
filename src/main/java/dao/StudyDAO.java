@@ -11,6 +11,33 @@ import vo.ReplyVO;
 import vo.StudyVO;
 
 public class StudyDAO {
+	int maxRecord = 10;
+	static int totalRecord = 0;
+	static int totalPage = 0;
+	
+	
+	public int getTotalRecord() {
+		String sql = "select count(*) from study";
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				totalRecord = rs.getInt(1);
+			}
+			ConnectionProvider.close(conn, stmt,rs);
+		} catch (Exception e) {
+			System.out.println("getTotalPage " + e.getMessage());
+		}
+		return totalRecord;
+	}
+	
+	public int getTotalPage() {
+		totalRecord = getTotalRecord();
+		totalPage = (int)Math.ceil(totalRecord/(double)maxRecord);
+		return totalPage;
+	}
+	
 	// 스터디 복수 삭제
 	public int studyAllDelete(String[] arr) {
 		int re = -1;
@@ -40,18 +67,47 @@ public class StudyDAO {
 	}
 
 	// 스터디 목록 조회
-	public ArrayList<StudyVO> studyList(String sort) {
+	public ArrayList<StudyVO> studyList(String sort, String s_states,int pageNum) {
+		
+		totalRecord = getTotalRecord();
+		totalPage = (int)Math.ceil(totalRecord/(double)maxRecord);
+		
+		int start = maxRecord*pageNum-9;
+		int end = maxRecord*pageNum;
+		
+		if(end > totalRecord) {
+			end = totalRecord;
+		}
+		
 		ArrayList<StudyVO> list = new ArrayList<StudyVO>();
 		String sql = "SELECT S_ID, S_TITLE, S_CONTENT, s_date, S_STATE, U_ID, EXAM_NAME, S_COUNT FROM STUDY ";
+		if(s_states!=null) {
+			if(!s_states.equals("all")) {
+				sql += "where s_state='"+s_states+"' ";
+			}
+		}
+		
 		if (sort != null) {
 			if (sort.equals("replyCount")) {
-				sql = "SELECT * FROM STUDY s2 LEFT OUTER JOIN (SELECT s.S_ID,count(*) replyCount  FROM STUDY s , REPLY r WHERE s.S_ID = r.S_ID GROUP BY s.S_ID) count on s2.S_ID =count.s_id ORDER BY replyCount DESC NULLS LAST";
+				sql = "SELECT b.S_ID, b.S_TITLE, b.S_CONTENT, b.S_DATE, b.S_STATE, b.U_ID, b.EXAM_NAME, b.S_COUNT, b.REPLYCOUNT "
+						+ "FROM ("
+						+ "SELECT a.*, rownum rnum FROM ( "
+						+ "SELECT s2.S_ID, S_TITLE, S_CONTENT, S_DATE, S_STATE, U_ID, EXAM_NAME, S_COUNT, replyCount FROM STUDY s2 LEFT outer JOIN (SELECT s.S_ID,count(*) replyCount "
+						+ "FROM STUDY s , REPLY r WHERE s.S_ID = r.S_ID GROUP BY s.S_ID) count on s2.S_ID = count.s_id "
+						+ "ORDER BY replyCount DESC NULLS LAST) a) b WHERE b.rnum BETWEEN "+start+" AND "+end;
 			} else {
 				sql += "order by " + sort + " desc";
 			}
 		} else {
 			sql += "ORDER BY s_date desc";
 		}
+		sql = "SELECT S_ID, S_TITLE, S_CONTENT, s_date, S_STATE, U_ID, EXAM_NAME, S_COUNT "
+				+ "FROM ("
+				+ "SELECT S_ID, S_TITLE, S_CONTENT, s_date, S_STATE, U_ID, EXAM_NAME, S_COUNT, rownum rnum "
+				+ "FROM ("
+				+ sql+") a) "
+				+ "WHERE rnum BETWEEN "+start+" and "+end;
+		
 		System.out.println(sql);
 		try {
 			Connection conn = ConnectionProvider.getConnection();
