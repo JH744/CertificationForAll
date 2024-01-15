@@ -147,7 +147,6 @@
 </c:if>
 
 
-<c:when test="${search ne null}">
 <c:forEach var="i" begin="${startRange}" end="${endRange}" varStatus="loop">
   <c:choose>
     <c:when test="${loop.index == currentPage}">
@@ -159,7 +158,6 @@
   </c:choose>
 </c:forEach>
 
-</c:when>
 <c:if test="${currentPage < totalPage}">
   <a href="examSearch.do?pageNum=${currentPage + 1}">&gt;</a>
 </c:if>

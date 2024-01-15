@@ -13,7 +13,7 @@ import vo.ExamVO;
 public class ExamDAO {
 	
 	//페이징 처리 위한 변수
-	public static int pageSize=20;
+	public static int pageSize=10;
 	public static int totalRecord=0;
 	public static int totalPage=0;
 	
@@ -38,7 +38,7 @@ public class ExamDAO {
 	
 	public ArrayList<ExamVO> pagingExam(int pageNum, String search, String bCate){
 		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
-		System.out.println("paging실행");
+
 		totalRecord=getTotalRecord();
 		totalPage=(int)Math.ceil(totalRecord*1.0/pageSize);
 		
@@ -101,6 +101,49 @@ public class ExamDAO {
 		
 		catch(Exception e) {
 			System.out.println("목록 출력 실패 : " + e.getMessage());
+		}
+		return list;
+	}
+	
+	//유저관심목록
+	public String userInterest(String u_id) {
+		String str="";
+		String sql ="select u_interest from users where u_id = ?";
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				str=rs.getString(1);
+			}
+			System.out.println(str);
+		}catch(Exception e) {
+			System.out.println("유저 관심목록 출력 오류"+e.getMessage());
+		}
+		
+		
+		return str;
+	}
+	
+	//관심목록에 해당하는 자격증 정보 출력
+	public ArrayList<ExamVO> interestExam(String interest){
+		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
+		String sql = "select * from exam where mdobligfldnm ='"+interest+"'";
+		try {
+
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			System.out.println(sql);
+			while(rs.next()) {
+				list.add(new ExamVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getString(7),rs.getInt(8),rs.getInt(9),rs.getString(10),rs.getInt(11),rs.getString(12),rs.getString(13),rs.getInt(14),rs.getString(15)));
+
+			}
+			ConnectionProvider.close(conn, pstmt, rs);
+		}catch(Exception e) {
+			
+			System.out.println("관심목록에 해당하는 자격증 정보 출력 오류"+e.getMessage());
 		}
 		return list;
 	}

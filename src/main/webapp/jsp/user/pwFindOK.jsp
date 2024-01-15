@@ -49,7 +49,8 @@ body{
 			      		</div>								
 			      	</div>
 			      		<div class="form-group mb-3">
-			      			<label class="label" for="name">ID</label>
+			      		
+			      			<label class="label" for="name">PW</label>
 			      			<label class="label">회원님의 비밀번호는 ${findPw} 입니다</label>
 			      			
 			      		</div>

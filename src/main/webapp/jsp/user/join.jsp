@@ -32,11 +32,9 @@ $(function(){
 			data :id,
 			success : function(result){
 				if($.trim(result)=='YES'){
-					alert("사용가능");
 					check=true;
 					
 				}else{
-					alert("사용불가");
 					check=false;
 				}
 				

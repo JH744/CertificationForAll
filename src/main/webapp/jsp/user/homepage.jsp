@@ -38,6 +38,56 @@
         <!-- Section-->
         
         <section class="py-5">
+        <c:choose>
+        <c:when test="${id eq null }">
+            <div class="container px-4 px-lg-5 mt-5">
+            <h3>인기강의목록</h3>
+            <br>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        					<c:forEach items="${list}" var="y" begin="1" end="4" >        	
+                    <div class="col mb-5">
+                        <div class="card h-100">                    		
+                            <iframe id="youtube" src="${y.y_url }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+				            </c:forEach>
+    
+            </div>
+            </div>
+            </c:when>
+            </c:choose>
+            <c:choose>
+            <c:when test="${id ne null }">
+            <div class="container px-4 px-lg-5 mt-5">
+            
+            <h3>${id} 님을 위한 추천 자격증</h3>
+            <br>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        					<c:forEach items="${lists}" var="a"  begin="1" end="4">        	
+                    <div class="col mb-5">
+                        <div class="card h-100">                    		
+                            <!-- Product image-->
+                            <img class="card-img-top" src="../../image/${a.img}" />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">${a.jmfldnm}</h5>
+                                    <!-- Product price-->
+                                    ${a.obligfldnm }<br>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="certificationDetail.do?e_id=${a.e_id }">상세보기</a></div>
+                            </div>
+                        </div>
+                    </div>
+				            </c:forEach>
+    			</div>
+            </div>
+            </c:when>
+            </c:choose>
             <div class="container px-4 px-lg-5 mt-5">
             <h3>인기자격증목록</h3>
             <br>
@@ -67,20 +117,6 @@
             </div>
             </div>
             <hr>
-            <div class="container px-4 px-lg-5 mt-5">
-            <h3>인기강의목록</h3>
-            <br>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        					<c:forEach items="${list}" var="y" begin="1" end="4" >        	
-                    <div class="col mb-5">
-                        <div class="card h-100">                    		
-                            <iframe id="youtube" src="${y.y_url }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                    </div>
-				            </c:forEach>
-    
-            </div>
-            </div>
         </section>
 </body>
 </html>
