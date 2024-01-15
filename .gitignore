@@ -96,13 +96,12 @@ replay_pid*
 *.css
 *.htm
 *.html
-*.js
 *.php
 *.rss
 *.wasm
 *.wat
 *.xhtml
-
+ConnectionProvider.java
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db

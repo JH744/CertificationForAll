@@ -6,13 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UserDAO;
-
-public class IdFindAction implements SistAction {
+public class HomepageAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String viewPage = "idFind.jsp";
+		String viewPage = "homepage.jsp";
 		
 		return viewPage;
 	}

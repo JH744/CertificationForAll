@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -143,29 +146,32 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 <title>Insert title here</title>
 </head>
 <body id="headerBody">
-	<header id="header" class="header">
-		<h1 id="headerLogo">
-			<a href="main.html"><img src="../../image/logo.png"모두의자격증"></a>
-		</h1>
-		<nav id="headerMenuBar">
-			<ul id="headerGnb">
-				<li><a href="#">자격증정보</a></li>
-				<li><a href="studyList.do">스터디모집</a></li>
-				<li><a href="#">마이페이지</a></li>
-				<li><a href="faq_page.do">고객센터</a></li>
-			</ul>
-		</nav>
-		<div id="headerTopMenu">
-			<ul id="headerTM">
-				<li><a href="login.do">로그인</a></li>
-				<span style="">&nbsp;|&nbsp;</span>
-				<li><a href="join.do">회원가입</a></li>
-				<i class="fa-solid fa-magnifying-glass"></i>
-			</ul>
-			<input id="headerSearchBar" name="headerSearchBar" type="text"
-				size="28" />
-		</div>
+<header id="header" class="header">
+        <h1 id="headerLogo"><a href="homepage.do"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
+        <nav id="headerMenuBar">
+            <ul id="headerGnb">
+                <li><a href="#">자격증정보</a></li>
+                <li><a href="studyList.do">스터디모집</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="faq_page.do">고객센터</a></li>
+            </ul>
+        </nav>
+        <div id="headerTopMenu">
+            <ul id="headerTM">
+            <c:choose>
+	            <c:when test="${id ne null}"><li><a href="logout.do">로그아웃</a></li></c:when>
+	            <c:when test="${id eq null}"><li><a href="login.do">로그인</a></li>
+	            <span style="none">&nbsp;|&nbsp;</span>
+                <li><a href="join.do">회원가입</a></li>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                </c:when>
+            </c:choose>
+                
+            </ul>
+            <input id="headerSearchBar" name="headerSearchBar" type="text" size="28" />
+        </div>
 
-	</header>
+    </header>
+
 </body>
 </html>

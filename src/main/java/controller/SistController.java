@@ -62,9 +62,7 @@ public class SistController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.indexOf("/",1)+1);
-		System.out.println(cmd);
 		SistAction action = map.get(cmd);
-		System.out.println(action);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
 

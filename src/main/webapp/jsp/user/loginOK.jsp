@@ -45,31 +45,16 @@ body{
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">로그인</h3>
+			      			<h3 class="mb-4">ID찾기</h3>
 			      		</div>								
 			      	</div>
-							<form action="loginOK.do" class="signin-form">
 			      		<div class="form-group mb-3">
-			      			<label class="label" for="name">ID</label>
-			      			<input type="text" class="form-control" name="id" placeholder="아이디를 입력해주세요" required>
+			      			
+			      			<label class="label">로그인 되셨습니다</label>
+			      			<a href="homepage.do">홈으로</a>
 			      		</div>
-		            <div class="form-group mb-3">
-		            	<label class="label" for="password">Password</label>
-		              <input type="password" class="form-control" name = "pwd" placeholder="비밀번호를 입력해주세요" required>
-		            </div>
-		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
-		            </div>
-		            <div class="form-group d-md-flex">
-		            	<div class="w-50 text-left">
-		
-									</div>
-									<div class="w-50 text-md-right">
-										<a href="idFind.do">아이디를 잊으셨나요?</a><br>
-										<a href="pwFind.do">비밀번호를 잊으셨나요?</a>
-									</div>
-		            </div>
-		          </form>
+		            
+		            
 		        </div>
 		      </div>
 				</div>
