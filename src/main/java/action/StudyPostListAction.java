@@ -19,22 +19,29 @@ public class StudyPostListAction implements SistAction {
 		StudyDAO sdao = new StudyDAO();
 		ReplyDAO rdao = new ReplyDAO();
 		String sort = null;
+		
 		if(request.getParameter("sort")!=null) {
 			sort = request.getParameter("sort");
 		}
+		
 		String s_state = null;
 		if(request.getParameter("s_state")!=null) {
 			s_state = request.getParameter("s_state");
 		}
-		System.out.println(sort);
 		
+		String keyword = null;
+		if(request.getParameter("keyword")!=null) {
+			keyword = request.getParameter("keyword");
+		}
+		System.out.println(keyword);
 		int pageNum = 1;
 		if(request.getParameter("pageNum")!=null) {
 			pageNum = Integer.parseInt(request.getParameter("pageNum"));
 		}
+		
 		System.out.println("pageNum : "+pageNum);
 		request.setAttribute("totalPage", sdao.getTotalPage());
-		ArrayList<StudyVO> studyList = sdao.studyList(sort,s_state,pageNum);
+		ArrayList<StudyVO> studyList = sdao.studyList(sort,s_state,pageNum,keyword);
 		
 		request.setAttribute("studyList", studyList);
 		System.out.println(studyList.get(0).getS_state());

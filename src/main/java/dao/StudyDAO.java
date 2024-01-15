@@ -67,7 +67,7 @@ public class StudyDAO {
 	}
 
 	// 스터디 목록 조회
-	public ArrayList<StudyVO> studyList(String sort, String s_states,int pageNum) {
+	public ArrayList<StudyVO> studyList(String sort, String s_states,int pageNum,String keyword) {
 		
 		totalRecord = getTotalRecord();
 		totalPage = (int)Math.ceil(totalRecord/(double)maxRecord);
@@ -87,6 +87,10 @@ public class StudyDAO {
 			}
 		}
 		
+		if(keyword!=null) {
+			sql += "where s_title like '%"+keyword+"%' or s_content like '%"+keyword+"%'";
+		}
+		
 		if (sort != null) {
 			if (sort.equals("replyCount")) {
 				sql = "SELECT b.S_ID, b.S_TITLE, b.S_CONTENT, b.S_DATE, b.S_STATE, b.U_ID, b.EXAM_NAME, b.S_COUNT, b.REPLYCOUNT "
@@ -101,6 +105,7 @@ public class StudyDAO {
 		} else {
 			sql += "ORDER BY s_date desc";
 		}
+		
 		sql = "SELECT S_ID, S_TITLE, S_CONTENT, s_date, S_STATE, U_ID, EXAM_NAME, S_COUNT "
 				+ "FROM ("
 				+ "SELECT S_ID, S_TITLE, S_CONTENT, s_date, S_STATE, U_ID, EXAM_NAME, S_COUNT, rownum rnum "
