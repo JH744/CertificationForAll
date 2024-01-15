@@ -1,30 +1,15 @@
 package vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class UserVO {
 	private String u_id;
 	private String u_pw;
 	private String u_name;
-	private Date u_birth;
+	private String u_birth;
 	private String u_phone;
 	private String u_addr;
 	private String u_interest;
-	public UserVO(String u_id, String u_pw, String u_name, Date u_birth, String u_phone, String u_addr,
-			String u_interest) {
-		super();
-		this.u_id = u_id;
-		this.u_pw = u_pw;
-		this.u_name = u_name;
-		this.u_birth = u_birth;
-		this.u_phone = u_phone;
-		this.u_addr = u_addr;
-		this.u_interest = u_interest;
-	}
-	public UserVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public String getU_id() {
 		return u_id;
 	}
@@ -43,10 +28,10 @@ public class UserVO {
 	public void setU_name(String u_name) {
 		this.u_name = u_name;
 	}
-	public Date getU_birth() {
+	public String getU_birth() {
 		return u_birth;
 	}
-	public void setU_birth(Date u_birth) {
+	public void setU_birth(String u_birth) {
 		this.u_birth = u_birth;
 	}
 	public String getU_phone() {
@@ -67,6 +52,20 @@ public class UserVO {
 	public void setU_interest(String u_interest) {
 		this.u_interest = u_interest;
 	}
-	
+	public UserVO(String u_id, String u_pw, String u_name, String u_birth, String u_phone, String u_addr,
+			String u_interest) {
+		super();
+		this.u_id = u_id;
+		this.u_pw = u_pw;
+		this.u_name = u_name;
+		this.u_birth = u_birth;
+		this.u_phone = u_phone;
+		this.u_addr = u_addr;
+		this.u_interest = u_interest;
+	}
+	public UserVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }
