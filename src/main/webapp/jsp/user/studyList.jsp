@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <style>
 .ac-button.is-text {
 	border: unset;
@@ -24,6 +24,11 @@
 <script>
 	window.onload = function() {
 		history.pushState(null, null, 'studyList.do');
+		
+		$(".sortSelect").on("change",function(){
+			var studySort = 'studyList.do?sort='+this.value;
+			location.href = studySort;
+		})
 	}
 </script>
 </head>
@@ -91,11 +96,11 @@
 					<!--sort 셀렉터(템플릿 이중 관리)-->
 					<div class="ac-dropdown--text order-mb e-sel-order "
 						style="float: left;">
-						<select>
-							<option value="recent" selected="">최신순</option>
-							<option value="score">정확도순</option>
-							<option value="comment">댓글많은순</option>
-							<option value="recommend">좋아요순</option>
+						<select class="sortSelect">
+							<option selected="">정렬</option>
+							<option value="s_id">최신순</option>
+							<option value="s_count">조회도순</option>
+							<option value="replyCount">댓글많은순</option>
 						</select>
 					</div>
 					<div class="posts-container-header__button-cover"></div>
@@ -154,17 +159,13 @@
 											</div>
 											<div class="question__info-userData">
 												<dl>
-													<dt class="visually-hidden">좋아요</dt>
-													<dd class="comment__count">
-														<i class="fa-regular fa-heart"></i> <span class="text">0</span>
-													</dd>
 													<dt class="visually-hidden">조회수</dt>
 													<dd class="view__count">
-														<i class="fa-regular fa-eye"></i> <span class="text">72</span>
+														<i class="fa-regular fa-eye"></i> <span class="text">${study.s_count }</span>
 													</dd>
 													<dt class="visually-hidden">댓글</dt>
 													<dd class="comment__count">
-														<i class="fa-regular fa-comment"></i> <span class="text">0</span>
+														<i class="fa-regular fa-comment"></i> <span class="text">${study.replyCount }</span>
 													</dd>
 												</dl>
 											</div>
