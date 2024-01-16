@@ -99,14 +99,14 @@
         
         <c:forEach items="${list}" var="list">
         <ul class="job-listings mb-5">
-          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" style="border:1px black solid">
+          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
             <a href="job-single.html"></a>
                             <h3>${list.qualgbnm }</h2>
             
             <div class="job-listing-logo">
             </div>
 
-            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4" style="text-align:center">
+            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
               <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
                 <h2>${list.jmfldnm }</h2>
                 <strong>${list.seriesnm}</strong>
@@ -115,8 +115,7 @@
                  ${list.mdobligfldnmm}
               </div>
               <div class="job-listing-meta">
-                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'" class="ac-button is-md is-solid button-rounded undefined "
-                 style="background: #ff8c00" >상세보기</button>
+                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'">상세보기</button>
               </div>
             </div>
             
@@ -129,36 +128,41 @@
 
           <div class="col-md-6 text-center text-md-right">
             <div class="custom-pagination ml-auto">
-         
-              <div class="d-inline-block">
-<nav class="pagination is-centered is-small" role="navagation"
-				aria-label="pagination">
-				<c:if test="${totalPage >= pageNum+1 }">
-					<a class="pagination-next"
-						href="studyList.do?pageNum=${pageNum+1 }">다음 페이지</a>
-				</c:if>
-				<ul class="pagination-list ">
-					<c:if test="${1 != pageNum }">
-						<li><a class="pagination-link "
-							href="studyList.do?pageNum=1"
-							aria-label="처음">처음</a></li>
-					</c:if>
-					&nbsp;
-					<c:forEach var="i" begin="1" end="${totalPage }">
-						<li><a class="pagination-link pageButton pageNums${i }"
-							href="studyList.do?pageNum=${i }">${i }</a></li>
-					</c:forEach>
-					&nbsp;
-					<c:if test="${totalPage != pageNum }">
-						<li><a class="pagination-link "
-							href="studyList.do?pageNum=${totalPage }"
-							aria-label="끝">끝</a></li>
-					</c:if>
-				</ul>
-			</nav>
-              </div>
-         
-            </div>
+
+
+						<div class="d-inline-block">
+							<c:set var="currentPage"
+								value="${param.pageNum ne null ? param.pageNum : 1}" />
+							<c:set var="startRange" value="${currentPage - 2}" />
+							<c:set var="endRange" value="${currentPage + 2}" />
+							<c:if test="${startRange < 1}">
+								<c:set var="startRange" value="1" />
+								<c:set var="endRange" value="5" />
+							</c:if>
+							<c:if test="${endRange > totalPage}">
+								<c:set var="endRange" value="${totalPage}" />
+								<c:set var="startRange" value="${totalPage - 4}" />
+							</c:if>
+
+
+							<c:if test="${startRange < 1 }">
+								<c:set var="startRange" value="1"></c:set>
+							</c:if>
+							<c:forEach var="i" begin="${startRange}" end="${endRange}"
+								varStatus="loop">
+								<c:choose>
+									<c:when test="${loop.index == currentPage}">
+										<span>${loop.index}&nbsp;</span>
+									</c:when>
+									<c:otherwise>
+										<a href="examSearch.do?pageNum=${loop.index}">${loop.index}&nbsp;</a>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+
+						</div>
+
+					</div>
           </div>
         </div>
 

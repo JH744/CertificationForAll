@@ -63,9 +63,11 @@
 	}
 	
 	function changeRecruitmentButton(u_id, s_id, s_state) {
-		  var uid = "<%=(String) session.getAttribute("id")%>";
+		  var uid = "<%=(String) session.getAttribute("id")%>
+	";
 		if (uid === u_id) {
-			var studyStateChange = 'studyStateChange.do?s_id=' + s_id + '&s_state=' + s_state;
+			var studyStateChange = 'studyStateChange.do?s_id=' + s_id
+					+ '&s_state=' + s_state;
 			location.href = studyStateChange;
 		}
 	}
@@ -109,6 +111,12 @@
 										class="sub-title__title">조회수</span> <span
 										class="sub-title__value">${studyVO.s_count }</span>
 									</span>
+									<div style="float:right; ">
+										<button
+											class="ac-button is-sm is-solid is-gray  ac-tag ac-tag--blue ">
+											<span class="ac-tag__name" style="font-weight:700">${studyVO.exam_name }</span>
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -159,6 +167,7 @@
 										onclick="changeRecruitmentButton('${studyVO.u_id}','${studyVO.s_id}','${studyVO.s_state}')">${studyVO.s_state}</button>
 								</c:if>
 							</div>
+
 							<!-- 모집완료 버튼 끝 -->
 
 							<div
@@ -197,39 +206,39 @@
 					</div>
 					<div class="community-post-info__content">
 						<form action="replyWrite.do?s_id=${studyVO.s_id }" method="post">
-						<c:if test="${id != null }">
-							<div class="answer-comment" data-id="new">
+							<c:if test="${id != null }">
+								<div class="answer-comment" data-id="new">
 
-								<div class="bootstrap-components comment__input">
+									<div class="bootstrap-components comment__input">
 
-									<div class="e-signin">
+										<div class="e-signin">
 
 
-										<input type="text" placeholder="댓글을 작성해보세요."
-											class="form-control form-control-lg " required="required"
-											name="R_CONTENT">
+											<input type="text" placeholder="댓글을 작성해보세요."
+												class="form-control form-control-lg " required="required"
+												name="R_CONTENT">
+
+										</div>
 
 									</div>
 
-								</div>
 
+									<div class="comment__editor e-comment__editor">
+										<div class="markdown-body"></div>
+										<div class="bootstrap-components comment__footer flex-row">
+											<div class="flex-right mt-2">
 
-								<div class="comment__editor e-comment__editor">
-									<div class="markdown-body"></div>
-									<div class="bootstrap-components comment__footer flex-row">
-										<div class="flex-right mt-2">
+												<button type="button"
+													class="btn btn-outline-secondary e-post-comment-cancel cancel-btn">
 
-											<button type="button"
-												class="btn btn-outline-secondary e-post-comment-cancel cancel-btn">
+													취소</button>
+												&nbsp; <input type="submit" class="btn e-post-comment"
+													style="background: #ff8C00; color: white;" value="등록">
 
-												취소</button>
-											&nbsp; <input type="submit" class="btn e-post-comment"
-												style="background: #ff8C00; color: white;" value="등록">
-
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
 							</c:if>
 						</form>
 						<c:forEach var="reply" items="${replyList }">

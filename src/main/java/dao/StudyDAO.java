@@ -20,7 +20,7 @@ public class StudyDAO {
 	   public int getTotalRecord(String keyword) {
 	      String sql = "select count(*) from study";
 	      if(keyword != null) {
-	         sql += " where s_title like '%"+keyword+"%' or s_content like '%"+keyword+"%' ";
+	         sql += " where exam_name like '%"+keyword+"%' or s_title like '%"+keyword+"%' or s_content like '%"+keyword+"%' ";
 	      }
 	      System.out.println(sql);
 	      try {
@@ -66,7 +66,7 @@ public class StudyDAO {
 	      }
 	      
 	      if(keyword!=null) {
-	         sql += "where s_title like '%"+keyword+"%' or s_content like '%"+keyword+"%'";
+	         sql += "where exam_name like '%"+keyword+"%' or s_title like '%"+keyword+"%' or s_content like '%"+keyword+"%'";
 	      }
 	      
 	      if (sort != null) {
