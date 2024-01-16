@@ -28,10 +28,11 @@
 }
 </style>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>모두의 자격증 - 모자</title>
 </head>
 <body>
 	<header class="bg-dark py-5">
+<<<<<<< HEAD
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-white">
 				<h1 class="display-4 fw-bolder">모두의 자격증</h1>
@@ -63,7 +64,6 @@
 										${a.obligfldnm }<br>
 									</div>
 								</div>
-								<!-- Product actions-->
 								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 									<div class="text-center">
 										<a class="btn btn-outline-dark mt-auto"
@@ -138,5 +138,6 @@
 
 		<hr>
 	</section>
+
 </body>
 </html>

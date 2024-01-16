@@ -45,12 +45,12 @@ body{
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">ID찾기</h3>
+			      			<h3 class="mb-4">로그아웃 되셨습니다</h3>
 			      		</div>								
 			      	</div>
 			      		<div class="form-group mb-3">
 			      			
-			      			<label class="label">로그아웃 되셨습니다</label>
+			      			<label class="label"></label>
 			      			<a href="homepage.do">홈으로</a>
 			      		</div>
 		            

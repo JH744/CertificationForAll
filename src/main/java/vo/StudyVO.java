@@ -11,6 +11,7 @@ public class StudyVO {
 	private String u_id;
 	private String exam_name;
 	private int s_count;
+	private int replyCount;
 	public int getS_id() {
 		return s_id;
 	}
@@ -59,6 +60,25 @@ public class StudyVO {
 	public void setS_count(int s_count) {
 		this.s_count = s_count;
 	}
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id,
+			String exam_name, int s_count, int replyCount) {
+		super();
+		this.s_id = s_id;
+		this.s_title = s_title;
+		this.s_content = s_content;
+		this.s_date = s_date;
+		this.s_state = s_state;
+		this.u_id = u_id;
+		this.exam_name = exam_name;
+		this.s_count = s_count;
+		this.replyCount = replyCount;
+	}
 	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id,
 			String exam_name, int s_count) {
 		super();
@@ -75,5 +95,17 @@ public class StudyVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id,
+			String exam_name) {
+		super();
+		this.s_id = s_id;
+		this.s_title = s_title;
+		this.s_content = s_content;
+		this.s_date = s_date;
+		this.s_state = s_state;
+		this.u_id = u_id;
+		this.exam_name = exam_name;
+	}
 	
-}
+	
+	}
