@@ -28,12 +28,9 @@ import action.SistAction;
 public class SistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        HashMap<String, SistAction> map;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-//		super.init(config);
     	map= new HashMap<String, SistAction>();
     	String path = config.getServletContext().getRealPath("WEB-INF");
     	try {
@@ -65,9 +62,7 @@ public class SistController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.indexOf("/",1)+1);
-		System.out.println(cmd);
 		SistAction action = map.get(cmd);
-		System.out.println(action);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
 
