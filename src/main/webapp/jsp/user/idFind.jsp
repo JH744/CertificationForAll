@@ -168,7 +168,7 @@
     <script src="https://kit.fontawesome.com/e72539902e.js" crossorigin="anonymous"></script> <!--아이콘 사용-->
     </style>
     
-<title>Insert title here</title>
+<title>모두의 자격증</title>
 </head>
 <body>
 <section class="ftco-section">

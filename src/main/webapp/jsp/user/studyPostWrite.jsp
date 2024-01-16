@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="../../css/studyPostWriteCSS.css">
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>모두의 자격증</title>
 </head>
 <body>
 	<br>

@@ -131,50 +131,31 @@
             <div class="custom-pagination ml-auto">
          
               <div class="d-inline-block">
-<c:set var="currentPage" value="${param.pageNum ne null ? param.pageNum : 1}" />
-<c:set var="startRange" value="${currentPage - 2}" />
-<c:set var="endRange" value="${currentPage + 2}" />
-<c:if test="${startRange < 1}">
-  <c:set var="startRange" value="1" />
-  <c:set var="endRange" value="5" />
-</c:if>
-<c:if test="${endRange > totalPage}">
-  <c:set var="endRange" value="${totalPage}" />
-  <c:set var="startRange" value="${totalPage - 4}" />
-</c:if>
-
-<c:if test="${currentPage > 1}">
-  <a href="examSearch.do?pageNum=${currentPage - 1}">&lt;</a>
-</c:if>
-
-
-<c:forEach var="i" begin="${startRange}" end="${endRange}" varStatus="loop">
-  <c:choose>
-    <c:when test="${loop.index == currentPage}">
-      <span>${loop.index}&nbsp;</span>
-    </c:when>
-    <c:otherwise>
-      <a href="examSearch.do?pageNum=${loop.index}">${loop.index}&nbsp;</a>
-    </c:otherwise>
-  </c:choose>
-</c:forEach>
-
-<c:if test="${currentPage < totalPage}">
-  <a href="examSearch.do?pageNum=${currentPage + 1}">&gt;</a>
-</c:if>
-<c:if test="${search ne null }">
-    <c:forEach var="i" begin="${startRange}" end="4" varStatus="loop">
-        <c:choose>
-            <c:when test="${loop.index == currentPage}">
-                <span>${i}&nbsp;</span>
-            </c:when>
-            <c:otherwise>
-                <a href="examSearch.do?pageNum=${i}&search=${search}">${i}&nbsp;</a>
-            </c:otherwise>
-        </c:choose>
-    </c:forEach>
-
-</c:if>
+<nav class="pagination is-centered is-small" role="navagation"
+				aria-label="pagination">
+				<c:if test="${totalPage >= pageNum+1 }">
+					<a class="pagination-next"
+						href="studyList.do?pageNum=${pageNum+1 }">다음 페이지</a>
+				</c:if>
+				<ul class="pagination-list ">
+					<c:if test="${1 != pageNum }">
+						<li><a class="pagination-link "
+							href="studyList.do?pageNum=1"
+							aria-label="처음">처음</a></li>
+					</c:if>
+					&nbsp;
+					<c:forEach var="i" begin="1" end="${totalPage }">
+						<li><a class="pagination-link pageButton pageNums${i }"
+							href="studyList.do?pageNum=${i }">${i }</a></li>
+					</c:forEach>
+					&nbsp;
+					<c:if test="${totalPage != pageNum }">
+						<li><a class="pagination-link "
+							href="studyList.do?pageNum=${totalPage }"
+							aria-label="끝">끝</a></li>
+					</c:if>
+				</ul>
+			</nav>
               </div>
          
             </div>

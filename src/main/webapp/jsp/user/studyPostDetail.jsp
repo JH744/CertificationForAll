@@ -21,7 +21,7 @@
 <link rel="stylesheet"
 	href="https://cdn.inflearn.com/dist/fontawesome/css/all.css">
 
-<title>Insert title here</title>
+<title>모두의 자격증</title>
 <style>
 .deleteButton {
 	width: 16;
