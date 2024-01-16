@@ -49,7 +49,7 @@
                         <div class="card h-100">                    		
                             <iframe id="youtube" src="${y.y_url }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
-                    </div>
+                    </div>  
 				            </c:forEach>
     
             </div>
