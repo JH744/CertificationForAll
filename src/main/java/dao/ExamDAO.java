@@ -4,14 +4,11 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.util.ArrayList;
 
 import db.ConnectionProvider;
 import vo.ExamVO;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -82,9 +79,16 @@ public class ExamDAO {
 	public static int totalRecord=0;
 	public static int totalPage=0;
 	
-	public int getTotalRecord() {
+	public int getTotalRecord(String category,String search) {
 		int re=0;
 		String sql ="select count(*) from exam";
+		if(category==null) {
+			category = "";
+		}
+		if(search!=null) {
+			sql += " WHERE jmfldnm LIKE '%"+search+"%' AND obligfldnm LIKE '%"+category+"%' ";
+		}
+		System.out.println(sql);
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -97,14 +101,13 @@ public class ExamDAO {
 			System.out.println(e.getMessage());
 		}
 		return re;
-		
 	}
 	
 	
 	public ArrayList<ExamVO> pagingExam(int pageNum, String search, String bCate){
 		ArrayList<ExamVO> list = new ArrayList<ExamVO>();
 
-		totalRecord=getTotalRecord();
+		totalRecord=getTotalRecord(bCate,search);
 		totalPage=(int)Math.ceil(totalRecord*1.0/pageSize);
 		
 		int start = (pageNum-1)*pageSize +1;
@@ -148,36 +151,7 @@ public class ExamDAO {
 		return list;
 	}
 	
-	public int totalExamCount(String search, String bCate) {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        int count = 0;
-
-        try {
-            conn = ConnectionProvider.getConnection();
-
-            // Modify the SQL query based on your database schema and search criteria
-            String sql = "SELECT COUNT(*) FROM exam WHERE jmfldnm LIKE ? AND mdobligfldnm = ?";
-
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "%" + search + "%");
-            pstmt.setString(2, bCate);
-
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                count = rs.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            ConnectionProvider.close(conn, pstmt, rs);
-        }
-
-        return count;
-    }
-
+	
 	
 	//대직무분야명 목록 리스트 출력메소드
 	public ArrayList<String> obligfldnmList(){
