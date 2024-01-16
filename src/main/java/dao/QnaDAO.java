@@ -2,9 +2,6 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import db.ConnectionProvider;
-
-
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -73,7 +70,7 @@ public class QnaDAO {
 		
 		try {
 			Connection conn = ConnectionProvider.getConnection();
-			Statement stmt = conn.createStatement();
+			java.sql.Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while (rs.next()) {

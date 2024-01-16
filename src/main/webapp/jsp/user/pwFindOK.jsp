@@ -46,6 +46,7 @@ body{
 			      	<div class="d-flex">
 			      		<div class="w-100">
 			      			<h3 class="mb-4">PW찾기</h3>
+			      			<h3 class="mb-4">ID찾기</h3>
 			      		</div>								
 			      	</div>
 			      		<div class="form-group mb-3">

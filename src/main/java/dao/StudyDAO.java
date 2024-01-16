@@ -11,10 +11,13 @@ import vo.ReplyVO;
 import vo.StudyVO;
 
 
+
+
 public class StudyDAO {
-	int maxRecord = 10;
-	   static int totalRecord = 0;
-	   static int totalPage = 0;
+		int maxRecord = 10;
+		public int pageSIZE =10;    //한 화면에 보여줄 레코드수
+	   public static int totalRecord = 0;
+	   public static int totalPage = 0;
 	   
 	   
 	   public int getTotalRecord(String keyword) {
@@ -308,5 +311,131 @@ public class StudyDAO {
 
 	      return list;
 	   }
+	   public int getTotalRecord2(String id) {
+			int cnt=0;
+			String sql = "select count(*) from study where u_id ='"+id+"'";
+			
+			try {
+				Connection conn = ConnectionProvider.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql);
+				if(rs.next()) {
+					cnt =rs.getInt(1);
+				}
+				ConnectionProvider.close(conn, stmt);
+			} catch (Exception e) {
+				System.out.println("예외발생:"+e.getMessage());
+			}
+			return cnt;
+		}
+		
+		
+		// 마이페이지 내스터디- 스터디 작성글을 불러오는 매소드 // 
+			public ArrayList<StudyVO> myStudyList(int pageNUM, String id){ 
+				ArrayList<StudyVO> list = new ArrayList<StudyVO>();
+				System.out.println("문의글 전달받은 id:"+id);
+				
+				totalRecord = getTotalRecord2(id);
+				totalPage = (int)Math.ceil(totalRecord / (double)pageSIZE);
+				int start = (pageNUM-1)*pageSIZE+1;
+				int end = start+pageSIZE-1;
+				
+				if(end > totalRecord) {
+					end = totalRecord;
+				}
+				
+				
+				String sql ="SELECT s_id,s_title,s_content,s_date,s_state,u_id FROM "
+					 +"(SELECT rownum n, s_id,s_title,s_content,s_date,s_state,u_id "
+					+"FROM (SELECT * FROM study WHERE u_id = ? ORDER BY s_id)) "
+					+"WHERE n BETWEEN ? AND ? ";
+					
+				try {
+					Connection conn = ConnectionProvider.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					
+					pstmt.setString(1,id);
+					pstmt.setInt(2, start);
+					pstmt.setInt(3, end);
+					ResultSet rs = pstmt.executeQuery();
+					while(rs.next()) {
+						list.add(new StudyVO(
+								rs.getInt(1), 
+								rs.getString(2), 
+								rs.getString(3),
+								rs.getDate(4), 
+								rs.getString(5), 
+								rs.getString(6)
+								));
+					}
+					ConnectionProvider.close(conn, pstmt, rs);
+				} catch (Exception e) {
+					System.out.println("예외발생:"+e.getMessage());
+				}
+				return list;
+			}
+			
+			
+			//마이페이지 내스터디- 내가 작성한 스터디글 삭제 //
+			public int deleteMyStudy(String s_id) {
+				System.out.println("deletedao 작동");
+				int re = - 1;
+				String sql = "delete study where s_id=?";
+				try {
+					Connection conn = ConnectionProvider.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, s_id);
+					re = pstmt.executeUpdate();
+					ConnectionProvider.close(conn, pstmt);
+				}catch (Exception e) {
+					System.out.println("예외발생:"+e.getMessage());
+				}
+				return re;		
+			}
+		
+		
+			//마이페이지홈 - 내스터디 모집대기  갯수 // 
+			public int myStudyNUM_N(String u_id) {
+				System.out.println("StudyNUM_N 작동");
+				int re = - 1;
+				String sql = "select count(*) from study where u_id=? and s_state='N'";
+				try {
+					Connection conn = ConnectionProvider.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, u_id);
+					ResultSet rs = pstmt.executeQuery();
+					if(rs.next()) {
+						re = rs.getInt(1);
+						
+					}
+					ConnectionProvider.close(conn, pstmt);
+				}catch (Exception e) {
+					System.out.println("예외발생:"+e.getMessage());
+				}
+				return re;		
+			}
+		
+		
+			//마이페이지홈 - 내스터디 모집완료  갯수 // 
+			public int myStudyNUM_Y(String u_id) {
+				System.out.println("StudyNUM_Y 작동");
+				int re = - 1;
+				String sql = "select count(*) from study where u_id=? and s_state='Y'";
+				try {
+					Connection conn = ConnectionProvider.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, u_id);
+					ResultSet rs = pstmt.executeQuery();
+					if(rs.next()) {
+						re = rs.getInt(1);
+						
+					}
+					ConnectionProvider.close(conn, pstmt);
+				}catch (Exception e) {
+					System.out.println("예외발생:"+e.getMessage());
+				}
+				return re;		
+			}
+			
 	   
 }

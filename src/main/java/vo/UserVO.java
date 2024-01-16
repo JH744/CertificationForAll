@@ -1,6 +1,6 @@
 package vo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UserVO {
 	private String u_id;
@@ -10,6 +10,21 @@ public class UserVO {
 	private String u_phone;
 	private String u_addr;
 	private String u_interest;
+	public UserVO(String u_id, String u_pw, String u_name, String u_birth, String u_phone, String u_addr,
+			String u_interest) {
+		super();
+		this.u_id = u_id;
+		this.u_pw = u_pw;
+		this.u_name = u_name;
+		this.u_birth = u_birth;
+		this.u_phone = u_phone;
+		this.u_addr = u_addr;
+		this.u_interest = u_interest;
+	}
+	public UserVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getU_id() {
 		return u_id;
 	}
@@ -52,20 +67,7 @@ public class UserVO {
 	public void setU_interest(String u_interest) {
 		this.u_interest = u_interest;
 	}
-	public UserVO(String u_id, String u_pw, String u_name, String u_birth, String u_phone, String u_addr,
-			String u_interest) {
-		super();
-		this.u_id = u_id;
-		this.u_pw = u_pw;
-		this.u_name = u_name;
-		this.u_birth = u_birth;
-		this.u_phone = u_phone;
-		this.u_addr = u_addr;
-		this.u_interest = u_interest;
-	}
-	public UserVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
+
+
+
 }

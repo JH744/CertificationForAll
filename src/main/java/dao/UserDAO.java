@@ -209,7 +209,6 @@ public class UserDAO {
 		}catch(Exception e) {
 			System.out.println("pwFind 오류 : " + e.getMessage());
 		}
-		System.out.println(sql);
 		return u_pw;
 				
 	}
@@ -236,5 +235,65 @@ public class UserDAO {
 		return re;
 		
 	}
+	// 마이페이지홈- 유저의 회원정보를 불러오는 매소드 // 
+		public UserVO myInfo(String id){ 
+			UserVO u=null ;
+			String sql ="select * from users where u_id = '"+id+"'" ;
+			
+			
+			try {
+				Connection conn = ConnectionProvider.getConnection();
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(sql);
+				if(rs.next()) {
+					u=new UserVO(
+							rs.getString(1),
+							rs.getString(2),
+							rs.getString(3),
+							null,
+							rs.getString(5),
+							rs.getString(6),
+							rs.getString(7));
+				
+					
+				}
+				ConnectionProvider.close(conn, stmt, rs);
+				System.out.println("받아온 유저정보:"+u.toString());
+				
+			} catch (Exception e) {
+				System.out.println("예외발생:"+e.getMessage());
+			}
+			return u;
+		}
+		
+		
+		// 마이페이지 정보변경- 유저의 회원정보를 수정하는 매소드 // 
+		public int updateUserInfo(String id,String pwd,String name,String phone,String addr){ 
+			int re=-1;
+			System.out.println("전달받은 id: "+id+"pwd: "+pwd);
+			String sql =
+				"UPDATE users set u_pw=?,u_name=?,u_phone=?,u_addr=? WHERE u_id=?";
+			
+			System.out.println(sql);
+			try {
+				Connection conn = ConnectionProvider.getConnection();
+				PreparedStatement  pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, pwd);
+				pstmt.setString(2, name);
+				pstmt.setString(3, phone);
+				pstmt.setString(4, addr);
+				pstmt.setString(5, id);
+				
+				re = pstmt.executeUpdate();
+				if(re ==1) {
+					System.out.println("수정완료");
+				}
+				ConnectionProvider.close(conn, pstmt);
+				
+			} catch (Exception e) {
+				System.out.println("예외발생:"+e.getMessage());
+			}
+			return re;
+		}
 	
 }

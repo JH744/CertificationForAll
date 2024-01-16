@@ -112,7 +112,7 @@
                 <strong>${list.seriesnm}</strong>
               </div>
               <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                 ${list.mdobligfldnmm}
+                 ${list.mdobligfldnm}
               </div>
               <div class="job-listing-meta">
                 <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'" class="ac-button is-md is-solid button-rounded undefined "

@@ -3,12 +3,14 @@ package vo;
 import java.util.Date;
 
 public class StudyVO {
+
 	private int s_id;
 	private String s_title;
 	private String s_content;
 	private Date s_date;
 	private String s_state;
 	private String u_id;
+	private int e_id;
 	private String exam_name;
 	private int s_count;
 	private int replyCount;
@@ -47,6 +49,12 @@ public class StudyVO {
 	}
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
+	}
+	public int getE_id() {
+		return e_id;
+	}
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
 	}
 	public String getExam_name() {
 		return exam_name;
@@ -106,6 +114,16 @@ public class StudyVO {
 		this.u_id = u_id;
 		this.exam_name = exam_name;
 	}
-	
-	
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id) {
+		super();
+		this.s_id = s_id;
+		this.s_title = s_title;
+		this.s_content = s_content;
+		this.s_date = s_date;
+		this.s_state = s_state;
+		this.u_id = u_id;
 	}
+	
+	
+	
+}
