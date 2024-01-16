@@ -24,7 +24,7 @@ body{
 
     </style>
     
-<title>Insert title here</title>
+<title>모두의 자격증</title>
 </head>
 <body>
 <section class="ftco-section">

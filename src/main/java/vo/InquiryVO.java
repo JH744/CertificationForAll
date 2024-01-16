@@ -60,6 +60,7 @@ public class InquiryVO {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+
 	public InquiryVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -77,5 +78,6 @@ public class InquiryVO {
 		this.u_id = u_id;
 	}
 
-	
 }
+	
+

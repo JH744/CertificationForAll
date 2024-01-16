@@ -32,7 +32,7 @@
 </head>
 <body>
 	<header class="bg-dark py-5">
-<<<<<<< HEAD
+
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-white">
 				<h1 class="display-4 fw-bolder">모두의 자격증</h1>

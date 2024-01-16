@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import action.SistAction;
 
 /**
@@ -45,7 +43,6 @@ public class SistController extends HttpServlet {
     			Object obj = Class.forName(clsName).newInstance();
     			map.put(key,(SistAction)obj);
     		}
-
     		fr.close();
     	}catch(Exception e) {
     		System.out.println(e.getMessage());
@@ -63,6 +60,7 @@ public class SistController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.indexOf("/",1)+1);
+
 		SistAction action = map.get(cmd);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);

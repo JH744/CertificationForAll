@@ -1,5 +1,6 @@
 package dao;
 
+
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -39,7 +40,7 @@ public class ExamDAO {
 				e.setObligfldcd(rs.getInt(9));
 				e.setObligfldnm(rs.getString(10));
 				e.setMdobligfldcd(rs.getInt(11));
-				e.setMdobligfldnmm(rs.getString(12));
+				e.setMdobligfldnm(rs.getString(12));
 				e.setDetail(rs.getString(13));
 				e.setE_count(rs.getInt(14));
 			}
@@ -318,4 +319,3 @@ public class ExamDAO {
 
 		
 	}
-	

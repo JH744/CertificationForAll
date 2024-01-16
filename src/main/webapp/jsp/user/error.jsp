@@ -45,7 +45,6 @@ body{
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">ID찾기</h3>
 			      		</div>								
 			      	</div>
 			      		<div class="form-group mb-3">

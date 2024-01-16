@@ -112,10 +112,11 @@
                 <strong>${list.seriesnm}</strong>
               </div>
               <div class="job-listing-location mb-3 mb-sm-0 custom-width w-25">
-                 ${list.mdobligfldnmm}
+                 ${list.mdobligfldnm}
               </div>
               <div class="job-listing-meta">
-                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'">상세보기</button>
+                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'" class="ac-button is-md is-solid button-rounded undefined "
+                           style="background: #ff8c00">상세보기</button>
               </div>
             </div>
             
@@ -128,6 +129,7 @@
 
           <div class="col-md-6 text-center text-md-right">
             <div class="custom-pagination ml-auto">
+
 
 						<div class="d-inline-block">
 							<c:set var="currentPage"

@@ -116,5 +116,5 @@ public class ExamPlanVO {
 		this.pracExamEndDt = pracExamEndDt;
 		this.pracPassDt = pracPassDt;
 	}
-	
 }
+	
