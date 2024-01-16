@@ -197,6 +197,7 @@
 					</div>
 					<div class="community-post-info__content">
 						<form action="replyWrite.do?s_id=${studyVO.s_id }" method="post">
+						<c:if test="${id != null }">
 							<div class="answer-comment" data-id="new">
 
 								<div class="bootstrap-components comment__input">
@@ -229,6 +230,7 @@
 									</div>
 								</div>
 							</div>
+							</c:if>
 						</form>
 						<c:forEach var="reply" items="${replyList }">
 							<div class="content__body">

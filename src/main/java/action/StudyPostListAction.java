@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ReplyDAO;
 import dao.StudyDAO;
@@ -19,7 +20,7 @@ public class StudyPostListAction implements SistAction {
 		StudyDAO sdao = new StudyDAO();
 		ReplyDAO rdao = new ReplyDAO();
 		String sort = null;
-		
+		HttpSession session = request.getSession();
 		if(request.getParameter("sort")!=null) {
 			sort = request.getParameter("sort");
 		}
@@ -30,8 +31,13 @@ public class StudyPostListAction implements SistAction {
 		}
 		
 		String keyword = null;
+		if(session.getAttribute("keyword")  != null) {
+			keyword = (String)session.getAttribute("keyword");
+		}
+		
 		if(request.getParameter("keyword")!=null) {
 			keyword = request.getParameter("keyword");
+			session.setAttribute("keyword", keyword);
 		}
 		System.out.println(keyword);
 		int pageNum = 1;
@@ -40,8 +46,9 @@ public class StudyPostListAction implements SistAction {
 		}
 		
 		System.out.println("pageNum : "+pageNum);
-		request.setAttribute("totalPage", sdao.getTotalPage());
+		request.setAttribute("totalPage", sdao.getTotalPage(keyword));
 		ArrayList<StudyVO> studyList = sdao.studyList(sort,s_state,pageNum,keyword);
+		request.setAttribute("pageNum", pageNum);
 		
 		request.setAttribute("studyList", studyList);
 		System.out.println(studyList.get(0).getS_state());

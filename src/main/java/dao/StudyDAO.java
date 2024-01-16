@@ -16,8 +16,12 @@ public class StudyDAO {
 	static int totalPage = 0;
 	
 	
-	public int getTotalRecord() {
+	public int getTotalRecord(String keyword) {
 		String sql = "select count(*) from study";
+		if(keyword != null) {
+			sql += " where s_title like '%"+keyword+"%' or s_content like '%"+keyword+"%' ";
+		}
+		System.out.println(sql);
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			Statement stmt = conn.createStatement();
@@ -32,8 +36,8 @@ public class StudyDAO {
 		return totalRecord;
 	}
 	
-	public int getTotalPage() {
-		totalRecord = getTotalRecord();
+	public int getTotalPage(String keyword) {
+		totalRecord = getTotalRecord(keyword);
 		totalPage = (int)Math.ceil(totalRecord/(double)maxRecord);
 		return totalPage;
 	}
@@ -69,7 +73,7 @@ public class StudyDAO {
 	// 스터디 목록 조회
 	public ArrayList<StudyVO> studyList(String sort, String s_states,int pageNum,String keyword) {
 		
-		totalRecord = getTotalRecord();
+		totalRecord = getTotalRecord(keyword);
 		totalPage = (int)Math.ceil(totalRecord/(double)maxRecord);
 		
 		int start = maxRecord*pageNum-9;
