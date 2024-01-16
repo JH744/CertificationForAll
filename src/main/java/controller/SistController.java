@@ -34,7 +34,7 @@ public class SistController extends HttpServlet {
     	map= new HashMap<String, SistAction>();
     	String path = config.getServletContext().getRealPath("WEB-INF");
     	try {
-    		FileReader fr = new FileReader(path+"/sist.properties");
+    		FileReader fr = new FileReader(path + "/sist.properties");
     		Properties prop = new Properties();
     		prop.load(fr);
     		Set keyList = prop.keySet();
@@ -45,6 +45,7 @@ public class SistController extends HttpServlet {
     			Object obj = Class.forName(clsName).newInstance();
     			map.put(key,(SistAction)obj);
     		}
+
     		fr.close();
     	}catch(Exception e) {
     		System.out.println(e.getMessage());
@@ -65,6 +66,7 @@ public class SistController extends HttpServlet {
 		SistAction action = map.get(cmd);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
+		request.setAttribute("admin", "admin");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp");
 		dispatcher.forward(request, response);
