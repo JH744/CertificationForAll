@@ -24,7 +24,8 @@ public class LoginOKAction implements SistAction {
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("id", u_id);
-		
+		System.out.println(u_id);
+
 		if(u_id==null) {
 			viewPage="error.jsp";
 			request.setAttribute("msg", "로그인 정보가 없습니다");

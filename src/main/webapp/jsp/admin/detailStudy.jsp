@@ -192,10 +192,7 @@
 													<span class="comment__updated-at">${r.r_date }</span>
 												</div>
 											</div>
-											<div class="comment__body markdown-body">
-												<p>${r.r_content }</p>
-												<a href="" style="float:right;" onclick="location.href='replyDelete.do'">삭제</a>
-											</div>
+											
 										</div>
 									</div>
 								</div>

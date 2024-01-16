@@ -20,8 +20,14 @@ public class ExamSearchAction implements SistAction {
 		String search = null;
 		String bCate = null;
 		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("bCate")  != null) {
+			bCate = (String)session.getAttribute("bCate");
+		}
+		
 		if(request.getParameter("bCate")!=null) {			
 			bCate = request.getParameter("bCate");
+			session.setAttribute("bCate", bCate);
 		}
 		
 		if(session.getAttribute("search")  != null) {
