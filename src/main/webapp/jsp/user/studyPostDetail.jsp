@@ -63,8 +63,7 @@
 	}
 	
 	function changeRecruitmentButton(u_id, s_id, s_state) {
-		  var uid = "<%=(String) session.getAttribute("id")%>
-	";
+		  var uid = "<%=(String) session.getAttribute("id")%>";
 		if (uid === u_id) {
 			var studyStateChange = 'studyStateChange.do?s_id=' + s_id
 					+ '&s_state=' + s_state;

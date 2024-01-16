@@ -45,13 +45,13 @@ body{
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">ID찾기</h3>
+			      			<h3 class="mb-4">PW찾기</h3>
 			      		</div>								
 			      	</div>
 			      		<div class="form-group mb-3">
 			      		
 			      			<label class="label" for="name">PW</label>
-			      			<label class="label">회원님의 비밀번호는 ${findPw} 입니다</label>
+			      			<label class="label">회원님의 비밀번호는 ${findpw} 입니다</label>
 			      			
 			      		</div>
 		            

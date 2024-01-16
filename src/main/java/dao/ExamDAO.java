@@ -75,7 +75,7 @@ public class ExamDAO {
 
 	
 	//페이징 처리 위한 변수
-	public static int pageSize=10;
+	public static int pageSize=5;
 	public static int totalRecord=0;
 	public static int totalPage=0;
 	

@@ -209,6 +209,7 @@ public class UserDAO {
 		}catch(Exception e) {
 			System.out.println("pwFind 오류 : " + e.getMessage());
 		}
+		System.out.println(sql);
 		return u_pw;
 				
 	}

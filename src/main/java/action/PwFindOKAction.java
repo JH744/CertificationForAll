@@ -17,12 +17,13 @@ public class PwFindOKAction implements SistAction {
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		
-		String u_id = dao.idFind(id,name);
-		if(u_id==null) {
+		String pwd = dao.pwFind(id,name);
+		if(pwd==null) {
 			request.setAttribute("msg", "찾으시는 비밀번호가 없습니다");
 			viewPage="error.jsp";
+			request.setAttribute("msg1", "PW찾기");
 		}
-		request.setAttribute("findId", u_id);
+		request.setAttribute("findpw", pwd);
 		return viewPage;
 	}
 
