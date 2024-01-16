@@ -3,14 +3,14 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 
 import db.ConnectionProvider;
 import vo.ExamVO;
-=======
->>>>>>> beomjin
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,7 +18,6 @@ import db.ConnectionProvider;
 import vo.ExamVO;
 
 public class ExamDAO {
-<<<<<<< HEAD
 	// 시험 상세
 	public ExamVO examDetail(int e_id) {
 		ExamVO e = new ExamVO();
@@ -76,9 +75,6 @@ public class ExamDAO {
 		return list;
 	}
 
-	// 대분류코드 목록 리스트 출력 메소드
-	public ArrayList<String> mdobligfldnmList() {
-=======
 	
 	//페이징 처리 위한 변수
 	public static int pageSize=10;
@@ -151,7 +147,36 @@ public class ExamDAO {
 		return list;
 	}
 	
-	
+	public int totalExamCount(String search, String bCate) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        int count = 0;
+
+        try {
+            conn = ConnectionProvider.getConnection();
+
+            // Modify the SQL query based on your database schema and search criteria
+            String sql = "SELECT COUNT(*) FROM exam WHERE jmfldnm LIKE ? AND mdobligfldnm = ?";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, "%" + search + "%");
+            pstmt.setString(2, bCate);
+
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionProvider.close(conn, pstmt, rs);
+        }
+
+        return count;
+    }
+
 	
 	//대직무분야명 목록 리스트 출력메소드
 	public ArrayList<String> obligfldnmList(){
@@ -217,7 +242,6 @@ public class ExamDAO {
 	}
 	//중직무분야명 목록 리스트 출력 메소드
 	public ArrayList<String> mdobligfldnmList(){
->>>>>>> beomjin
 		ArrayList<String> list = new ArrayList<String>();
 		String sql = "select distinct mdobligfldnm from exam where mdobligfldnm is not null";
 		try {

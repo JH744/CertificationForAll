@@ -161,11 +161,15 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
         <div id="headerTopMenu">
             <ul id="headerTM">
             <c:choose>
-	            <c:when test="${id ne null}"><li><a href="logout.do">로그아웃</a></li></c:when>
-	            <c:when test="${id eq null}"><li><a href="login.do">로그인</a></li>
-	            <span style="none">&nbsp;|&nbsp;</span>
+               <c:when test="${id ne null}"><li><a href="logout.do">로그아웃</a></li>
+               <span style="none">&nbsp;|&nbsp;</span>
+               <c:if test="${id == admin }">
+               <li><a href="/tp/jsp/admin/user.do">관리자홈</a></li>
+               </c:if>
+               </c:when>
+               <c:when test="${id eq null}"><li><a href="login.do">로그인</a></li>
+               <span style="none">&nbsp;|&nbsp;</span>
                 <li><a href="join.do">회원가입</a></li>
-                
                 </c:when>
             </c:choose>
                 

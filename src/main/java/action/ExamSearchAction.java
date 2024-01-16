@@ -37,6 +37,6 @@ public class ExamSearchAction implements SistAction {
 		request.setAttribute("sCate", gson.toJson(dao.mdobligfldnmList()));//중직무분야명 목록출력
 		request.setAttribute("bCate", gson.toJson(dao.obligfldnmList()));
 		return viewPage;
-	}
-
+    }
 }
+

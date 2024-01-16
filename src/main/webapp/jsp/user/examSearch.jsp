@@ -66,7 +66,7 @@
               <h1 class="text-black font-weight-bold" font-color="black">자격증 정보검색은 모두의 자격증!</h1>
               <p>모두의 자격증에서 자격증 정보를 쉽게 찾아가세요!</p>
             </div>
-            <form method="post" class="search-jobs-form">
+            <form method="post" class="search-jobs-form" action="examSearch.do?pageNum=1">
               <div class="row mb-5">
                 
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
@@ -99,14 +99,14 @@
         
         <c:forEach items="${list}" var="list">
         <ul class="job-listings mb-5">
-          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
+          <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center" style="border:1px black solid">
             <a href="job-single.html"></a>
                             <h3>${list.qualgbnm }</h2>
             
             <div class="job-listing-logo">
             </div>
 
-            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4">
+            <div class="job-listing-about d-sm-flex custom-width w-100 justify-content-between mx-4" style="text-align:center">
               <div class="job-listing-position custom-width w-50 mb-3 mb-sm-0">
                 <h2>${list.jmfldnm }</h2>
                 <strong>${list.seriesnm}</strong>
@@ -115,7 +115,8 @@
                  ${list.mdobligfldnmm}
               </div>
               <div class="job-listing-meta">
-                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'">상세보기</button>
+                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'" class="ac-button is-md is-solid button-rounded undefined "
+                 style="background: #ff8c00" >상세보기</button>
               </div>
             </div>
             
@@ -160,6 +161,19 @@
 
 <c:if test="${currentPage < totalPage}">
   <a href="examSearch.do?pageNum=${currentPage + 1}">&gt;</a>
+</c:if>
+<c:if test="${search ne null }">
+    <c:forEach var="i" begin="${startRange}" end="4" varStatus="loop">
+        <c:choose>
+            <c:when test="${loop.index == currentPage}">
+                <span>${i}&nbsp;</span>
+            </c:when>
+            <c:otherwise>
+                <a href="examSearch.do?pageNum=${i}&search=${search}">${i}&nbsp;</a>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
+
 </c:if>
               </div>
          
