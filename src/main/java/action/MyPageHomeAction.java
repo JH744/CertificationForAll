@@ -20,16 +20,26 @@ public class MyPageHomeAction implements SistAction {
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MyPageHomeAction실행" );
 		String id = ""; 
-		String viewPage = "/jsp/user/myPageHome.jsp";    // 시작경로는 wepapp을기준으로 한다. 
-//		id = "hong"; //임시값 나중에 지움//
+		int inquireN= 0;
+		int inquireY =0;
+		int StudyN =0;
+		int StudyY =0;
+		int wish =0;
+		String u_name ="";
+		String viewPage="";
+		
+		
 		
 		HttpSession session = request.getSession();
 		id =  (String)session.getAttribute("id");  //머지 후 세션으로 아이디받아오기 
 		
+		
+		if(id != null) {
+		viewPage = "/jsp/user/myPageHome.jsp";    // 시작경로는 wepapp을기준으로 한다. 
 		UserDAO userdao = new UserDAO();
 		// 전달받은 id를 통해 회원정보를 가져오는 매소드 실행.//
 		UserVO u = userdao.myInfo(id);
-		String u_name = u.getU_name();
+		u_name = u.getU_name();
 		
 		System.out.println("이름:"+u_name);
 		
@@ -37,24 +47,26 @@ public class MyPageHomeAction implements SistAction {
 		
 		InquiryDAO inquirydao = new InquiryDAO();
 		//내문의 - 답변대기 게시글 갯수를 가져옴
-		int inquireN = inquirydao.myInquireNUM_N(id);
+		inquireN = inquirydao.myInquireNUM_N(id);
 		//내문의 - 답변완료 게시글 갯수를 가져옴
-		int inquireY = inquirydao.myInquireNUM_Y(id);
+		 inquireY = inquirydao.myInquireNUM_Y(id);
 		
 		
 		
 		StudyDAO studydao = new StudyDAO();
 		//내문의 - 답변대기 게시글 갯수를 가져옴
-		int StudyN = studydao.myStudyNUM_N(id);
+		StudyN = studydao.myStudyNUM_N(id);
 		//내문의 - 답변완료 게시글 갯수를 가져옴
-		int StudyY = studydao.myStudyNUM_Y(id);
+		 StudyY = studydao.myStudyNUM_Y(id);
 		
 		
 		WishlistDAO wishdao = new WishlistDAO();
-		int wish = wishdao.myWishlistNUM(id);
+		 wish = wishdao.myWishlistNUM(id);
 		
-		
-		
+		}
+		else{
+			viewPage= "/jsp/user/YouNeedLogIn.jsp"; 
+		}
 		
 		
 		
