@@ -3,7 +3,6 @@ package vo;
 import java.util.Date;
 
 public class StudyVO {
-
 	private int s_id;
 	private String s_title;
 	private String s_content;
@@ -13,13 +12,6 @@ public class StudyVO {
 	private String exam_name;
 	private int s_count;
 	private int replyCount;
-	
-	public int getS_count() {
-		return s_count;
-	}
-	public void setS_count(int s_count) {
-		this.s_count = s_count;
-	}
 	public int getS_id() {
 		return s_id;
 	}
@@ -44,7 +36,7 @@ public class StudyVO {
 	public void setS_date(Date s_date) {
 		this.s_date = s_date;
 	}
-	public String isS_state() {
+	public String getS_state() {
 		return s_state;
 	}
 	public void setS_state(String s_state) {
@@ -59,40 +51,21 @@ public class StudyVO {
 	public String getExam_name() {
 		return exam_name;
 	}
-	public void setE_id(String exam_name) {
-		this.exam_name = exam_name;
-	}
-	public String getS_state() {
-		return s_state;
-	}
 	public void setExam_name(String exam_name) {
 		this.exam_name = exam_name;
 	}
-	
+	public int getS_count() {
+		return s_count;
+	}
+	public void setS_count(int s_count) {
+		this.s_count = s_count;
+	}
 	public int getReplyCount() {
 		return replyCount;
 	}
 	public void setReplyCount(int replyCount) {
 		this.replyCount = replyCount;
 	}
-	
-	public StudyVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id, String exam_name, int s_count) {
-		super();
-		this.s_id = s_id;
-		this.s_title = s_title;
-		this.s_content = s_content;
-		this.s_date = s_date;
-		this.s_state = s_state;
-		this.u_id = u_id;
-		this.exam_name = exam_name;
-		this.s_count = s_count;
-	}
-	
 	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id,
 			String exam_name, int s_count, int replyCount) {
 		super();
@@ -106,4 +79,33 @@ public class StudyVO {
 		this.s_count = s_count;
 		this.replyCount = replyCount;
 	}
-}
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id,
+			String exam_name, int s_count) {
+		super();
+		this.s_id = s_id;
+		this.s_title = s_title;
+		this.s_content = s_content;
+		this.s_date = s_date;
+		this.s_state = s_state;
+		this.u_id = u_id;
+		this.exam_name = exam_name;
+		this.s_count = s_count;
+	}
+	public StudyVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public StudyVO(int s_id, String s_title, String s_content, Date s_date, String s_state, String u_id,
+			String exam_name) {
+		super();
+		this.s_id = s_id;
+		this.s_title = s_title;
+		this.s_content = s_content;
+		this.s_date = s_date;
+		this.s_state = s_state;
+		this.u_id = u_id;
+		this.exam_name = exam_name;
+	}
+	
+	
+	}

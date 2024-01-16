@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,7 @@ $(function(){
 </script>
 <title>Insert title here</title>
 </head>
+
 <body class="templateBody" style="min-height: 100vh;">
 	<header>
 	<div id="header" >
@@ -44,5 +46,6 @@ $(function(){
 	<div id="footer" style="position : absolute;">
 		<jsp:include page="footer.jsp"/>
 	</div>
+
 </body>
 </html>
