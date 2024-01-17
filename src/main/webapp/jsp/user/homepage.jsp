@@ -117,7 +117,7 @@
 					<br>
 					<div
 						class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-						<c:forEach items="${list}" var="y" begin="1" end="4">
+						<c:forEach items="${yList}" var="y">
 							<div class="col mb-5">
 								<div class="card h-100">
 									<iframe id="youtube" src="${y.y_url }"

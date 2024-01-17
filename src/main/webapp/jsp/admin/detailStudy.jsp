@@ -192,7 +192,9 @@
 													<span class="comment__updated-at">${r.r_date }</span>
 												</div>
 											</div>
-											
+											<div class="comment__body markdown-body">
+												<p>${r.r_content }</p>
+											</div>
 										</div>
 									</div>
 								</div>

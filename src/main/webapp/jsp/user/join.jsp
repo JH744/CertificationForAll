@@ -135,6 +135,13 @@ $(function(){
              alert('영어와 숫자만 입력하세요');
          }
      });
+	$("#name").bind('focusin keyup', function(){
+	    var check = /^[ㄱ-ㅎ|가-힣]+$/;
+	    if(this.value !== "" && !check.test(this.value)){
+	        this.value="";
+	        alert("한글만 입력하세요");
+	    }
+	});
 	 
 	$("#HPhone1").bind('focusin keyup', function(){
         var check_p = /^[0-9]*$/;

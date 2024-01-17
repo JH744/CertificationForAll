@@ -65,7 +65,7 @@ public class MyPageHomeAction implements SistAction {
 		
 		}
 		else{
-			viewPage= "/jsp/user/youNeedLogIn.jsp"; 
+			viewPage= "/jsp/user/abc.jsp"; 
 		}
 		
 		
