@@ -19,7 +19,7 @@
 <body>
 	<div style="width: 80%; height: auto; margin: auto;padding:20px;">
 		<div class="card" style="width: 18rem;">
-		  <img src="..." class="card-img-top" alt="...">
+		  <img src="../../image/person.jpg" class="card-img-top" alt="...">
 		  <div class="card-body">
 		    <h5 class="card-title">${u.u_name }</h5>
 		    <p class="card-text">관심목록 ${u.u_interest }</p>
