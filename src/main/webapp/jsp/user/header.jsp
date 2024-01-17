@@ -148,24 +148,25 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 
 .modal {
    display: none;
-   overflow-y: auto;
-   resize: none;
-   height: 450px;
-   position: fixed;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: auto;
-   margin: 20px;
-   width: 500px;
+   overflow-y: auto !important;
+   resize: none !important;
+   height: 450px !important;
+   position: absolute !important;
+   top: 0 !important;
+   right: 0 !important;
+   bottom: 0 !important;
+   left: auto !important;
+   margin: 20px !important;
+   width: 500px !important;
 }
 
 .modal-content {
-   height: 300px;
-   box-sizing: border-box;
-   padding: 20px;
-   margin: 20px;
-   width: 500px;
+	
+   height: 300px !important;
+   box-sizing: border-box !important;
+   padding: 20px !important;
+   margin: 20px !important;
+   width: 450px !important;
 }
 
 .mt-3 {
@@ -186,24 +187,6 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 
    // 팝업 열기
    function openModal() {
-      var id = "${id}"; // id 값에 따옴표 추가
-      var requestData = { id: id };
-      var newList;
-      $.ajax({
-         type : "post",
-         url : "newList.jsp",
-         data :requestData,
-         success : function(result) {
-            //let str = JSON.stringify(result);
-            //alert(str);
-            $.each(result,function(){
-               
-            })
-            
-         }
-      
-      })
-
       var modal = document.getElementById("myModal");
       modal.style.display = "block";
    }
@@ -224,30 +207,32 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 </head>
 <body id="headerBody">
 
-
-<header id="header" class="header">
-        <h1 id="headerLogo"><a href="homepage.do"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
-        <nav id="headerMenuBar">
-            <ul id="headerGnb">
-                <li><a href="examSearch.do">자격증정보</a></li>
-                <li><a href="studyList.do">스터디모집</a></li>
-        	    <li><a href="myPageHome.do" class="hover">마이페이지</a></li>
-                <li><a href="faq_page.do">고객센터</a></li>
-            </ul>
-        </nav>
-        <div id="headerTopMenu">
-            <ul id="headerTM">
-
+   <header id="header" class="header">
+      <h1 id="headerLogo">
+         <a href="homepage.do"><img src="../../image/logo.png"모두의자격증"></a>
+      </h1>
+      <nav id="headerMenuBar">
+         <ul id="headerGnb">
+            <li><a href="examSearch.do">자격증정보</a></li>
+            <li><a href="studyList.do">스터디모집</a></li>
+            <li><a href="myPageHome.do" class="hover">마이페이지</a></li>
+            <li><a href="faq_page.do">고객센터</a></li>
+         </ul>
+      </nav>
+      <div id="headerTopMenu">
+         <ul id="headerTM">
             <c:choose>
                <c:when test="${id ne null}">
                   <li><a href="logout.do">로그아웃</a></li>
                   <span style="">&nbsp;|&nbsp;</span>
+                  <c:if test="${id != admin }">
                   <li onclick="openModal()"><svg
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                         fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
                     <path
                            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                   </svg></li>
+                  </c:if>
                   <c:if test="${id == admin }">
                      <li><a href="/tp/jsp/admin/user.do">관리자홈</a></li>
                   </c:if>
@@ -265,18 +250,24 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 
    </header>
 
-   <div id="myModal" class="modal">
+    <div id="myModal" class="modal">
       <div class="modal-content">
          <span class="close" onclick="closeModal()">&times;</span>
          <!-- 팝업 내용 -->
-         <c:forEach var="new" items="newList">
+         <c:if test="${newList ne null }">
+         <c:forEach var="n" items="${newList }">
          <div class="row mt-3">
             <div class="col-md-6">
-            <ul>
-               <li id="title">&nbsp;&nbsp; </li>
-            </ul>
+               <li id="title">
+               <c:if test="${n.i_id eq 'none' }">
+               <a href="studyPostDetail.do?s_id=${n.s_id }">
+               ${n.n_id }&nbsp;&nbsp;${n.n_msg }
+               </a>
+               </c:if>
+               </li>
             </div>
             <div class="col-md-6">
+            <a href="deleteNew.do?n_id=${n.n_id }">
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                   fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"
                   id="deleteBtn">
@@ -285,10 +276,12 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
                                          <path
                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                                        </svg>
+                                       </a>
             </div>
          </div>
          <br>
          </c:forEach>
+         </c:if>
          <!-- 여기까지 모달 창 내용 -->
       </div>
    </div>

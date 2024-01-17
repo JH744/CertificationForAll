@@ -115,7 +115,7 @@
                  ${list.mdobligfldnm}
               </div>
               <div class="job-listing-meta">
-                <button onclick="location.href='certificationDeatil.do?e_id=${list.e_id}'" class="ac-button is-md is-solid button-rounded undefined "
+                <button onclick="location.href='certificationDetail.do?e_id=${list.e_id}'" class="ac-button is-md is-solid button-rounded undefined "
                            style="background: #ff8c00">상세보기</button>
               </div>
             </div>
@@ -194,7 +194,5 @@
     
     <script src="../../js/custom.js"></script>
    
-   
-     
   </body>
 </html>
