@@ -94,6 +94,11 @@
 								<i class="fas fa-table"></i>
 							</div> 자격증관리
 						</a>
+						<a class="nav-link" href="/tp/jsp/user/homepage.do">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-chart-area"></i>
+							</div> 홈
+						</a>
 					</div>
 				</div>
 			</nav>
