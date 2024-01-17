@@ -48,7 +48,7 @@ body{
 			      			<h3 class="mb-4">로그인</h3>
 			      		</div>								
 			      	</div>
-							<form action="loginOK.do" class="signin-form">
+							<form action="loginOK.do" class="signin-form" method="post">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">ID</label>
 			      			<input type="text" class="form-control" name="id" placeholder="아이디를 입력해주세요" required>
