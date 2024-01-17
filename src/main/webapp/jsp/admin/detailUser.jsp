@@ -53,7 +53,7 @@
                                     <div class="img"></div>
                                 </div>
                             
-                            <img src="../../image/file-person.svg" style="width:400px;height:400px;"/>
+                            <img src="../../image/person.svg" style="width:400px;height:400px;"/>
                         </td>
                     </tr>
                     <tr>

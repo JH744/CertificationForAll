@@ -60,11 +60,6 @@ public class InquiryVO {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
-
-	public InquiryVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public InquiryVO(int i_id, String i_title, String i_content, String i_answer, Date i_answerDate, Date i_inquiryDate,
 			String i_state, String u_id) {
 		super();
@@ -76,6 +71,10 @@ public class InquiryVO {
 		this.i_inquiryDate = i_inquiryDate;
 		this.i_state = i_state;
 		this.u_id = u_id;
+	}
+	public InquiryVO() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 }

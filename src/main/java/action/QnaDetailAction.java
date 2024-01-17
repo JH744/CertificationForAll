@@ -10,15 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import dao.QnaDAO;
 import vo.QnaVO;
 
-public class QnaListAction implements SistAction {
+public class QnaDetailAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String viewPage = "qnaList.jsp";
+		// TODO Auto-generated method stub
+		String viewPage = "qnaDetail.jsp";
 		QnaDAO dao=new QnaDAO();
+		int q_id=
+			Integer.parseInt(request.getParameter("q_id"));	
 		ArrayList<QnaVO> vo = new ArrayList<QnaVO>();
-		vo= dao.qnaList();
+		vo= dao.qnaList2(q_id);
 		request.setAttribute("qna1", vo);
+		
 		
 		return viewPage;
 
