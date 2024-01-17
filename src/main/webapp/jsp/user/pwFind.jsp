@@ -168,7 +168,7 @@
     <script src="https://kit.fontawesome.com/e72539902e.js" crossorigin="anonymous"></script> <!--아이콘 사용-->
     </style>
     
-<title>Insert title here</title>
+<title>모두의 자격증</title>
 </head>
 <body>
 <section class="ftco-section">
@@ -192,14 +192,14 @@
 			      			<h3 class="mb-4">PW찾기</h3>
 			      		</div>								
 			      	</div>
-							<form action="#" class="signin-form">
+							<form action="pwFindOK.do" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">ID</label>
-			      			<input type="text" class="form-control" placeholder="아이디" required>
+			      			<input type="text" class="form-control" name="id" placeholder="아이디" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="name">이름</label>
-		              <input type="text" class="form-control" placeholder="이름" required>
+		              <input type="text" class="form-control" name="name" placeholder="이름" required>
 		            </div>
 		            <div class="form-group">
 		            	<button type="submit" class="form-control btn btn-primary submit px-3">pw찾기</button>

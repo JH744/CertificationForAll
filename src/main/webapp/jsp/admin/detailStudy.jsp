@@ -60,7 +60,7 @@
 					<div class="community-post-info__header">
 
 						<div class="header__title">
-							<h1>바닐라 JS와 알고리즘 함께 공부해요</h1>
+							<h1>${s.s_title }</h1>
 						</div>
 						<br>
 						<div class="header__sub-title">
@@ -194,7 +194,6 @@
 											</div>
 											<div class="comment__body markdown-body">
 												<p>${r.r_content }</p>
-												<a href="" style="float:right;" onclick="location.href='replyDelete.do'">삭제</a>
 											</div>
 										</div>
 									</div>

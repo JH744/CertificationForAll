@@ -25,10 +25,11 @@
 	<div style="width: 80%; height: auto; margin: auto;padding:20px;">
 		<div class="card">
 			<div class="card-body">
-				<h5 class="card-title">${q.q_title }</h5>
-				<h6 class="card-subtitle mb-2 text-body-secondary">관리자</h6>
+				<h4 class="card-title">${q.q_title }</h4>
+				<h6 class="card-subtitle mb-2 text-body-secondary">관리자
+				</h6>
 				<hr>
-				<p style="height: 100%;" class="card-text">${q.q_answer }</p>
+				<p style="height: 500px;" class="card-text">${q.q_answer }</p>
 			</div>
 		</div>
 		<button style="float:left;" onclick="location.href='qna.do'">
