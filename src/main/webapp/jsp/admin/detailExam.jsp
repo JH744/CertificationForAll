@@ -93,7 +93,7 @@ details[open] > summary ~ * {
 			</ul>
 			<ul class="list-group list-group-horizontal">
 			  <li class="list-group-item">중직무분야명</li>
-			  <li class="list-group-item">${e.mdobligfldnmm }</li>
+			  <li class="list-group-item">${e.mdobligfldnm }</li>
 			</ul>
 			<ul class="list-group list-group-horizontal">
 			  <li class="list-group-item">상세설명</li>

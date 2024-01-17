@@ -51,7 +51,6 @@ public class StudyPostListAction implements SistAction {
 		request.setAttribute("pageNum", pageNum);
 		
 		request.setAttribute("studyList", studyList);
-		System.out.println(studyList.get(0).getS_state());
 		return "studyList.jsp";
 	}
 

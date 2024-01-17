@@ -224,20 +224,20 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 </head>
 <body id="headerBody">
 
-   <header id="header" class="header">
-      <h1 id="headerLogo">
-         <a href="homepage.do"><img src="../../image/logo.png"모두의자격증"></a>
-      </h1>
-      <nav id="headerMenuBar">
-         <ul id="headerGnb">
-            <li><a href="examSearch.do">자격증정보</a></li>
-            <li><a href="studyList.do">스터디모집</a></li>
-            <li><a href="myPageHome.do" class="hover">마이페이지</a></li>
-            <li><a href="#">고객센터</a></li>
-         </ul>
-      </nav>
-      <div id="headerTopMenu">
-         <ul id="headerTM">
+
+<header id="header" class="header">
+        <h1 id="headerLogo"><a href="homepage.do"><img src="../../image/logo.png" 모두의자격증"></a> </h1>
+        <nav id="headerMenuBar">
+            <ul id="headerGnb">
+                <li><a href="examSearch.do">자격증정보</a></li>
+                <li><a href="studyList.do">스터디모집</a></li>
+        	    <li><a href="myPageHome.do" class="hover">마이페이지</a></li>
+                <li><a href="faq_page.do">고객센터</a></li>
+            </ul>
+        </nav>
+        <div id="headerTopMenu">
+            <ul id="headerTM">
+
             <c:choose>
                <c:when test="${id ne null}">
                   <li><a href="logout.do">로그아웃</a></li>
