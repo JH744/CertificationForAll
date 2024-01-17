@@ -85,25 +85,27 @@ body {
 </head>
 <body>
 <!-- 헤더와 푸터 포함되어 있다고 가정 -->
-
+<form action="inquiryWriteOK.do">
 <!-- 제목 입력란 -->
 <div class="inquiry-form-container">
     <label for="inquiry-title">제목을 입력하세요</label>
-    <input type="text" id="inquiry-title" name="inquiryTitle" placeholder="제목">
+    <input type="text" id="inquiry-title" name="inquiryTitle" placeholder="제목" required>
 </div>
 
 <!-- 내용 입력란 -->
 <div class="inquiry-form-container">
     <label for="inquiry-content">문의를 작성하세요.</label>
-    <textarea id="inquiry-content" name="inquiryContent" placeholder="내용"></textarea>
+    <textarea id="inquiry-content" name="inquiryContent" placeholder="내용" required></textarea>
 </div>
 
 <!-- 버튼 그룹 -->
 <div class="button-container">
     <button type="submit" class="submit-button">문의 등록하기</button>
-    <button type="button" class="cancel-button">취소</button>
+    <button type="button" class="cancel-button"><a href="inquiryList.do">취소</a></button>
+    
+     
 </div>
-
+</form>
 <script>
 // 여기에 필요한 자바스크립트를 추가하세요.
 </script>

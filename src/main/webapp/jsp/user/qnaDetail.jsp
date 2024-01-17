@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,17 +57,24 @@
 </style>
 </head>
 <body>
-<!-- Assuming header and footer are included via separate JSP includes -->
+
 
 <div class="container">
-    <div class="title">자주 묻는 질문 1</div>
-    <div class="content">
-        <p>질문의 내용이 여기에 표시됩니다.</p>
+
+
+     <c:forEach var="b" items="${qna1}">
+            <div class="title">${b.q_title}</div>
+            <div class="content">
+                <p>${b.q_title}</p>
+            </div>
+            <div class="content">
+                <p>${b.q_answer}</p>
+            </div>
+        </c:forEach>
     </div>
-    <div class="content">
-        <p>질문의 답변이 표시됩니다.</p>
-    </div>
-    <button class="button">목록으로</button>
+    
+    
+    <button class="button"><a href="qnaList.do">목록으로</a></button>
 </div>
 
 </body>

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Detail Inquiry Page</title>
 <style>
+
 /* 제목 스타일... */
 .inquiry-head {
     width: 1000px;
@@ -12,7 +14,7 @@
     padding: 15px;
     box-sizing: border-box;
     background: #f9f9f9;
-    font-size: 20px;
+    font-size: 22px;
     border: 1px solid #ccc;
     text-align: left;
 }
@@ -67,38 +69,41 @@
 </style>
 </head>
 <body>
-<!-- 헤더와 푸터 포함되어 있다고 가정 -->
+
+
 
 <div class="inquiry-head">
-    <span><strong>제목:</strong> 스터디 모집은 어떻게 하나요?</span>
-    <span><strong>작성자:</strong> 홍길동</span>
-    <span><strong>작성일:</strong> 2023.12.25</span>
-</div>
+
+            <span><strong>제목:</strong>${inquiry1.i_title}</span>
+    		<span><strong>작성자:</strong>${inquiry1.u_id}</span>
+    		<span><strong>작성일:</strong>${inquiry1.i_inquiryDate}</span>
+    </div>    
+    
+	<div class="input-title"><p>${inquiry1.i_content}</p></div>
+            
+           
+    
+    
+	
+            <div class="input-content"><p>${inquiry1.i_answer}</p>
+            </div>
+   
 
 
-<!-- 질문 상세 내용 -->
-<div class="input-container">
-    <div class="input-title">스터디 모집은 어떻게 하나요?</div>
-    <div class="input-content">스터디 모집은 스터디 글쓰기를 통해 해야 합니다,</div>
-</div>
 
 <!-- 버튼 그룹 -->
 <div class="button-container">
 
-    <button class="button" onclick="editInquiry();">문의 수정</button>
-    <button class="button" onclick="deleteInquiry();">문의 삭제</button>
+    <button class="button"><a href="inquiryWrite.do">문의 수정</a></button>
+    
+    <button class="button"><a href="inquiryList.do">목록으로</a></button>
+
 </div>
 
 <script>
 // 여기에 JavaScript 함수를 추가하여 버튼 클릭 이벤트를 처리합니다.
 
-}
-function editInquiry() {
-    // 문의 수정 로직
-}
-function deleteInquiry() {
-    // 문의 삭제 로직
-}
+
 </script>
 
 </body>
