@@ -22,7 +22,6 @@ public class CheckPwdOKAction implements SistAction {
 		String invalid = null;
 		
 		String pwd = request.getParameter("pwd");
-		System.out.println("인증 패스워드:"+pwd);
 
 		HttpSession session = request.getSession();
 		id = (String) session.getAttribute("id");// 머지 후 세션으로 아이디받아오기 
@@ -31,7 +30,6 @@ public class CheckPwdOKAction implements SistAction {
 		// 전달받은 id를 통해 회원정보를 가져오는 매소드 실행.//
 		UserVO u = userdao.myInfo(id);
 		String u_pw = u.getU_pw();
-		System.out.println("회원의 패스워드:"+u_pw);
 		
 		if(pwd.equals(u_pw)) {
 			

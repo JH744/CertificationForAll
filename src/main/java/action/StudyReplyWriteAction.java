@@ -23,6 +23,8 @@ public class StudyReplyWriteAction implements SistAction {
 		dao.replyWrite(R_CONTENT, s_id, u_id);
 		request.removeAttribute("R_CONTENT");
 		new StudyPostDetailAction().pro(request, response);
+		new NewInsertAction().pro(request, response);
+		new NewListAction().pro(request, response);
 		return "studyPostDetail.jsp";
 	}
 

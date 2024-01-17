@@ -14,8 +14,6 @@ iframe{
 	height: 700px;
 	width: 100%;
 }
-
-
 h1 {
 	text-align: left;
 }
@@ -38,6 +36,7 @@ textarea {
 	color: inherit; /* 하이퍼링크 파란색 제거 */
 	text-decoration: none; /* 링크 밑줄 제거 */
 }
+
 img {
 	width: 100%;
 }
@@ -47,6 +46,14 @@ img {
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <!-- <script src="https://apis.google.com/js/api.js"></script>  -->
+
+<script type="text/javascript">
+const urlParams = new URL(location.href).searchParams;
+const e_id = urlParams.get('e_id');
+	window.onload = function() {
+		history.pushState(null, null, 'certificationDetail.do?e_id='+e_id);
+	}
+</script>
 </head>
 <body>
 
@@ -56,12 +63,29 @@ img {
 				<h1>${CertiDetailVO.jmfldnm}</h1>
 			</div>
 			<div class="col-md-6 text-right">
-				<a href="wishlistInsert.do" class="custom-link"> <svg
-						xmlns="http://www.w3.org/2000/svg" width="40" height="30"
-						fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-  <path
-							d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-</svg></a>
+					<c:if test="${result == false}">
+						<a href="wishlistInsert.do?e_id=${CertiDetailVO.e_id}&id=${id}"
+							class="custom-link"> <svg xmlns="http://www.w3.org/2000/svg"
+								width="40" height="30" fill="currentColor" class="bi bi-bag"
+								viewBox="0 0 16 16">
+            <path
+									d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+        </svg>
+						</a>
+					</c:if>
+					<c:if test="${result == true}">
+						<a href="wishlistDelete.do?e_id=${CertiDetailVO.e_id}&id=${id}"
+							class="custom-link"> <svg xmlns="http://www.w3.org/2000/svg"
+								width="40" height="30" fill="currentColor"
+								class="bi bi-bag-check" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+									d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0" />
+            <path
+									d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+        </svg>
+						</a>
+					</c:if>
+
 			</div>
 		</div>
 	</div>
@@ -109,8 +133,8 @@ img {
 								style="font-size: 1.3em; display: inline-block; max-width: 100%;">
 								https://www.q-net.or.kr/man001.do?imYn=Y&gSite=Q </a>
 						</div>
-						<div class = "img">
-						<img alt="" src="${imagePath}">
+						<div class="img">
+							<img alt="" src="${imagePath}">
 						</div>
 					</div>
 				</div>
@@ -176,7 +200,7 @@ img {
 			<!-- 탭 2 -->
 			<div class="tab-pane fade" id="tab2" style="width: 100%;">
 				<p>유튜브</p>
-				<iframe src="${youtube.y_url}"
+				<iframe width="100%" height="500" src="${youtube.y_url}"
 					title="YouTube video player" frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					allowfullscreen></iframe>

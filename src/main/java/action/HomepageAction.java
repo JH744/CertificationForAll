@@ -27,6 +27,7 @@ public class HomepageAction implements SistAction {
 		request.setAttribute("bestList", dao.bestExamList());
 		request.setAttribute("list", dao.listYoutube());
 		request.setAttribute("lists", dao.interestExam(interest));
+		
 		return viewPage;
 	}
 

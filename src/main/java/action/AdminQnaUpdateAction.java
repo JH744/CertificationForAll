@@ -19,12 +19,10 @@ public class AdminQnaUpdateAction implements SistAction {
 		QnaVO q = dao.qnaDetail(q_id);
 		
 		String viewPage = "updateQna.jsp";
-		System.out.println(q.getQ_id());
 		if (q == null) {
 			viewPage = "qna.jsp";
 		}
 		
-		System.out.println(viewPage);
 		request.setAttribute("q", q);
 		
 		return viewPage;

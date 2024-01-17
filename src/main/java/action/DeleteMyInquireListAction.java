@@ -15,7 +15,6 @@ public class DeleteMyInquireListAction implements SistAction {
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("daleteInquireAction작동");
 		String viewPage ="";
 		InquiryDAO dao = new InquiryDAO();
 		// 체크박스 표시된 문의 항목들의 i_id들을 가져온다. 이때 배열로 가져옴.

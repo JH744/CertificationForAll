@@ -7,35 +7,45 @@ import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CertiDAO;
+import dao.WishlistDAO;
 import vo.CertiDetailVO;
 import vo.ExamVO;
 import vo.PassingRateVO;
 
-public class certiDetailAction implements SistAction {
+public class CertiDetailAction implements SistAction {
 
 	@Override
 	public String pro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// e_id 파라미터 가져오기
 		CertiDAO certidao = new CertiDAO();
+		//
+		WishlistDAO wishlistdao = new WishlistDAO();
+		//
 		String e_idParam = request.getParameter("e_id");
 		int e_id = Integer.parseInt(e_idParam);
+		HttpSession session = request.getSession();
+		//String u_id = request.getParameter("id");
+		String id = (String)session.getAttribute("id");
 		
 
 		
 		if (e_idParam != null && !e_idParam.isEmpty()) {
-			System.out.println("자격증 아이디 : " + e_id);
 
 			// CertiDAO를 이용하여 ExamVO 가져오기
 			CertiDetailVO exam = certidao.getExamDetail(e_id);
 			CertiDetailVO youtube = certidao.getYoutube();
 			ArrayList<CertiDetailVO> list = certidao.getExamDate(exam.getSeriesnm());
+			
+			//
+			boolean result = wishlistdao.selectWishlist(id, e_id);
 
 			request.setAttribute("CertiDetailVO", exam);
 			request.setAttribute("list", list);
 			request.setAttribute("youtube", youtube);
-			System.out.println("youtube: "+youtube.getY_url());
+			request.setAttribute("result", result);
 			String imagePath = "../../image/" + exam.getImg();
 			request.setAttribute("imagePath", imagePath);
 			
@@ -54,7 +64,6 @@ public class certiDetailAction implements SistAction {
 		    }
 			request.setAttribute("prVOP", prVOP);
 			request.setAttribute("wrVOP", wrVOP);
-			System.out.println(prVOP.getPassRate2020());
 
 			// certificationDetail.jsp로 포워딩
 			return "certificationDetail.jsp";
