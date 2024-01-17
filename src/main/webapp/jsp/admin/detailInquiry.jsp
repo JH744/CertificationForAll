@@ -38,7 +38,7 @@
 			  <div class="card-body">
 			    <h5 class="card-title">관리자</h5>
 			    <h6 class="card-subtitle mb-2 text-body-secondary">${vo.i_answerDate }</h6>
-			    <p class="card-text">${vo.i_answer }</p>
+			    <p class="card-text" style="height:50%">${vo.i_answer }</p>
 			    <a href="inquiryAnswerDelete.do?i_id=${vo.i_id }" style="float:right;">삭제</a>
 			  </div>
 			</div>

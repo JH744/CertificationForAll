@@ -21,12 +21,12 @@
 			<form method="post" action="qnaInsertOK.do">
 				<div style="width: 80%; height: auto; margin: auto;">
 					<h2>QNA 등록</h2>
-					<div class="card">
+					<div class="card" style="border:0;">
 						<div class="card-body">
-							<h5 class="card-title" >제목</h5>
+							<h5 class="card-title" style="font:30px solid;">제목</h5>
 							<input type="text" placeholder="제목을 입력해주세요" name="q_title"
 								style="width: 100%; height: 50px; font-size: 30px;">
-							<hr>
+							<hr style="border:1px solid BLACK">
 							<p style="height: 100%;" class="card-text">내용</p>
 							<textarea rows="20" style="width: 100%;" placeholder="내용을 입력해주세요" name="q_answer"></textarea>
 						</div>

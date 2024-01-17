@@ -263,7 +263,7 @@
                         <li class="myname" id="myname"><c:out value="${u_name}" />님</li>  
                         <li>현재 회원님은 일반 회원등급입니다.</li>
                     </ul>
-                    <img src="../../image/mypagelmg.png" class="mypageimg">
+                    
                 </div>
                 <!-- <div class="line1" ></div>
                 <span class="oneeye">한눈에 보기</span> -->
@@ -290,7 +290,7 @@
                         </div> 
                         <A href="myInquire.do" class="more" id="more2">더보기</A>
                     </div>
-                    ${inquireY}
+                    
                     
                     <div class="box">
                         <h5>스터디 작성글</h5>
