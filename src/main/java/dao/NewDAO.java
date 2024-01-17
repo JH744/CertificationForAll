@@ -2,25 +2,58 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import db.ConnectionProvider;
 
+
 public class NewDAO {
+	
+	
 	public int insertNewReply(int s_id) {
+	      int re = 0;
+	      String sql = "insert into new (N_STATE,N_MSG,U_ID,I_ID,S_ID) "
+	      		+ "values('N',concat(substr((SELECT s_title FROM study WHERE s_id = ?),1,6),'...글에 새로운 댓글이 달렸습니다.'),"
+	      		+ "(SELECT U_ID FROM study WHERE s_id = ?),NULL,1)";
+	      try {
+	         Connection conn = ConnectionProvider.getConnection();
+	         PreparedStatement stmt = conn.prepareStatement(sql);
+	         stmt.setInt(1, s_id);
+	         stmt.setInt(2, s_id);
+	         stmt.setInt(3, s_id);
+	         re = stmt.executeUpdate();
+	         ConnectionProvider.close(conn, stmt);
+	      } catch (Exception e) {
+	         System.out.println("insertNewReply 예외발생 : "+e.getMessage());
+	      }
+	      return re;
+	   }
+	
+	public int deleteNew(int n_id) {
 		int re = 0;
-		String sql = "insert into new (N_STATE,N_MSG,U_ID,I_ID,S_ID) "
-				+ " values('N',(SELECT s_title FROM study WHERE s_id = ?),"
-				+ "(SELECT U_ID FROM study WHERE s_id = ?),NULL,?)";
+		String sql = "delete new where n_id="+n_id;
 		try {
 			Connection conn = ConnectionProvider.getConnection();
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, s_id);
-			stmt.setInt(2, s_id);
-			stmt.setInt(3, s_id);
-			re = stmt.executeUpdate();
-			ConnectionProvider.close(conn, stmt);
+			Statement stmt = conn.createStatement();
+			re = stmt.executeUpdate(sql);
 		} catch (Exception e) {
-			System.out.println("insertNewReply 예외발생 : "+e.getMessage());
+			System.out.println("deleteNewReply 예외발생 : "+e.getMessage());
+		}
+		return re;
+	}
+	
+	
+	public int updateNew(int n_id) {
+		int re = 0;
+		String sql = "update new set n_state='Y' where n_id="+n_id;
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement stmt = conn.createStatement();
+			re = stmt.executeUpdate(sql);
+		} catch (Exception e) {
+			System.out.println("updateNewReply 예외발생 : "+e.getMessage());
 		}
 		return re;
 	}

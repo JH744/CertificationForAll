@@ -2,7 +2,7 @@ package vo;
 
 public class NewVO {
 	private int n_id;
-	private boolean n_state;
+	private String n_state;
 	private String n_msg;
 	private String u_id;
 	private int i_id;
@@ -13,10 +13,10 @@ public class NewVO {
 	public void setN_id(int n_id) {
 		this.n_id = n_id;
 	}
-	public boolean isN_state() {
+	public String isN_state() {
 		return n_state;
 	}
-	public void setN_state(boolean n_state) {
+	public void setN_state(String n_state) {
 		this.n_state = n_state;
 	}
 	public String getN_msg() {
@@ -47,7 +47,7 @@ public class NewVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public NewVO(int n_id, boolean n_state, String n_msg, String u_id, int i_id, int s_id) {
+	public NewVO(int n_id, String n_state, String n_msg, String u_id, int i_id, int s_id) {
 		super();
 		this.n_id = n_id;
 		this.n_state = n_state;

@@ -145,6 +145,34 @@ body, h1, h2, h3, div, p, ul, li, dl, dt, dd {
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
+
+<!-- 팝업 -->
+<script>
+	//페이지 로딩 시 모달 숨기기
+	document.addEventListener("DOMContentLoaded", function() {
+		closeModal();
+	});
+
+	// 팝업 열기
+	function openModal() {
+		var modal = document.getElementById("myModal");
+		modal.style.display = "block";
+	}
+
+	// 팝업 닫기
+	function closeModal() {
+		var modal = document.getElementById("myModal");
+		modal.style.display = "none";
+	}
+
+	// 알람 이미지 클릭 시 팝업 열기
+	document.getElementById("alarmIcon").addEventListener("click", function() {
+		openModal();
+	});
+</script>
+
 </head>
 <body id="headerBody">
 
