@@ -10,7 +10,7 @@ public class InquiryVO {
 	private String i_answer;
 	private Date i_answerDate;
 	private Date i_inquiryDate;
-	private boolean i_state;
+	private String i_state;
 	private String u_id;
 	public int getI_id() {
 		return i_id;
@@ -48,10 +48,10 @@ public class InquiryVO {
 	public void setI_inquiryDate(Date i_inquiryDate) {
 		this.i_inquiryDate = i_inquiryDate;
 	}
-	public boolean isI_state() {
+	public String getI_state() {
 		return i_state;
 	}
-	public void setI_state(boolean i_state) {
+	public void setI_state(String i_state) {
 		this.i_state = i_state;
 	}
 	public String getU_id() {
@@ -60,12 +60,8 @@ public class InquiryVO {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
-	public InquiryVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public InquiryVO(int i_id, String i_title, String i_content, String i_answer, Date i_answerDate, Date i_inquiryDate,
-			boolean i_state, String u_id) {
+			String i_state, String u_id) {
 		super();
 		this.i_id = i_id;
 		this.i_title = i_title;
@@ -76,6 +72,11 @@ public class InquiryVO {
 		this.i_state = i_state;
 		this.u_id = u_id;
 	}
-	
-	
+	public InquiryVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 }
+	
+

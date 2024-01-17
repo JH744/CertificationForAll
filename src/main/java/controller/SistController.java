@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import action.SistAction;
 
 /**
@@ -28,16 +26,13 @@ import action.SistAction;
 public class SistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        HashMap<String, SistAction> map;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-//		super.init(config);
     	map= new HashMap<String, SistAction>();
     	String path = config.getServletContext().getRealPath("WEB-INF");
     	try {
-    		FileReader fr = new FileReader(path+"/sist.properties");
+    		FileReader fr = new FileReader(path + "/sist.properties");
     		Properties prop = new Properties();
     		prop.load(fr);
     		Set keyList = prop.keySet();
@@ -65,11 +60,11 @@ public class SistController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(uri.indexOf("/",1)+1);
-		System.out.println(cmd);
+
 		SistAction action = map.get(cmd);
-		System.out.println(action);
 		String viewPage = action.pro(request, response);
 		request.setAttribute("viewPage", viewPage);
+		request.setAttribute("admin", "admin");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp");
 		dispatcher.forward(request, response);
